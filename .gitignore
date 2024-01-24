@@ -3,7 +3,7 @@
 *.o
 *.a
 *.elf
-*.bin
+#*.bin
 *.map
 *.hex
 *.dis
@@ -50,7 +50,7 @@ TAGS
 
 # Build directories
 build/
-build-*/
+#build-*/
 docs/genrst/
 
 # Test failure outputs
