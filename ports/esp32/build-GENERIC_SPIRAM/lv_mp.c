@@ -22800,6 +22800,28 @@ STATIC inline const mp_obj_type_t *get_mp_lv_mem_monitor_t_type()
     return &mp_lv_mem_monitor_t_type;
 }
     
+#define funcptr_lv_log_print_g_cb_t NULL
+
+
+/*
+ * lvgl extension definition for:
+ * void lv_log_print_g_cb_t(lv_log_level_t level, const char *buf)
+ */
+
+STATIC mp_obj_t mp_funcptr_lv_log_print_g_cb_t(size_t mp_n_args, const mp_obj_t *mp_args, void *lv_func_ptr)
+{
+    lv_log_level_t level = (int8_t)mp_obj_get_int(mp_args[0]);
+    const char *buf = (const char *)(char*)convert_from_str(mp_args[1]);
+    ((void (*)(lv_log_level_t, const char *))lv_func_ptr)(level, buf);
+    return mp_const_none;
+}
+
+ 
+
+STATIC MP_DEFINE_CONST_LV_FUN_OBJ_STATIC_VAR(mp_funcptr_lv_log_print_g_cb_t_mpobj, 2, mp_funcptr_lv_log_print_g_cb_t, funcptr_lv_log_print_g_cb_t);
+    
+STATIC inline mp_obj_t mp_lv_funcptr_lv_log_print_g_cb_t(void *func){ return mp_lv_funcptr(&mp_funcptr_lv_log_print_g_cb_t_mpobj, func, NULL, MP_QSTR_, NULL); }
+
 #define funcptr_lv_tick_get_cb_t NULL
 
 
@@ -35437,6 +35459,48 @@ STATIC MP_DEFINE_CONST_LV_FUN_OBJ_STATIC_VAR(mp_lv_strdup_mpobj, 1, mp_lv_strdup
  * int lv_vsnprintf(char *buffer, size_t count, const char *format, va_list va)
  */
     
+
+/*
+ * Callback function lv_log_print_g_cb_t_print_cb
+ * void lv_log_print_g_cb_t(lv_log_level_t level, const char *buf)
+ */
+
+GENMPY_UNUSED STATIC void lv_log_print_g_cb_t_print_cb_callback(lv_log_level_t arg0, const char *arg1)
+{
+    mp_obj_t mp_args[2];
+    mp_args[0] = mp_obj_new_int(arg0);
+    mp_args[1] = convert_to_str((void*)arg1);
+    mp_obj_t callbacks = get_callback_dict_from_user_data(MP_STATE_PORT(mp_lv_user_data));
+    _nesting++;
+    mp_call_function_n_kw(mp_obj_dict_get(callbacks, MP_OBJ_NEW_QSTR(MP_QSTR_lv_log_print_g_cb_t_print_cb)) , 2, 0, mp_args);
+    _nesting--;
+    return;
+}
+
+
+/*
+ * lvgl extension definition for:
+ * void lv_log_register_print_cb(lv_log_print_g_cb_t print_cb)
+ */
+
+STATIC mp_obj_t mp_lv_log_register_print_cb(size_t mp_n_args, const mp_obj_t *mp_args, void *lv_func_ptr)
+{
+    void *print_cb = mp_lv_callback(mp_args[0], &lv_log_print_g_cb_t_print_cb_callback, MP_QSTR_lv_log_print_g_cb_t_print_cb, &MP_STATE_PORT(mp_lv_user_data), NULL, (mp_lv_get_user_data)NULL, (mp_lv_set_user_data)NULL);
+    ((void (*)(lv_log_print_g_cb_t))lv_func_ptr)(print_cb);
+    return mp_const_none;
+}
+
+ 
+
+STATIC MP_DEFINE_CONST_LV_FUN_OBJ_STATIC_VAR(mp_lv_log_register_print_cb_mpobj, 1, mp_lv_log_register_print_cb, lv_log_register_print_cb);
+    
+
+/*
+ * Function NOT generated:
+ * Cannot convert ellipsis param
+ * void lv_log(const char *format, ...)
+ */
+    
 /* Reusing funcptr_lv_delay_cb_t for lv_tick_inc */
 
 STATIC MP_DEFINE_CONST_LV_FUN_OBJ_STATIC_VAR(mp_lv_tick_inc_mpobj, 1, mp_funcptr_lv_delay_cb_t, lv_tick_inc);
@@ -39115,6 +39179,7 @@ STATIC const mp_rom_map_elem_t lvgl_globals_table[] = {
     { MP_ROM_QSTR(MP_QSTR_strcmp), MP_ROM_PTR(&mp_lv_strcmp_mpobj) },
     { MP_ROM_QSTR(MP_QSTR_strdup), MP_ROM_PTR(&mp_lv_strdup_mpobj) },
     { MP_ROM_QSTR(MP_QSTR_strdup), MP_ROM_PTR(&mp_lv_strdup_mpobj) },
+    { MP_ROM_QSTR(MP_QSTR_log_register_print_cb), MP_ROM_PTR(&mp_lv_log_register_print_cb_mpobj) },
     { MP_ROM_QSTR(MP_QSTR_tick_inc), MP_ROM_PTR(&mp_lv_tick_inc_mpobj) },
     { MP_ROM_QSTR(MP_QSTR_tick_get), MP_ROM_PTR(&mp_lv_tick_get_mpobj) },
     { MP_ROM_QSTR(MP_QSTR_tick_elaps), MP_ROM_PTR(&mp_lv_tick_elaps_mpobj) },

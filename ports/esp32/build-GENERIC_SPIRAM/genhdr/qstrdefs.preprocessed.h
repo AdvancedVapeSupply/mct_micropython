@@ -19590,6 +19590,8 @@ Q(log10)
 
 Q(log2)
 
+Q(log_register_print_cb)
+
 Q(lookahead)
 
 Q(loop)
@@ -20097,6 +20099,10 @@ Q(lv_layout_register_cb)
 Q(lv_layout_register_cb)
 
 Q(lv_ll_t)
+
+Q(lv_log_print_g_cb_t_print_cb)
+
+Q(lv_log_print_g_cb_t_print_cb)
 
 Q(lv_mem_monitor_t)
 

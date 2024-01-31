@@ -38,7 +38,7 @@ connection.
 Example usage:
 
     import pyboard
-    pyb = pyboard.Pyboard('/dev/ttyACM0')
+    pyb = pyboard.Pyboard('/dev/ttcu.usbserial-210yACM0')
 
 Or:
 
@@ -353,8 +353,13 @@ class Pyboard:
         while n > 0:
             self.serial.read(n)
             n = self.serial.inWaiting()
+            
+        time.sleep(2)
 
+        print("Trying to enter raw REPL")
         self.serial.write(b"\r\x01")  # ctrl-A: enter raw REPL
+        
+        print("Sent ctrl-A")
 
         if soft_reset:
             data = self.read_until(1, b"raw REPL; CTRL-B to exit\r\n>")
@@ -654,7 +659,7 @@ class Pyboard:
 setattr(Pyboard, "exec", Pyboard.exec_)
 
 
-def execfile(filename, device="/dev/ttyACM0", baudrate=115200, user="micro", password="python"):
+def execfile(filename, device="/dev/cu.usbserial-210", baudrate=115200, user="micro", password="python"):
     pyb = Pyboard(device, baudrate, user, password)
     pyb.enter_raw_repl()
     output = pyb.execfile(filename)
@@ -765,7 +770,7 @@ def main():
     cmd_parser.add_argument(
         "-d",
         "--device",
-        default=os.environ.get("PYBOARD_DEVICE", "/dev/ttyACM0"),
+        default=os.environ.get("PYBOARD_DEVICE", "/dev/cu.usbserial-210"),
         help="the serial device or the IP address of the pyboard",
     )
     cmd_parser.add_argument(

@@ -1,0 +1,13 @@
+# Target labels
+ bootloader
+# Source files and their labels
+/Users/danielmcshan/GitHub/mct_micropython/ports/esp32/build-GENERIC_S3_SPIRAM/CMakeFiles/bootloader
+/Users/danielmcshan/GitHub/mct_micropython/ports/esp32/build-GENERIC_S3_SPIRAM/CMakeFiles/bootloader.rule
+/Users/danielmcshan/GitHub/mct_micropython/ports/esp32/build-GENERIC_S3_SPIRAM/CMakeFiles/bootloader-complete.rule
+/Users/danielmcshan/GitHub/mct_micropython/ports/esp32/build-GENERIC_S3_SPIRAM/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
+/Users/danielmcshan/GitHub/mct_micropython/ports/esp32/build-GENERIC_S3_SPIRAM/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+/Users/danielmcshan/GitHub/mct_micropython/ports/esp32/build-GENERIC_S3_SPIRAM/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+/Users/danielmcshan/GitHub/mct_micropython/ports/esp32/build-GENERIC_S3_SPIRAM/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+/Users/danielmcshan/GitHub/mct_micropython/ports/esp32/build-GENERIC_S3_SPIRAM/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+/Users/danielmcshan/GitHub/mct_micropython/ports/esp32/build-GENERIC_S3_SPIRAM/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+/Users/danielmcshan/GitHub/mct_micropython/ports/esp32/build-GENERIC_S3_SPIRAM/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule

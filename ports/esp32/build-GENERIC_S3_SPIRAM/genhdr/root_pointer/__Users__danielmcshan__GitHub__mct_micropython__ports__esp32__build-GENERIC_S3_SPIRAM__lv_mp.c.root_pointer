@@ -1,0 +1,2 @@
+MP_REGISTER_ROOT_POINTER(void *mp_lv_roots);
+MP_REGISTER_ROOT_POINTER(void *mp_lv_user_data);
