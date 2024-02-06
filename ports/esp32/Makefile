@@ -21,7 +21,9 @@ endif
 BUILD ?= build-$(BOARD)
 
 # Device serial settings.
-PORT ?= /dev/ttyUSB0
+# Automatically detect the port on Unix-like systems
+PORT ?= $(shell ls /dev/cu.usbserial* 2>/dev/null | head -n 1)
+
 BAUD ?= 460800
 
 PYTHON ?= python3
@@ -71,3 +73,115 @@ erase:
 
 submodules:
 	$(MAKE) -f ../../py/mkrules.mk GIT_SUBMODULES="$(GIT_SUBMODULES)" submodules
+
+
+# Check if building for MCT board
+ifeq ($(BOARD), MCT)
+
+# Custom variables for MCT board
+MPY_DIR := $(abspath $(CURDIR)/../..)
+MCT_DIR := $(MPY_DIR)/../MCT
+FROZEN_DIR := $(MCT_DIR)/frozen
+FROZEN_MPY_DIR := $(MCT_DIR)/frozen_mpy
+MPY_CROSS := $(MPY_DIR)/mpy-cross/build/mpy-cross
+MKLITTLEFS := $(MCT_DIR)/util/mklittlefs
+MPREMOTE := $(MPY_DIR)/tools/mpremote/mpremote.py
+
+.PHONY: MCT_Firmware
+mct: erase deploy flash_mct flash_vfs test
+
+# Debug target to print paths and variables
+# Debug target to print paths, variables, and stat directories
+debug_paths:
+	@echo "Checking MPY_DIR: $(MPY_DIR)"
+	@stat $(MPY_DIR) || echo "$(MPY_DIR) does not exist"
+
+	@echo "Checking MCT_DIR: $(MCT_DIR)"
+	@stat $(MCT_DIR) || echo "$(MCT_DIR) does not exist"
+	
+	@echo "Checking FROZEN_DIR: $(FROZEN_DIR)"
+	@stat $(FROZEN_DIR) || echo "$(FROZEN_DIR) does not exist"
+	
+	@echo "Checking FROZEN_MPY_DIR: $(FROZEN_MPY_DIR)"
+	@stat $(FROZEN_MPY_DIR) || echo "$(FROZEN_MPY_DIR) does not exist"
+	
+	@echo "Checking MKLITTLEFS tool at: $(MKLITTLEFS)"
+	@stat $(MKLITTLEFS) || echo "$(MKLITTLEFS) does not exist or is not executable"
+	
+	@echo "Checking MPY_CROSS compiler at: $(MPY_CROSS)"
+	@stat $(MPY_CROSS) || echo "$(MPY_CROSS) does not exist or is not executable"
+
+
+# Custom target to compile .py to .mpy for MCT board
+compile_mct:
+	@echo "Compiling Python files to .mpy for MCT board..."
+	mkdir -p $(FROZEN_MPY_DIR)
+	for py in $(shell find $(FROZEN_DIR) -name '*.py'); do \
+    	$(MPY_CROSS) $$py -o $(FROZEN_MPY_DIR)/`basename $$py .py`.mpy; \
+    done
+
+# Path to the partitions.csv file
+PARTITIONS_CSV := partitions.csv
+
+# Extract the mct partition size and offset from partitions.csv
+MCT_PARTITION_NAME := mct
+MCT_OFFSET := $(shell grep $(MCT_PARTITION_NAME) $(PARTITIONS_CSV) | cut -d ',' -f 4)
+MCT_SIZE := $(shell grep $(MCT_PARTITION_NAME) $(PARTITIONS_CSV) | cut -d ',' -f 5)
+
+
+# Custom target to create LittleFS image for MCT board
+create_mct: compile_mct
+	@echo "Creating LittleFS image for MCT board..."
+	@echo MCT Size: $(MCT_SIZE)
+	$(MKLITTLEFS) -c $(FROZEN_MPY_DIR) -p 256 -b 4096 -s $(MCT_SIZE) $(BUILD)/mct.img
+
+# Add custom flashing step for MCT board using partition name
+flash_mct: create_mct
+	@echo "Flashing LittleFS image to MCT board..."
+	@echo MCT Offset: $(MCT_OFFSET)
+	esptool.py --port $(PORT) write_flash $(MCT_OFFSET) $(BUILD)/mct.img
+
+# Target to copy $(MCT_DIR)/app directory and boot.py, main.py to the board
+# Target to copy $(MCT_DIR)/app directory and boot.py, main.py to the board
+copy_app_to_board:
+	@echo "Copying boot.py and main.py to the board..."
+	$(PYTHON) $(MPREMOTE) connect $(PORT) cp $(MCT_DIR)/boot.py :
+	$(PYTHON) $(MPREMOTE) connect $(PORT) cp $(MCT_DIR)/main.py :
+	@echo "Copying $(MCT_DIR)/app and subdirectories to the board..."
+	$(PYTHON) $(MPREMOTE) connect $(PORT) cp -r $(MCT_DIR)/app :
+
+
+# Extract the VFS partition size and offset from partitions.csv
+VFS_PARTITION_NAME := vfs
+VFS_OFFSET := $(shell grep $(VFS_PARTITION_NAME) $(PARTITIONS_CSV) | cut -d ',' -f 4)
+# Automatically find VFS partition size from partitions.csv and trim leading spaces
+VFS_SIZE := $(shell grep $(VFS_PARTITION_NAME) $(PARTITIONS_CSV) | cut -d ',' -f 5 | sed 's/^[ \t]*//')
+
+MKFS_FAT := $(shell command -v mkfs.fat 2> /dev/null)
+
+MCOPY := $(shell command -v mcopy 2> /dev/null)
+
+DISK_IMAGE := $(BUILD)/vfs.img
+create_vfs:
+ifndef MKLITTLEFS
+	$(error "mklittlefs is not available. Please make sure you have it installed.")
+endif
+ifndef MCOPY
+	$(error "mcopy is not available. Please install mtools.")
+endif
+	@echo "Creating LittleFS filesystem disk image $(DISK_IMAGE) of size $(VFS_SIZE)B..."
+	$(MKLITTLEFS) -c $(MCT_DIR)/vfs -p 256 -b 4096 -s $(VFS_SIZE) $(BUILD)/vfs.img
+	@echo "Disk image created and populated with files."
+
+
+flash_vfs: create_vfs
+	@echo "Flashing VFS image to the device..."
+	esptool.py --port $(PORT) write_flash $(VFS_OFFSET) $(DISK_IMAGE)
+	@echo "VFS image flashed successfully."
+
+test:
+	@echo "Running test_maxdrain..."
+	$(PYTHON) $(MPREMOTE) connect $(PORT) exec "import app.mct.tests.test_maxdrain"
+
+
+endif
