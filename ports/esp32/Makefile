@@ -81,8 +81,9 @@ ifeq ($(BOARD), MCT)
 # Custom variables for MCT board
 MPY_DIR := $(abspath $(CURDIR)/../..)
 MCT_DIR := $(MPY_DIR)/../MCT
+MCC_DIR := $(MPY_DIR)/../MCC
 FROZEN_DIR := $(MCT_DIR)/frozen
-FROZEN_MPY_DIR := $(MCT_DIR)/frozen_mpy
+FROZEN_MPY_DIR := $(BUILD)/frozen_mpy
 MPY_CROSS := $(MPY_DIR)/mpy-cross/build/mpy-cross
 MKLITTLEFS := $(MCT_DIR)/util/mklittlefs
 MPREMOTE := $(MPY_DIR)/tools/mpremote/mpremote.py
@@ -115,6 +116,7 @@ debug_paths:
 # Custom target to compile .py to .mpy for MCT board
 compile_mct:
 	@echo "Compiling Python files to .mpy for MCT board..."
+	rm -rf $(FROZEN_MPY_DIR)
 	mkdir -p $(FROZEN_MPY_DIR)
 	for py in $(shell find $(FROZEN_DIR) -name '*.py'); do \
     	$(MPY_CROSS) $$py -o $(FROZEN_MPY_DIR)/`basename $$py .py`.mpy; \
@@ -180,8 +182,21 @@ flash_vfs: create_vfs
 	@echo "VFS image flashed successfully."
 
 test:
-	@echo "Running test_maxdrain..."
-	$(PYTHON) $(MPREMOTE) connect $(PORT) exec "import app.mct.tests.test_maxdrain"
+	@echo "Running test..."
+# $(PYTHON) $(MPREMOTE) connect $(PORT) reset
+	@sleep 30
+# $(PYTHON) $(MPREMOTE) connect $(PORT) exec "test()"
 
+mct-git:
+	cd ${MCT_DIR} && git add . && git commit -m "Commit from Makefile" && git push origin main
 
+merged-mct: create_mct create_vfs
+	esptool.py --chip esp32 merge_bin --flash_mode dio --flash_freq 40m --flash_size 4MB 0x1000 $(BUILD)/bootloader/bootloader.bin 0x8000 $(BUILD)/partition_table/partition-table.bin 0x10000 $(BUILD)/micropython.bin 0x250000 $(BUILD)/mct.img 0x270000 $(BUILD)/vfs.img -o $(BUILD)/merged-mct.bin
+
+flash_merged-mct:
+	esptool.py --chip esp32 write_flash 0x0 $(BUILD)/merged-mct.bin
+
+MCC: merged-mct 
+	cp $(BUILD)/merged-mct.bin ${MCC_DIR}
+	cd ${MCC_DIR} && git add . && git commit -m "Commit from Makefile" && git push origin main
 endif

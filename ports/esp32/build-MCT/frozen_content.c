@@ -50,8 +50,6 @@ enum {
     MP_QSTR_setup,
     MP_QSTR_word_trans_data,
     MP_QSTR_webrepl_cfg,
-    MP_QSTR_Attach_space_LCD_space_to_space_SPI_space__hyphen__space_1,
-    MP_QSTR_Attach_space_LCD_space_to_space_SPI_space__hyphen__space_2,
     MP_QSTR_accept_ftp_connect,
     MP_QSTR_payload,
     MP_QSTR_0_0x0d__0x0a__0x0d__0x0a_,
@@ -257,6 +255,7 @@ enum {
     MP_QSTR_0_dot_2_dot_0,
     MP_QSTR_OneWireError,
     MP_QSTR_monitor_acc_px,
+    MP_QSTR_Deleting,
     MP_QSTR__attrs,
     MP_QSTR_ORIENTATION_TABLE,
     MP_QSTR_uasyncio_slash_funcs_dot_py,
@@ -715,8 +714,6 @@ const qstr_hash_t mp_qstr_frozen_const_hashes[] = {
     706,
     801,
     803,
-    1160,
-    1163,
     1305,
     1355,
     1365,
@@ -922,6 +919,7 @@ const qstr_hash_t mp_qstr_frozen_const_hashes[] = {
     23831,
     23888,
     24224,
+    24249,
     24346,
     24370,
     24501,
@@ -1380,8 +1378,6 @@ const qstr_len_t mp_qstr_frozen_const_lengths[] = {
     5,
     15,
     11,
-    21,
-    21,
     18,
     7,
     5,
@@ -1587,6 +1583,7 @@ const qstr_len_t mp_qstr_frozen_const_lengths[] = {
     5,
     12,
     14,
+    8,
     6,
     17,
     17,
@@ -2041,7 +2038,7 @@ const qstr_pool_t mp_qstr_frozen_const_pool = {
     &mp_qstr_const_pool, // previous pool
     MP_QSTRnumber_of, // previous pool size
     10, // allocated entries
-    662, // used entries
+    661, // used entries
     (qstr_hash_t *)mp_qstr_frozen_const_hashes,
     (qstr_len_t *)mp_qstr_frozen_const_lengths,
     true, // entries are sorted
@@ -2054,8 +2051,6 @@ const qstr_pool_t mp_qstr_frozen_const_pool = {
         "setup",
         "word_trans_data",
         "webrepl_cfg",
-        "Attach LCD to SPI - 1",
-        "Attach LCD to SPI - 2",
         "accept_ftp_connect",
         "payload",
         "\x30\x0d\x0a\x0d\x0a",
@@ -2261,6 +2256,7 @@ const qstr_pool_t mp_qstr_frozen_const_pool = {
         "0.2.0",
         "OneWireError",
         "monitor_acc_px",
+        "Deleting",
         "_attrs",
         "ORIENTATION_TABLE",
         "uasyncio/funcs.py",
@@ -10484,15 +10480,15 @@ static const mp_frozen_module_t frozen_module_xpt2046 = {
 static const byte fun_data_ili9XXX__lt_module_gt_[240] = {
     0x18,0x50, // prelude
     0x01, // names: <module>
-    0x80,0x12,0x27,0x27,0x26,0x46,0x4c,0x6a,0x24,0x44,0x24,0x24,0x24,0x26,0x66,0x65,0x20,0x24,0x24,0x24,0x44,0x24,0x24,0x24,0x24,0x64,0x20,0x99,0xb5,0x8b,0x34,0x8b,0x35,0x8b,0x1c,0x8b,0x57,0x8b,0x34, // code info
+    0x80,0x12,0x27,0x27,0x26,0x46,0x4c,0x6a,0x24,0x44,0x24,0x24,0x24,0x26,0x66,0x65,0x20,0x24,0x24,0x24,0x44,0x24,0x24,0x24,0x24,0x64,0x20,0x99,0xb9,0x8b,0x34,0x8b,0x35,0x8b,0x1c,0x8b,0x57,0x8b,0x34, // code info
     0x80, // LOAD_CONST_SMALL_INT 0
     0x51, // LOAD_CONST_NONE
     0x1b,0x02, // IMPORT_NAME 'espidf'
-    0x16,0x81,0x31, // STORE_NAME 'esp'
+    0x16,0x81,0x33, // STORE_NAME 'esp'
     0x80, // LOAD_CONST_SMALL_INT 0
     0x51, // LOAD_CONST_NONE
     0x1b,0x03, // IMPORT_NAME 'lvgl'
-    0x16,0x81,0x32, // STORE_NAME 'lv'
+    0x16,0x81,0x34, // STORE_NAME 'lv'
     0x80, // LOAD_CONST_SMALL_INT 0
     0x51, // LOAD_CONST_NONE
     0x1b,0x04, // IMPORT_NAME 'lv_utils'
@@ -10514,39 +10510,39 @@ static const byte fun_data_ili9XXX__lt_module_gt_[240] = {
     0x36,0x01, // CALL_METHOD 1
     0x59, // POP_TOP
     0x80, // LOAD_CONST_SMALL_INT 0
-    0x16,0x81,0x33, // STORE_NAME 'COLOR_MODE_RGB'
+    0x16,0x81,0x35, // STORE_NAME 'COLOR_MODE_RGB'
     0x88, // LOAD_CONST_SMALL_INT 8
-    0x16,0x81,0x34, // STORE_NAME 'COLOR_MODE_BGR'
+    0x16,0x81,0x36, // STORE_NAME 'COLOR_MODE_BGR'
     0x84, // LOAD_CONST_SMALL_INT 4
-    0x16,0x81,0x35, // STORE_NAME 'MADCTL_MH'
+    0x16,0x81,0x37, // STORE_NAME 'MADCTL_MH'
     0x90, // LOAD_CONST_SMALL_INT 16
-    0x16,0x81,0x36, // STORE_NAME 'MADCTL_ML'
+    0x16,0x81,0x38, // STORE_NAME 'MADCTL_ML'
     0xa0, // LOAD_CONST_SMALL_INT 32
-    0x16,0x81,0x37, // STORE_NAME 'MADCTL_MV'
+    0x16,0x81,0x39, // STORE_NAME 'MADCTL_MV'
     0x22,0x80,0x40, // LOAD_CONST_SMALL_INT 64
-    0x16,0x81,0x38, // STORE_NAME 'MADCTL_MX'
+    0x16,0x81,0x3a, // STORE_NAME 'MADCTL_MX'
     0x22,0x81,0x00, // LOAD_CONST_SMALL_INT 128
-    0x16,0x81,0x39, // STORE_NAME 'MADCTL_MY'
+    0x16,0x81,0x3b, // STORE_NAME 'MADCTL_MY'
     0x23,0x00, // LOAD_CONST_OBJ 0
-    0x16,0x81,0x3a, // STORE_NAME 'ORIENTATION_TABLE'
+    0x16,0x81,0x3c, // STORE_NAME 'ORIENTATION_TABLE'
     0x7f, // LOAD_CONST_SMALL_INT -1
-    0x16,0x81,0x3b, // STORE_NAME 'PORTRAIT'
+    0x16,0x81,0x3d, // STORE_NAME 'PORTRAIT'
     0x7e, // LOAD_CONST_SMALL_INT -2
-    0x16,0x81,0x3c, // STORE_NAME 'LANDSCAPE'
+    0x16,0x81,0x3e, // STORE_NAME 'LANDSCAPE'
     0x7d, // LOAD_CONST_SMALL_INT -3
-    0x16,0x81,0x3d, // STORE_NAME 'REVERSE_PORTRAIT'
+    0x16,0x81,0x3f, // STORE_NAME 'REVERSE_PORTRAIT'
     0x7c, // LOAD_CONST_SMALL_INT -4
-    0x16,0x81,0x3e, // STORE_NAME 'REVERSE_LANDSCAPE'
+    0x16,0x81,0x40, // STORE_NAME 'REVERSE_LANDSCAPE'
     0x81, // LOAD_CONST_SMALL_INT 1
-    0x16,0x81,0x3f, // STORE_NAME 'DISPLAY_TYPE_ILI9341'
+    0x16,0x81,0x41, // STORE_NAME 'DISPLAY_TYPE_ILI9341'
     0x82, // LOAD_CONST_SMALL_INT 2
-    0x16,0x81,0x40, // STORE_NAME 'DISPLAY_TYPE_ILI9488'
+    0x16,0x81,0x42, // STORE_NAME 'DISPLAY_TYPE_ILI9488'
     0x83, // LOAD_CONST_SMALL_INT 3
-    0x16,0x81,0x41, // STORE_NAME 'DISPLAY_TYPE_GC9A01'
+    0x16,0x81,0x43, // STORE_NAME 'DISPLAY_TYPE_GC9A01'
     0x84, // LOAD_CONST_SMALL_INT 4
-    0x16,0x81,0x42, // STORE_NAME 'DISPLAY_TYPE_ST7789'
+    0x16,0x81,0x44, // STORE_NAME 'DISPLAY_TYPE_ST7789'
     0x85, // LOAD_CONST_SMALL_INT 5
-    0x16,0x81,0x43, // STORE_NAME 'DISPLAY_TYPE_ST7735'
+    0x16,0x81,0x45, // STORE_NAME 'DISPLAY_TYPE_ST7735'
     0x54, // LOAD_BUILD_CLASS
     0x32,0x00, // MAKE_FUNCTION 0
     0x10,0x08, // LOAD_CONST_STRING 'ili9XXX'
@@ -10593,14 +10589,14 @@ static const byte fun_data_ili9XXX__lt_module_gt_[240] = {
 };
 // child of ili9XXX__lt_module_gt_
 // frozen bytecode for file ili9XXX.py, scope ili9XXX_ili9XXX
-static const byte fun_data_ili9XXX_ili9XXX[177] = {
-    0xd0,0x10,0x4a, // prelude
+static const byte fun_data_ili9XXX_ili9XXX[184] = {
+    0xd0,0x10,0x4e, // prelude
     0x08, // names: ili9XXX
-    0x8b,0x3c,0x4a,0x57,0x8f,0x62,0x84,0x60,0x84,0x2c,0x65,0x60,0x85,0x08,0x65,0x40,0x85,0x07,0x65,0x20,0x65,0x60,0x85,0x2a,0x84,0x0a,0x65,0x20,0x85,0x0a,0x84,0x33,0x65,0x40,0x85,0x11, // code info
-    0x11,0x81,0x44, // LOAD_NAME '__name__'
-    0x16,0x81,0x45, // STORE_NAME '__module__'
+    0x8b,0x3c,0x4a,0x57,0x8f,0x62,0x84,0x60,0x64,0x20,0x85,0x2c,0x65,0x60,0x85,0x08,0x65,0x40,0x85,0x07,0x65,0x20,0x65,0x60,0x85,0x2a,0x84,0x0a,0x65,0x20,0x85,0x0a,0x84,0x33,0x65,0x40,0x85,0x11, // code info
+    0x11,0x81,0x46, // LOAD_NAME '__name__'
+    0x16,0x81,0x47, // STORE_NAME '__module__'
     0x10,0x08, // LOAD_CONST_STRING 'ili9XXX'
-    0x16,0x81,0x46, // STORE_NAME '__qualname__'
+    0x16,0x81,0x48, // STORE_NAME '__qualname__'
     0x85, // LOAD_CONST_SMALL_INT 5
     0x92, // LOAD_CONST_SMALL_INT 18
     0x93, // LOAD_CONST_SMALL_INT 19
@@ -10611,7 +10607,7 @@ static const byte fun_data_ili9XXX_ili9XXX[177] = {
     0x8f, // LOAD_CONST_SMALL_INT 15
     0x80, // LOAD_CONST_SMALL_INT 0
     0x80, // LOAD_CONST_SMALL_INT 0
-    0x11,0x81,0x31, // LOAD_NAME 'esp'
+    0x11,0x81,0x33, // LOAD_NAME 'esp'
     0x13,0x0f, // LOAD_ATTR 'HSPI_HOST'
     0x80, // LOAD_CONST_SMALL_INT 0
     0xa8, // LOAD_CONST_SMALL_INT 40
@@ -10627,7 +10623,7 @@ static const byte fun_data_ili9XXX_ili9XXX[177] = {
     0x80, // LOAD_CONST_SMALL_INT 0
     0x50, // LOAD_CONST_FALSE
     0x52, // LOAD_CONST_TRUE
-    0x11,0x81,0x32, // LOAD_NAME 'lv'
+    0x11,0x81,0x34, // LOAD_NAME 'lv'
     0x13,0x10, // LOAD_ATTR 'COLOR_FORMAT'
     0x13,0x11, // LOAD_ATTR 'RGB565'
     0x50, // LOAD_CONST_FALSE
@@ -10638,35 +10634,37 @@ static const byte fun_data_ili9XXX_ili9XXX[177] = {
     0x32,0x01, // MAKE_FUNCTION 1
     0x16,0x4d, // STORE_NAME 'disp_spi_init'
     0x32,0x02, // MAKE_FUNCTION 2
-    0x16,0x7f, // STORE_NAME 'deinit'
+    0x16,0x7f, // STORE_NAME '__del__'
     0x32,0x03, // MAKE_FUNCTION 3
-    0x16,0x81,0x05, // STORE_NAME 'spi_send'
+    0x16,0x81,0x01, // STORE_NAME 'deinit'
     0x32,0x04, // MAKE_FUNCTION 4
-    0x16,0x81,0x0a, // STORE_NAME 'spi_send_dma'
+    0x16,0x81,0x07, // STORE_NAME 'spi_send'
     0x32,0x05, // MAKE_FUNCTION 5
-    0x16,0x81,0x0c, // STORE_NAME 'send_cmd'
+    0x16,0x81,0x0c, // STORE_NAME 'spi_send_dma'
     0x32,0x06, // MAKE_FUNCTION 6
-    0x16,0x81,0x0e, // STORE_NAME 'send_data'
+    0x16,0x81,0x0e, // STORE_NAME 'send_cmd'
     0x32,0x07, // MAKE_FUNCTION 7
-    0x16,0x81,0x0f, // STORE_NAME 'send_trans_word'
+    0x16,0x81,0x10, // STORE_NAME 'send_data'
     0x32,0x08, // MAKE_FUNCTION 8
-    0x16,0x81,0x10, // STORE_NAME 'send_data_dma'
+    0x16,0x81,0x11, // STORE_NAME 'send_trans_word'
     0x32,0x09, // MAKE_FUNCTION 9
-    0x16,0x81,0x11, // STORE_NAME '_init'
+    0x16,0x81,0x12, // STORE_NAME 'send_data_dma'
     0x32,0x0a, // MAKE_FUNCTION 10
-    0x16,0x16, // STORE_NAME 'init'
+    0x16,0x81,0x13, // STORE_NAME '_init'
     0x32,0x0b, // MAKE_FUNCTION 11
-    0x16,0x81,0x16, // STORE_NAME 'init_async'
+    0x16,0x16, // STORE_NAME 'init'
     0x32,0x0c, // MAKE_FUNCTION 12
-    0x16,0x81,0x18, // STORE_NAME 'power_down'
+    0x16,0x81,0x18, // STORE_NAME 'init_async'
     0x32,0x0d, // MAKE_FUNCTION 13
-    0x16,0x56, // STORE_NAME 'flush'
+    0x16,0x81,0x1a, // STORE_NAME 'power_down'
     0x32,0x0e, // MAKE_FUNCTION 14
-    0x16,0x81,0x1f, // STORE_NAME 'monitor'
+    0x16,0x56, // STORE_NAME 'flush'
     0x32,0x0f, // MAKE_FUNCTION 15
-    0x16,0x81,0x20, // STORE_NAME 'stat'
+    0x16,0x81,0x21, // STORE_NAME 'monitor'
     0x32,0x10, // MAKE_FUNCTION 16
-    0x16,0x81,0x21, // STORE_NAME 'madctl'
+    0x16,0x81,0x22, // STORE_NAME 'stat'
+    0x32,0x11, // MAKE_FUNCTION 17
+    0x16,0x81,0x23, // STORE_NAME 'madctl'
     0x51, // LOAD_CONST_NONE
     0x63, // RETURN_VALUE
 };
@@ -10674,13 +10672,13 @@ static const byte fun_data_ili9XXX_ili9XXX[177] = {
 // frozen bytecode for file ili9XXX.py, scope ili9XXX_ili9XXX___init__
 static const byte fun_data_ili9XXX_ili9XXX___init__[673] = {
     0x90,0xa5,0x85,0x84,0x81,0x01,0xd4,0x02, // prelude
-    0x14,0x81,0x47,0x1f,0x20,0x21,0x22,0x23,0x24,0x25,0x26,0x27,0x28,0x29,0x2a,0x2b,0x2c,0x2d,0x1b,0x1c,0x1d,0x1e,0x81,0x24,0x81,0x25,0x2e,0x2f,0x19,0x1a,0x30,0x33, // names: __init__, self, miso, mosi, clk, cs, dc, rst, power, backlight, backlight_on, power_on, spihost, spimode, mhz, factor, hybrid, width, height, start_x, start_y, invert, double_buffer, half_duplex, display_type, asynchronous, initialize, color_format, swap_rgb565_bytes
+    0x14,0x81,0x49,0x1f,0x20,0x21,0x22,0x23,0x24,0x25,0x26,0x27,0x28,0x29,0x2a,0x2b,0x2c,0x2d,0x1b,0x1c,0x1d,0x1e,0x81,0x26,0x81,0x27,0x2e,0x2f,0x19,0x1a,0x30,0x33, // names: __init__, self, miso, mosi, clk, cs, dc, rst, power, backlight, backlight_on, power_on, spihost, spimode, mhz, factor, hybrid, width, height, start_x, start_y, invert, double_buffer, half_duplex, display_type, asynchronous, initialize, color_format, swap_rgb565_bytes
     0x80,0x45,0x29,0x48,0x2a,0x2a,0x25,0x45,0x25,0x25,0x25,0x45,0x24,0x24,0x24,0x24,0x24,0x24,0x24,0x24,0x24,0x24,0x24,0x24,0x24,0x24,0x24,0x25,0x25,0x25,0x2c,0x25,0x4f,0x24,0x6f,0x20,0x2a,0x2a,0x2a,0x2a,0x24,0x64,0x20,0x24,0x24,0x24,0x4e,0x24,0x6e,0x20,0x30,0x34,0x25,0x30,0x31,0x7b,0x20,0x26,0x30,0x2a,0x38,0x1f,0x22,0x27,0x26,0x26,0x26,0x26,0x26,0x69,0x40,0x25,0x46,0x2a, // code info
-    0x12,0x81,0x32, // LOAD_GLOBAL 'lv'
+    0x12,0x81,0x34, // LOAD_GLOBAL 'lv'
     0x14,0x15, // LOAD_METHOD 'is_initialized'
     0x36,0x00, // CALL_METHOD 0
     0x43,0x48, // POP_JUMP_IF_TRUE 8
-    0x12,0x81,0x32, // LOAD_GLOBAL 'lv'
+    0x12,0x81,0x34, // LOAD_GLOBAL 'lv'
     0x14,0x16, // LOAD_METHOD 'init'
     0x36,0x00, // CALL_METHOD 0
     0x59, // POP_TOP
@@ -10768,7 +10766,7 @@ static const byte fun_data_ili9XXX_ili9XXX___init__[673] = {
     0x24,0x1a, // LOAD_FAST_N 26
     0xb0, // LOAD_FAST 0
     0x18,0x30, // STORE_ATTR 'color_format'
-    0x12,0x81,0x32, // LOAD_GLOBAL 'lv'
+    0x12,0x81,0x34, // LOAD_GLOBAL 'lv'
     0x14,0x31, // LOAD_METHOD 'color_format_get_size'
     0x24,0x1a, // LOAD_FAST_N 26
     0x36,0x01, // CALL_METHOD 1
@@ -10779,7 +10777,7 @@ static const byte fun_data_ili9XXX_ili9XXX___init__[673] = {
     0x18,0x33, // STORE_ATTR 'swap_rgb565_bytes'
     0x24,0x1b, // LOAD_FAST_N 27
     0x44,0x47, // POP_JUMP_IF_FALSE 7
-    0x12,0x81,0x32, // LOAD_GLOBAL 'lv'
+    0x12,0x81,0x34, // LOAD_GLOBAL 'lv'
     0x13,0x34, // LOAD_ATTR 'draw_sw_rgb565_swap'
     0x42,0x41, // JUMP 1
     0x51, // LOAD_CONST_NONE
@@ -10787,7 +10785,7 @@ static const byte fun_data_ili9XXX_ili9XXX___init__[673] = {
     0x18,0x35, // STORE_ATTR 'rgb565_swap_func'
     0x24,0x1a, // LOAD_FAST_N 26
     0x43,0x4f, // POP_JUMP_IF_TRUE 15
-    0x12,0x81,0x48, // LOAD_GLOBAL 'RuntimeError'
+    0x12,0x81,0x4a, // LOAD_GLOBAL 'RuntimeError'
     0x23,0x01, // LOAD_CONST_OBJ 1
     0x14,0x36, // LOAD_METHOD 'format'
     0xb0, // LOAD_FAST 0
@@ -10795,22 +10793,22 @@ static const byte fun_data_ili9XXX_ili9XXX___init__[673] = {
     0x36,0x01, // CALL_METHOD 1
     0x34,0x01, // CALL_FUNCTION 1
     0x65, // RAISE_OBJ
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
     0x14,0x37, // LOAD_METHOD 'C_Pointer'
     0x36,0x00, // CALL_METHOD 0
     0xb0, // LOAD_FAST 0
     0x18,0x38, // STORE_ATTR 'start_time_ptr'
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
     0x14,0x37, // LOAD_METHOD 'C_Pointer'
     0x36,0x00, // CALL_METHOD 0
     0xb0, // LOAD_FAST 0
     0x18,0x39, // STORE_ATTR 'end_time_ptr'
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
     0x14,0x37, // LOAD_METHOD 'C_Pointer'
     0x36,0x00, // CALL_METHOD 0
     0xb0, // LOAD_FAST 0
     0x18,0x3a, // STORE_ATTR 'trans_result_ptr'
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
     0x14,0x3b, // LOAD_METHOD 'spi_transaction_t'
     0x36,0x00, // CALL_METHOD 0
     0xb0, // LOAD_FAST 0
@@ -10830,7 +10828,7 @@ static const byte fun_data_ili9XXX_ili9XXX___init__[673] = {
     0x80, // LOAD_CONST_SMALL_INT 0
     0xb0, // LOAD_FAST 0
     0x18,0x41, // STORE_ATTR 'monitor_count'
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
     0x14,0x42, // LOAD_METHOD 'esp_clk_cpu_freq'
     0x36,0x00, // CALL_METHOD 0
     0x22,0x87,0x68, // LOAD_CONST_SMALL_INT 1000
@@ -10860,11 +10858,11 @@ static const byte fun_data_ili9XXX_ili9XXX___init__[673] = {
     0xf6, // BINARY_OP 31 __floordiv__
     0xb0, // LOAD_FAST 0
     0x18,0x46, // STORE_ATTR 'buf_size'
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
     0x14,0x47, // LOAD_METHOD 'heap_caps_malloc'
     0xb0, // LOAD_FAST 0
     0x13,0x46, // LOAD_ATTR 'buf_size'
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
     0x13,0x48, // LOAD_ATTR 'MALLOC_CAP'
     0x13,0x49, // LOAD_ATTR 'DMA'
     0x36,0x02, // CALL_METHOD 2
@@ -10873,14 +10871,14 @@ static const byte fun_data_ili9XXX_ili9XXX___init__[673] = {
     0xb0, // LOAD_FAST 0
     0x13,0x4a, // LOAD_ATTR 'buf1'
     0x43,0x61, // POP_JUMP_IF_TRUE 33
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
     0x14,0x4b, // LOAD_METHOD 'heap_caps_get_largest_free_block'
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
     0x13,0x48, // LOAD_ATTR 'MALLOC_CAP'
     0x13,0x49, // LOAD_ATTR 'DMA'
     0x36,0x01, // CALL_METHOD 1
     0x26,0x1c, // STORE_FAST_N 28
-    0x12,0x81,0x48, // LOAD_GLOBAL 'RuntimeError'
+    0x12,0x81,0x4a, // LOAD_GLOBAL 'RuntimeError'
     0x23,0x02, // LOAD_CONST_OBJ 2
     0x14,0x36, // LOAD_METHOD 'format'
     0xb0, // LOAD_FAST 0
@@ -10891,11 +10889,11 @@ static const byte fun_data_ili9XXX_ili9XXX___init__[673] = {
     0x65, // RAISE_OBJ
     0x24,0x15, // LOAD_FAST_N 21
     0x44,0x53, // POP_JUMP_IF_FALSE 19
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
     0x14,0x47, // LOAD_METHOD 'heap_caps_malloc'
     0xb0, // LOAD_FAST 0
     0x13,0x46, // LOAD_ATTR 'buf_size'
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
     0x13,0x48, // LOAD_ATTR 'MALLOC_CAP'
     0x13,0x49, // LOAD_ATTR 'DMA'
     0x36,0x02, // CALL_METHOD 2
@@ -10907,7 +10905,7 @@ static const byte fun_data_ili9XXX_ili9XXX___init__[673] = {
     0x14,0x4d, // LOAD_METHOD 'disp_spi_init'
     0x36,0x00, // CALL_METHOD 0
     0x59, // POP_TOP
-    0x12,0x81,0x32, // LOAD_GLOBAL 'lv'
+    0x12,0x81,0x34, // LOAD_GLOBAL 'lv'
     0x14,0x4e, // LOAD_METHOD 'display_create'
     0xb0, // LOAD_FAST 0
     0x13,0x1b, // LOAD_ATTR 'width'
@@ -10931,7 +10929,7 @@ static const byte fun_data_ili9XXX_ili9XXX___init__[673] = {
     0x13,0x4c, // LOAD_ATTR 'buf2'
     0xb0, // LOAD_FAST 0
     0x13,0x46, // LOAD_ATTR 'buf_size'
-    0x12,0x81,0x32, // LOAD_GLOBAL 'lv'
+    0x12,0x81,0x34, // LOAD_GLOBAL 'lv'
     0x13,0x52, // LOAD_ATTR 'DISPLAY_RENDER_MODE'
     0x13,0x53, // LOAD_ATTR 'PARTIAL'
     0x36,0x04, // CALL_METHOD 4
@@ -10941,12 +10939,12 @@ static const byte fun_data_ili9XXX_ili9XXX___init__[673] = {
     0x14,0x54, // LOAD_METHOD 'set_flush_cb'
     0xbf, // LOAD_FAST 15
     0x44,0x53, // POP_JUMP_IF_FALSE 19
-    0x12,0x81,0x49, // LOAD_GLOBAL 'hasattr'
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
+    0x12,0x81,0x4b, // LOAD_GLOBAL 'hasattr'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
     0x10,0x55, // LOAD_CONST_STRING 'ili9xxx_flush'
     0x34,0x02, // CALL_FUNCTION 2
     0x44,0x47, // POP_JUMP_IF_FALSE 7
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
     0x13,0x55, // LOAD_ATTR 'ili9xxx_flush'
     0x42,0x43, // JUMP 3
     0xb0, // LOAD_FAST 0
@@ -11043,11 +11041,11 @@ static const mp_raw_code_t raw_code_ili9XXX_ili9XXX___init__ = {
 
 // child of ili9XXX_ili9XXX
 // frozen bytecode for file ili9XXX.py, scope ili9XXX_ili9XXX_disp_spi_init
-static const byte fun_data_ili9XXX_ili9XXX_disp_spi_init[554] = {
+static const byte fun_data_ili9XXX_ili9XXX_disp_spi_init[538] = {
     0x71,0x73, // prelude
-    0x4d,0x81,0x47, // names: disp_spi_init, self
-    0x80,0xa7,0x27,0x27,0x27,0x27,0x24,0x24,0x6a,0x28,0x26,0x4a,0x27,0x2f,0x27,0x27,0x24,0x24,0x69,0x32,0x24,0x4a,0x28,0x48,0x6c,0x20,0x28,0x48,0x27,0x2c,0x33,0x53,0x2c,0x2c,0x33,0x53,0x2e,0x4d,0x33,0x2d,0x6d,0x28,0x28,0x2e,0x2d,0x47,0x48,0x25,0x28,0x48,0x65,0x60,0x85,0x0c,0x00, // code info
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
+    0x4d,0x81,0x49, // names: disp_spi_init, self
+    0x80,0xa7,0x27,0x27,0x27,0x27,0x24,0x24,0x6a,0x28,0x26,0x4a,0x27,0x2f,0x27,0x27,0x24,0x24,0x69,0x32,0x24,0x4a,0x28,0x48,0x6c,0x20,0x28,0x48,0x27,0x2c,0x33,0x53,0x2c,0x2c,0x33,0x53,0x2e,0x4d,0x33,0x2d,0x6d,0x20,0x28,0x2e,0x2d,0x67,0x20,0x25,0x28,0x48,0x65,0x60,0x85,0x0c,0x00, // code info
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
     0x14,0x5c, // LOAD_METHOD 'spi_bus_config_t'
     0x2c,0x06, // BUILD_MAP 6
     0x25,0x00, // LOAD_DEREF 0
@@ -11074,7 +11072,7 @@ static const byte fun_data_ili9XXX_ili9XXX_disp_spi_init[554] = {
     0x62, // STORE_MAP
     0x36,0x01, // CALL_METHOD 1
     0xc1, // STORE_FAST 1
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
     0x13,0x5d, // LOAD_ATTR 'SPI_DEVICE'
     0x13,0x5e, // LOAD_ATTR 'NO_DUMMY'
     0xc2, // STORE_FAST 2
@@ -11082,12 +11080,12 @@ static const byte fun_data_ili9XXX_ili9XXX_disp_spi_init[554] = {
     0x13,0x2e, // LOAD_ATTR 'half_duplex'
     0x44,0x4a, // POP_JUMP_IF_FALSE 10
     0xb2, // LOAD_FAST 2
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
     0x13,0x5d, // LOAD_ATTR 'SPI_DEVICE'
     0x13,0x5f, // LOAD_ATTR 'HALFDUPLEX'
     0xe0, // BINARY_OP 9 __ior__
     0xc2, // STORE_FAST 2
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
     0x14,0x60, // LOAD_METHOD 'spi_device_interface_config_t'
     0x2c,0x06, // BUILD_MAP 6
     0x25,0x00, // LOAD_DEREF 0
@@ -11120,28 +11118,28 @@ static const byte fun_data_ili9XXX_ili9XXX_disp_spi_init[554] = {
     0x25,0x00, // LOAD_DEREF 0
     0x13,0x2d, // LOAD_ATTR 'hybrid'
     0x44,0x5a, // POP_JUMP_IF_FALSE 26
-    0x12,0x81,0x49, // LOAD_GLOBAL 'hasattr'
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
+    0x12,0x81,0x4b, // LOAD_GLOBAL 'hasattr'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
     0x23,0x0c, // LOAD_CONST_OBJ 12
     0x34,0x02, // CALL_FUNCTION 2
     0x44,0x4e, // POP_JUMP_IF_FALSE 14
     0x51, // LOAD_CONST_NONE
     0xb3, // LOAD_FAST 3
     0x18,0x64, // STORE_ATTR 'pre_cb'
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
     0x13,0x65, // LOAD_ATTR 'ili9xxx_post_cb_isr'
     0xb3, // LOAD_FAST 3
     0x18,0x66, // STORE_ATTR 'post_cb'
     0x42,0x50, // JUMP 16
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
     0x13,0x67, // LOAD_ATTR 'ex_spi_pre_cb_isr'
     0xb3, // LOAD_FAST 3
     0x18,0x64, // STORE_ATTR 'pre_cb'
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
     0x13,0x68, // LOAD_ATTR 'ex_spi_post_cb_isr'
     0xb3, // LOAD_FAST 3
     0x18,0x66, // STORE_ATTR 'post_cb'
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
     0x14,0x69, // LOAD_METHOD 'gpio_pad_select_gpio'
     0x25,0x00, // LOAD_DEREF 0
     0x13,0x22, // LOAD_ATTR 'cs'
@@ -11162,61 +11160,61 @@ static const byte fun_data_ili9XXX_ili9XXX_disp_spi_init[554] = {
     0x80, // LOAD_CONST_SMALL_INT 0
     0xdb, // BINARY_OP 4 __ge__
     0x44,0x72, // POP_JUMP_IF_FALSE 50
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
     0x14,0x69, // LOAD_METHOD 'gpio_pad_select_gpio'
     0x25,0x00, // LOAD_DEREF 0
     0x13,0x1f, // LOAD_ATTR 'miso'
     0x36,0x01, // CALL_METHOD 1
     0x59, // POP_TOP
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
     0x14,0x6d, // LOAD_METHOD 'gpio_set_direction'
     0x25,0x00, // LOAD_DEREF 0
     0x13,0x1f, // LOAD_ATTR 'miso'
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
     0x13,0x6e, // LOAD_ATTR 'GPIO_MODE'
     0x13,0x6f, // LOAD_ATTR 'INPUT'
     0x36,0x02, // CALL_METHOD 2
     0x59, // POP_TOP
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
     0x14,0x70, // LOAD_METHOD 'gpio_set_pull_mode'
     0x25,0x00, // LOAD_DEREF 0
     0x13,0x1f, // LOAD_ATTR 'miso'
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
     0x13,0x71, // LOAD_ATTR 'GPIO'
     0x13,0x72, // LOAD_ATTR 'PULLUP_ONLY'
     0x36,0x02, // CALL_METHOD 2
     0x59, // POP_TOP
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
     0x14,0x69, // LOAD_METHOD 'gpio_pad_select_gpio'
     0x25,0x00, // LOAD_DEREF 0
     0x13,0x20, // LOAD_ATTR 'mosi'
     0x36,0x01, // CALL_METHOD 1
     0x59, // POP_TOP
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
     0x14,0x69, // LOAD_METHOD 'gpio_pad_select_gpio'
     0x25,0x00, // LOAD_DEREF 0
     0x13,0x21, // LOAD_ATTR 'clk'
     0x36,0x01, // CALL_METHOD 1
     0x59, // POP_TOP
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
     0x14,0x6d, // LOAD_METHOD 'gpio_set_direction'
     0x25,0x00, // LOAD_DEREF 0
     0x13,0x20, // LOAD_ATTR 'mosi'
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
     0x13,0x6e, // LOAD_ATTR 'GPIO_MODE'
     0x13,0x73, // LOAD_ATTR 'OUTPUT'
     0x36,0x02, // CALL_METHOD 2
     0x59, // POP_TOP
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
     0x14,0x6d, // LOAD_METHOD 'gpio_set_direction'
     0x25,0x00, // LOAD_DEREF 0
     0x13,0x21, // LOAD_ATTR 'clk'
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
     0x13,0x6e, // LOAD_ATTR 'GPIO_MODE'
     0x13,0x73, // LOAD_ATTR 'OUTPUT'
     0x36,0x02, // CALL_METHOD 2
     0x59, // POP_TOP
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
     0x14,0x74, // LOAD_METHOD 'spi_bus_initialize'
     0x25,0x00, // LOAD_DEREF 0
     0x13,0x29, // LOAD_ATTR 'spihost'
@@ -11228,14 +11226,14 @@ static const byte fun_data_ili9XXX_ili9XXX_disp_spi_init[554] = {
     0x80, // LOAD_CONST_SMALL_INT 0
     0xdc, // BINARY_OP 5 __ne__
     0x44,0x48, // POP_JUMP_IF_FALSE 8
-    0x12,0x81,0x48, // LOAD_GLOBAL 'RuntimeError'
+    0x12,0x81,0x4a, // LOAD_GLOBAL 'RuntimeError'
     0x23,0x0d, // LOAD_CONST_OBJ 13
     0x34,0x01, // CALL_FUNCTION 1
     0x65, // RAISE_OBJ
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
     0x14,0x47, // LOAD_METHOD 'heap_caps_malloc'
     0x90, // LOAD_CONST_SMALL_INT 16
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
     0x13,0x48, // LOAD_ATTR 'MALLOC_CAP'
     0x13,0x49, // LOAD_ATTR 'DMA'
     0x36,0x02, // CALL_METHOD 2
@@ -11255,15 +11253,11 @@ static const byte fun_data_ili9XXX_ili9XXX_disp_spi_init[554] = {
     0x36,0x01, // CALL_METHOD 1
     0x25,0x00, // LOAD_DEREF 0
     0x18,0x78, // STORE_ATTR 'word_trans_data'
-    0x12,0x81,0x4a, // LOAD_GLOBAL 'print'
-    0x23,0x0e, // LOAD_CONST_OBJ 14
-    0x34,0x01, // CALL_FUNCTION 1
-    0x59, // POP_TOP
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
     0x14,0x37, // LOAD_METHOD 'C_Pointer'
     0x36,0x00, // CALL_METHOD 0
     0xc5, // STORE_FAST 5
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
     0x14,0x79, // LOAD_METHOD 'spi_bus_add_device'
     0x25,0x00, // LOAD_DEREF 0
     0x13,0x29, // LOAD_ATTR 'spihost'
@@ -11275,26 +11269,22 @@ static const byte fun_data_ili9XXX_ili9XXX_disp_spi_init[554] = {
     0x80, // LOAD_CONST_SMALL_INT 0
     0xdc, // BINARY_OP 5 __ne__
     0x44,0x48, // POP_JUMP_IF_FALSE 8
-    0x12,0x81,0x48, // LOAD_GLOBAL 'RuntimeError'
-    0x23,0x0f, // LOAD_CONST_OBJ 15
+    0x12,0x81,0x4a, // LOAD_GLOBAL 'RuntimeError'
+    0x23,0x0e, // LOAD_CONST_OBJ 14
     0x34,0x01, // CALL_FUNCTION 1
     0x65, // RAISE_OBJ
     0xb5, // LOAD_FAST 5
     0x13,0x7a, // LOAD_ATTR 'ptr_val'
     0x25,0x00, // LOAD_DEREF 0
     0x18,0x58, // STORE_ATTR 'spi'
-    0x12,0x81,0x4a, // LOAD_GLOBAL 'print'
-    0x23,0x10, // LOAD_CONST_OBJ 16
-    0x34,0x01, // CALL_FUNCTION 1
-    0x59, // POP_TOP
     0x80, // LOAD_CONST_SMALL_INT 0
     0x25,0x00, // LOAD_DEREF 0
     0x18,0x7b, // STORE_ATTR 'bytes_transmitted'
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
     0x14,0x3b, // LOAD_METHOD 'spi_transaction_t'
     0x36,0x00, // CALL_METHOD 0
     0xc6, // STORE_FAST 6
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
     0x13,0x3b, // LOAD_ATTR 'spi_transaction_t'
     0x13,0x7c, // LOAD_ATTR '__cast_instance__'
     0xc7, // STORE_FAST 7
@@ -11304,7 +11294,7 @@ static const byte fun_data_ili9XXX_ili9XXX_disp_spi_init[554] = {
     0xb0, // LOAD_FAST 0
     0x20,0x01,0x01, // MAKE_CLOSURE 1
     0xc9, // STORE_FAST 9
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
     0x14,0x7d, // LOAD_METHOD 'spi_transaction_set_cb'
     0x51, // LOAD_CONST_NONE
     0xb9, // LOAD_FAST 9
@@ -11318,7 +11308,7 @@ static const byte fun_data_ili9XXX_ili9XXX_disp_spi_init[554] = {
 // frozen bytecode for file ili9XXX.py, scope ili9XXX_ili9XXX_disp_spi_init_post_isr
 static const byte fun_data_ili9XXX_ili9XXX_disp_spi_init_post_isr[34] = {
     0x2a,0x14, // prelude
-    0x81,0x2d,0x81,0x56,0x81,0x59, // names: post_isr, *, arg
+    0x81,0x2f,0x81,0x58,0x81,0x5b, // names: post_isr, *, arg
     0x80,0xea,0x25,0x25, // code info
     0x25,0x00, // LOAD_DEREF 0
     0x13,0x7b, // LOAD_ATTR 'bytes_transmitted'
@@ -11356,7 +11346,7 @@ static const mp_raw_code_t raw_code_ili9XXX_ili9XXX_disp_spi_init_post_isr = {
         .n_pos_args = 2,
         .n_kwonly_args = 0,
         .n_def_pos_args = 0,
-        .qstr_block_name_idx = 173,
+        .qstr_block_name_idx = 175,
         .line_info = fun_data_ili9XXX_ili9XXX_disp_spi_init_post_isr + 8,
         .line_info_top = fun_data_ili9XXX_ili9XXX_disp_spi_init_post_isr + 12,
         .opcodes = fun_data_ili9XXX_ili9XXX_disp_spi_init_post_isr + 12,
@@ -11376,15 +11366,15 @@ static const mp_raw_code_t raw_code_ili9XXX_ili9XXX_disp_spi_init_post_isr = {
 // frozen bytecode for file ili9XXX.py, scope ili9XXX_ili9XXX_disp_spi_init_flush_isr
 static const byte fun_data_ili9XXX_ili9XXX_disp_spi_init_flush_isr[36] = {
     0x22,0x12, // prelude
-    0x81,0x2e,0x81,0x56,0x81,0x5a, // names: flush_isr, *, spi_transaction_ptr
+    0x81,0x30,0x81,0x58,0x81,0x5c, // names: flush_isr, *, spi_transaction_ptr
     0x80,0xf0,0x4a, // code info
     0x25,0x00, // LOAD_DEREF 0
     0x13,0x4f, // LOAD_ATTR 'disp_drv'
-    0x14,0x81,0x2f, // LOAD_METHOD 'flush_ready'
+    0x14,0x81,0x31, // LOAD_METHOD 'flush_ready'
     0x36,0x00, // CALL_METHOD 0
     0x59, // POP_TOP
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
-    0x14,0x81,0x1a, // LOAD_METHOD 'get_ccount'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
+    0x14,0x81,0x1c, // LOAD_METHOD 'get_ccount'
     0x25,0x00, // LOAD_DEREF 0
     0x13,0x39, // LOAD_ATTR 'end_time_ptr'
     0x36,0x01, // CALL_METHOD 1
@@ -11411,7 +11401,7 @@ static const mp_raw_code_t raw_code_ili9XXX_ili9XXX_disp_spi_init_flush_isr = {
         .n_pos_args = 2,
         .n_kwonly_args = 0,
         .n_def_pos_args = 0,
-        .qstr_block_name_idx = 174,
+        .qstr_block_name_idx = 176,
         .line_info = fun_data_ili9XXX_ili9XXX_disp_spi_init_flush_isr + 8,
         .line_info_top = fun_data_ili9XXX_ili9XXX_disp_spi_init_flush_isr + 11,
         .opcodes = fun_data_ili9XXX_ili9XXX_disp_spi_init_flush_isr + 11,
@@ -11438,7 +11428,7 @@ static const mp_raw_code_t raw_code_ili9XXX_ili9XXX_disp_spi_init = {
     .n_pos_args = 1,
     .fun_data = fun_data_ili9XXX_ili9XXX_disp_spi_init,
     #if MICROPY_PERSISTENT_CODE_SAVE || MICROPY_DEBUG_PRINTERS
-    .fun_data_len = 554,
+    .fun_data_len = 538,
     #endif
     .children = (void *)&children_ili9XXX_ili9XXX_disp_spi_init,
     #if MICROPY_PERSISTENT_CODE_SAVE
@@ -11468,19 +11458,71 @@ static const mp_raw_code_t raw_code_ili9XXX_ili9XXX_disp_spi_init = {
 };
 
 // child of ili9XXX_ili9XXX
+// frozen bytecode for file ili9XXX.py, scope ili9XXX_ili9XXX___del__
+static const byte fun_data_ili9XXX_ili9XXX___del__[26] = {
+    0x11,0x0c, // prelude
+    0x7f,0x81,0x49, // names: __del__, self
+    0x90,0x03,0x29, // code info
+    0x12,0x81,0x4c, // LOAD_GLOBAL 'print'
+    0x10,0x81,0x00, // LOAD_CONST_STRING 'Deleting'
+    0x34,0x01, // CALL_FUNCTION 1
+    0x59, // POP_TOP
+    0xb0, // LOAD_FAST 0
+    0x14,0x81,0x01, // LOAD_METHOD 'deinit'
+    0x36,0x00, // CALL_METHOD 0
+    0x59, // POP_TOP
+    0x51, // LOAD_CONST_NONE
+    0x63, // RETURN_VALUE
+};
+static const mp_raw_code_t raw_code_ili9XXX_ili9XXX___del__ = {
+    .kind = MP_CODE_BYTECODE,
+    .scope_flags = 0x00,
+    .n_pos_args = 1,
+    .fun_data = fun_data_ili9XXX_ili9XXX___del__,
+    #if MICROPY_PERSISTENT_CODE_SAVE || MICROPY_DEBUG_PRINTERS
+    .fun_data_len = 26,
+    #endif
+    .children = NULL,
+    #if MICROPY_PERSISTENT_CODE_SAVE
+    .n_children = 0,
+    #if MICROPY_PY_SYS_SETTRACE
+    .prelude = {
+        .n_state = 3,
+        .n_exc_stack = 0,
+        .scope_flags = 0,
+        .n_pos_args = 1,
+        .n_kwonly_args = 0,
+        .n_def_pos_args = 0,
+        .qstr_block_name_idx = 127,
+        .line_info = fun_data_ili9XXX_ili9XXX___del__ + 5,
+        .line_info_top = fun_data_ili9XXX_ili9XXX___del__ + 8,
+        .opcodes = fun_data_ili9XXX_ili9XXX___del__ + 8,
+    },
+    .line_of_definition = 0,
+    #endif
+    #if MICROPY_EMIT_MACHINE_CODE
+    .prelude_offset = 0,
+    #endif
+    #endif
+    #if MICROPY_EMIT_MACHINE_CODE
+    .type_sig = 0,
+    #endif
+};
+
+// child of ili9XXX_ili9XXX
 // frozen bytecode for file ili9XXX.py, scope ili9XXX_ili9XXX_deinit
-static const byte fun_data_ili9XXX_ili9XXX_deinit[190] = {
-    0x31,0x3a, // prelude
-    0x7f,0x81,0x47, // names: deinit, self
-    0x90,0x06,0x2a,0x48,0x25,0x49,0x65,0x20,0x22,0x22,0x75,0x20,0x2c,0x64,0x20,0x2c,0x64,0x20,0x25,0x2c,0x44,0x25,0x2c,0x44,0x25,0x2c, // code info
+static const byte fun_data_ili9XXX_ili9XXX_deinit[192] = {
+    0x31,0x3c, // prelude
+    0x81,0x01,0x81,0x49, // names: deinit, self
+    0x90,0x0a,0x2a,0x49,0x25,0x49,0x65,0x20,0x22,0x22,0x75,0x20,0x2c,0x64,0x20,0x2c,0x64,0x20,0x25,0x2c,0x44,0x25,0x2c,0x44,0x25,0x2c, // code info
     0x12,0x04, // LOAD_GLOBAL 'lv_utils'
     0x13,0x5a, // LOAD_ATTR 'event_loop'
     0x14,0x5b, // LOAD_METHOD 'is_running'
     0x36,0x00, // CALL_METHOD 0
-    0x44,0x48, // POP_JUMP_IF_FALSE 8
+    0x44,0x49, // POP_JUMP_IF_FALSE 9
     0xb0, // LOAD_FAST 0
     0x13,0x5a, // LOAD_ATTR 'event_loop'
-    0x14,0x7f, // LOAD_METHOD 'deinit'
+    0x14,0x81,0x01, // LOAD_METHOD 'deinit'
     0x36,0x00, // CALL_METHOD 0
     0x59, // POP_TOP
     0xb0, // LOAD_FAST 0
@@ -11488,7 +11530,7 @@ static const byte fun_data_ili9XXX_ili9XXX_deinit[190] = {
     0x44,0x49, // POP_JUMP_IF_FALSE 9
     0xb0, // LOAD_FAST 0
     0x13,0x4f, // LOAD_ATTR 'disp_drv'
-    0x14,0x81,0x00, // LOAD_METHOD 'delete'
+    0x14,0x81,0x02, // LOAD_METHOD 'delete'
     0x36,0x00, // CALL_METHOD 0
     0x59, // POP_TOP
     0xb0, // LOAD_FAST 0
@@ -11497,8 +11539,8 @@ static const byte fun_data_ili9XXX_ili9XXX_deinit[190] = {
     0x80, // LOAD_CONST_SMALL_INT 0
     0xc1, // STORE_FAST 1
     0x42,0x50, // JUMP 16
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
-    0x14,0x81,0x01, // LOAD_METHOD 'spi_device_get_trans_result'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
+    0x14,0x81,0x03, // LOAD_METHOD 'spi_device_get_trans_result'
     0xb0, // LOAD_FAST 0
     0x13,0x58, // LOAD_ATTR 'spi'
     0xb0, // LOAD_FAST 0
@@ -11510,8 +11552,8 @@ static const byte fun_data_ili9XXX_ili9XXX_deinit[190] = {
     0x80, // LOAD_CONST_SMALL_INT 0
     0xd9, // BINARY_OP 2 __eq__
     0x43,0x2b, // POP_JUMP_IF_TRUE -21
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
-    0x14,0x81,0x02, // LOAD_METHOD 'spi_bus_remove_device'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
+    0x14,0x81,0x04, // LOAD_METHOD 'spi_bus_remove_device'
     0xb0, // LOAD_FAST 0
     0x13,0x58, // LOAD_ATTR 'spi'
     0x36,0x01, // CALL_METHOD 1
@@ -11519,8 +11561,8 @@ static const byte fun_data_ili9XXX_ili9XXX_deinit[190] = {
     0x51, // LOAD_CONST_NONE
     0xb0, // LOAD_FAST 0
     0x18,0x58, // STORE_ATTR 'spi'
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
-    0x14,0x81,0x03, // LOAD_METHOD 'spi_bus_free'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
+    0x14,0x81,0x05, // LOAD_METHOD 'spi_bus_free'
     0xb0, // LOAD_FAST 0
     0x13,0x29, // LOAD_ATTR 'spihost'
     0x36,0x01, // CALL_METHOD 1
@@ -11531,8 +11573,8 @@ static const byte fun_data_ili9XXX_ili9XXX_deinit[190] = {
     0xb0, // LOAD_FAST 0
     0x13,0x4a, // LOAD_ATTR 'buf1'
     0x44,0x50, // POP_JUMP_IF_FALSE 16
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
-    0x14,0x81,0x04, // LOAD_METHOD 'heap_caps_free'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
+    0x14,0x81,0x06, // LOAD_METHOD 'heap_caps_free'
     0xb0, // LOAD_FAST 0
     0x13,0x4a, // LOAD_ATTR 'buf1'
     0x36,0x01, // CALL_METHOD 1
@@ -11543,8 +11585,8 @@ static const byte fun_data_ili9XXX_ili9XXX_deinit[190] = {
     0xb0, // LOAD_FAST 0
     0x13,0x4c, // LOAD_ATTR 'buf2'
     0x44,0x50, // POP_JUMP_IF_FALSE 16
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
-    0x14,0x81,0x04, // LOAD_METHOD 'heap_caps_free'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
+    0x14,0x81,0x06, // LOAD_METHOD 'heap_caps_free'
     0xb0, // LOAD_FAST 0
     0x13,0x4c, // LOAD_ATTR 'buf2'
     0x36,0x01, // CALL_METHOD 1
@@ -11555,8 +11597,8 @@ static const byte fun_data_ili9XXX_ili9XXX_deinit[190] = {
     0xb0, // LOAD_FAST 0
     0x13,0x75, // LOAD_ATTR 'trans_buffer'
     0x44,0x50, // POP_JUMP_IF_FALSE 16
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
-    0x14,0x81,0x04, // LOAD_METHOD 'heap_caps_free'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
+    0x14,0x81,0x06, // LOAD_METHOD 'heap_caps_free'
     0xb0, // LOAD_FAST 0
     0x13,0x75, // LOAD_ATTR 'trans_buffer'
     0x36,0x01, // CALL_METHOD 1
@@ -11573,7 +11615,7 @@ static const mp_raw_code_t raw_code_ili9XXX_ili9XXX_deinit = {
     .n_pos_args = 1,
     .fun_data = fun_data_ili9XXX_ili9XXX_deinit,
     #if MICROPY_PERSISTENT_CODE_SAVE || MICROPY_DEBUG_PRINTERS
-    .fun_data_len = 190,
+    .fun_data_len = 192,
     #endif
     .children = NULL,
     #if MICROPY_PERSISTENT_CODE_SAVE
@@ -11586,10 +11628,10 @@ static const mp_raw_code_t raw_code_ili9XXX_ili9XXX_deinit = {
         .n_pos_args = 1,
         .n_kwonly_args = 0,
         .n_def_pos_args = 0,
-        .qstr_block_name_idx = 127,
-        .line_info = fun_data_ili9XXX_ili9XXX_deinit + 5,
-        .line_info_top = fun_data_ili9XXX_ili9XXX_deinit + 31,
-        .opcodes = fun_data_ili9XXX_ili9XXX_deinit + 31,
+        .qstr_block_name_idx = 129,
+        .line_info = fun_data_ili9XXX_ili9XXX_deinit + 6,
+        .line_info_top = fun_data_ili9XXX_ili9XXX_deinit + 32,
+        .opcodes = fun_data_ili9XXX_ili9XXX_deinit + 32,
     },
     .line_of_definition = 0,
     #endif
@@ -11606,26 +11648,26 @@ static const mp_raw_code_t raw_code_ili9XXX_ili9XXX_deinit = {
 // frozen bytecode for file ili9XXX.py, scope ili9XXX_ili9XXX_spi_send
 static const byte fun_data_ili9XXX_ili9XXX_spi_send[58] = {
     0x2a,0x16, // prelude
-    0x81,0x05,0x81,0x47,0x81,0x12, // names: spi_send, self, data
-    0x90,0x2f,0x2e,0x27,0x27, // code info
-    0x12,0x81,0x4b, // LOAD_GLOBAL 'len'
+    0x81,0x07,0x81,0x49,0x81,0x14, // names: spi_send, self, data
+    0x90,0x33,0x2e,0x27,0x27, // code info
+    0x12,0x81,0x4d, // LOAD_GLOBAL 'len'
     0xb1, // LOAD_FAST 1
     0x34,0x01, // CALL_FUNCTION 1
     0x88, // LOAD_CONST_SMALL_INT 8
     0xf4, // BINARY_OP 29 __mul__
     0xb0, // LOAD_FAST 0
     0x13,0x3c, // LOAD_ATTR 'trans'
-    0x18,0x81,0x06, // STORE_ATTR 'length'
+    0x18,0x81,0x08, // STORE_ATTR 'length'
     0xb1, // LOAD_FAST 1
     0xb0, // LOAD_FAST 0
     0x13,0x3c, // LOAD_ATTR 'trans'
-    0x18,0x81,0x07, // STORE_ATTR 'tx_buffer'
+    0x18,0x81,0x09, // STORE_ATTR 'tx_buffer'
     0x51, // LOAD_CONST_NONE
     0xb0, // LOAD_FAST 0
     0x13,0x3c, // LOAD_ATTR 'trans'
-    0x18,0x81,0x08, // STORE_ATTR 'user'
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
-    0x14,0x81,0x09, // LOAD_METHOD 'spi_device_polling_transmit'
+    0x18,0x81,0x0a, // STORE_ATTR 'user'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
+    0x14,0x81,0x0b, // LOAD_METHOD 'spi_device_polling_transmit'
     0xb0, // LOAD_FAST 0
     0x13,0x58, // LOAD_ATTR 'spi'
     0xb0, // LOAD_FAST 0
@@ -11654,7 +11696,7 @@ static const mp_raw_code_t raw_code_ili9XXX_ili9XXX_spi_send = {
         .n_pos_args = 2,
         .n_kwonly_args = 0,
         .n_def_pos_args = 0,
-        .qstr_block_name_idx = 133,
+        .qstr_block_name_idx = 135,
         .line_info = fun_data_ili9XXX_ili9XXX_spi_send + 8,
         .line_info_top = fun_data_ili9XXX_ili9XXX_spi_send + 13,
         .opcodes = fun_data_ili9XXX_ili9XXX_spi_send + 13,
@@ -11674,27 +11716,27 @@ static const mp_raw_code_t raw_code_ili9XXX_ili9XXX_spi_send = {
 // frozen bytecode for file ili9XXX.py, scope ili9XXX_ili9XXX_spi_send_dma
 static const byte fun_data_ili9XXX_ili9XXX_spi_send_dma[61] = {
     0x32,0x16, // prelude
-    0x81,0x0a,0x81,0x47,0x81,0x12, // names: spi_send_dma, self, data
-    0x90,0x35,0x2e,0x27,0x29, // code info
-    0x12,0x81,0x4b, // LOAD_GLOBAL 'len'
+    0x81,0x0c,0x81,0x49,0x81,0x14, // names: spi_send_dma, self, data
+    0x90,0x39,0x2e,0x27,0x29, // code info
+    0x12,0x81,0x4d, // LOAD_GLOBAL 'len'
     0xb1, // LOAD_FAST 1
     0x34,0x01, // CALL_FUNCTION 1
     0x88, // LOAD_CONST_SMALL_INT 8
     0xf4, // BINARY_OP 29 __mul__
     0xb0, // LOAD_FAST 0
     0x13,0x3c, // LOAD_ATTR 'trans'
-    0x18,0x81,0x06, // STORE_ATTR 'length'
+    0x18,0x81,0x08, // STORE_ATTR 'length'
     0xb1, // LOAD_FAST 1
     0xb0, // LOAD_FAST 0
     0x13,0x3c, // LOAD_ATTR 'trans'
-    0x18,0x81,0x07, // STORE_ATTR 'tx_buffer'
+    0x18,0x81,0x09, // STORE_ATTR 'tx_buffer'
     0xb0, // LOAD_FAST 0
     0x13,0x7e, // LOAD_ATTR 'spi_callbacks'
     0xb0, // LOAD_FAST 0
     0x13,0x3c, // LOAD_ATTR 'trans'
-    0x18,0x81,0x08, // STORE_ATTR 'user'
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
-    0x14,0x81,0x0b, // LOAD_METHOD 'spi_device_queue_trans'
+    0x18,0x81,0x0a, // STORE_ATTR 'user'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
+    0x14,0x81,0x0d, // LOAD_METHOD 'spi_device_queue_trans'
     0xb0, // LOAD_FAST 0
     0x13,0x58, // LOAD_ATTR 'spi'
     0xb0, // LOAD_FAST 0
@@ -11724,7 +11766,7 @@ static const mp_raw_code_t raw_code_ili9XXX_ili9XXX_spi_send_dma = {
         .n_pos_args = 2,
         .n_kwonly_args = 0,
         .n_def_pos_args = 0,
-        .qstr_block_name_idx = 138,
+        .qstr_block_name_idx = 140,
         .line_info = fun_data_ili9XXX_ili9XXX_spi_send_dma + 8,
         .line_info_top = fun_data_ili9XXX_ili9XXX_spi_send_dma + 13,
         .opcodes = fun_data_ili9XXX_ili9XXX_spi_send_dma + 13,
@@ -11744,10 +11786,10 @@ static const mp_raw_code_t raw_code_ili9XXX_ili9XXX_spi_send_dma = {
 // frozen bytecode for file ili9XXX.py, scope ili9XXX_ili9XXX_send_cmd
 static const byte fun_data_ili9XXX_ili9XXX_send_cmd[42] = {
     0x2a,0x12, // prelude
-    0x81,0x0c,0x81,0x47,0x45, // names: send_cmd, self, cmd
-    0x90,0x3d,0x2d,0x26, // code info
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
-    0x14,0x81,0x0d, // LOAD_METHOD 'gpio_set_level'
+    0x81,0x0e,0x81,0x49,0x45, // names: send_cmd, self, cmd
+    0x90,0x41,0x2d,0x26, // code info
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
+    0x14,0x81,0x0f, // LOAD_METHOD 'gpio_set_level'
     0xb0, // LOAD_FAST 0
     0x13,0x23, // LOAD_ATTR 'dc'
     0x80, // LOAD_CONST_SMALL_INT 0
@@ -11759,7 +11801,7 @@ static const byte fun_data_ili9XXX_ili9XXX_send_cmd[42] = {
     0x80, // LOAD_CONST_SMALL_INT 0
     0x56, // STORE_SUBSCR
     0xb0, // LOAD_FAST 0
-    0x14,0x81,0x05, // LOAD_METHOD 'spi_send'
+    0x14,0x81,0x07, // LOAD_METHOD 'spi_send'
     0xb0, // LOAD_FAST 0
     0x13,0x77, // LOAD_ATTR 'cmd_trans_data'
     0x36,0x01, // CALL_METHOD 1
@@ -11786,7 +11828,7 @@ static const mp_raw_code_t raw_code_ili9XXX_ili9XXX_send_cmd = {
         .n_pos_args = 2,
         .n_kwonly_args = 0,
         .n_def_pos_args = 0,
-        .qstr_block_name_idx = 140,
+        .qstr_block_name_idx = 142,
         .line_info = fun_data_ili9XXX_ili9XXX_send_cmd + 7,
         .line_info_top = fun_data_ili9XXX_ili9XXX_send_cmd + 11,
         .opcodes = fun_data_ili9XXX_ili9XXX_send_cmd + 11,
@@ -11806,29 +11848,29 @@ static const mp_raw_code_t raw_code_ili9XXX_ili9XXX_send_cmd = {
 // frozen bytecode for file ili9XXX.py, scope ili9XXX_ili9XXX_send_data
 static const byte fun_data_ili9XXX_ili9XXX_send_data[81] = {
     0x32,0x18, // prelude
-    0x81,0x0e,0x81,0x47,0x81,0x12, // names: send_data, self, data
-    0x90,0x42,0x2d,0x32,0x2e,0x2c, // code info
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
-    0x14,0x81,0x0d, // LOAD_METHOD 'gpio_set_level'
+    0x81,0x10,0x81,0x49,0x81,0x14, // names: send_data, self, data
+    0x90,0x46,0x2d,0x32,0x2e,0x2c, // code info
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
+    0x14,0x81,0x0f, // LOAD_METHOD 'gpio_set_level'
     0xb0, // LOAD_FAST 0
     0x13,0x23, // LOAD_ATTR 'dc'
     0x81, // LOAD_CONST_SMALL_INT 1
     0x36,0x02, // CALL_METHOD 2
     0x59, // POP_TOP
-    0x12,0x81,0x4b, // LOAD_GLOBAL 'len'
+    0x12,0x81,0x4d, // LOAD_GLOBAL 'len'
     0xb1, // LOAD_FAST 1
     0x34,0x01, // CALL_FUNCTION 1
     0x90, // LOAD_CONST_SMALL_INT 16
     0xd8, // BINARY_OP 1 __gt__
     0x44,0x48, // POP_JUMP_IF_FALSE 8
-    0x12,0x81,0x48, // LOAD_GLOBAL 'RuntimeError'
-    0x23,0x11, // LOAD_CONST_OBJ 17
+    0x12,0x81,0x4a, // LOAD_GLOBAL 'RuntimeError'
+    0x23,0x0f, // LOAD_CONST_OBJ 15
     0x34,0x01, // CALL_FUNCTION 1
     0x65, // RAISE_OBJ
     0xb0, // LOAD_FAST 0
     0x13,0x75, // LOAD_ATTR 'trans_buffer'
     0x14,0x76, // LOAD_METHOD '__dereference__'
-    0x12,0x81,0x4b, // LOAD_GLOBAL 'len'
+    0x12,0x81,0x4d, // LOAD_GLOBAL 'len'
     0xb1, // LOAD_FAST 1
     0x34,0x01, // CALL_FUNCTION 1
     0x36,0x01, // CALL_METHOD 1
@@ -11844,7 +11886,7 @@ static const byte fun_data_ili9XXX_ili9XXX_send_data[81] = {
     0x2e,0x02, // BUILD_SLICE 2
     0x56, // STORE_SUBSCR
     0xb0, // LOAD_FAST 0
-    0x14,0x81,0x05, // LOAD_METHOD 'spi_send'
+    0x14,0x81,0x07, // LOAD_METHOD 'spi_send'
     0xb2, // LOAD_FAST 2
     0x36,0x01, // CALL_METHOD 1
     0x59, // POP_TOP
@@ -11870,7 +11912,7 @@ static const mp_raw_code_t raw_code_ili9XXX_ili9XXX_send_data = {
         .n_pos_args = 2,
         .n_kwonly_args = 0,
         .n_def_pos_args = 0,
-        .qstr_block_name_idx = 142,
+        .qstr_block_name_idx = 144,
         .line_info = fun_data_ili9XXX_ili9XXX_send_data + 8,
         .line_info_top = fun_data_ili9XXX_ili9XXX_send_data + 14,
         .opcodes = fun_data_ili9XXX_ili9XXX_send_data + 14,
@@ -11890,17 +11932,17 @@ static const mp_raw_code_t raw_code_ili9XXX_ili9XXX_send_data = {
 // frozen bytecode for file ili9XXX.py, scope ili9XXX_ili9XXX_send_trans_word
 static const byte fun_data_ili9XXX_ili9XXX_send_trans_word[34] = {
     0x21,0x0e, // prelude
-    0x81,0x0f,0x81,0x47, // names: send_trans_word, self
-    0x90,0x49,0x2d, // code info
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
-    0x14,0x81,0x0d, // LOAD_METHOD 'gpio_set_level'
+    0x81,0x11,0x81,0x49, // names: send_trans_word, self
+    0x90,0x4d,0x2d, // code info
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
+    0x14,0x81,0x0f, // LOAD_METHOD 'gpio_set_level'
     0xb0, // LOAD_FAST 0
     0x13,0x23, // LOAD_ATTR 'dc'
     0x81, // LOAD_CONST_SMALL_INT 1
     0x36,0x02, // CALL_METHOD 2
     0x59, // POP_TOP
     0xb0, // LOAD_FAST 0
-    0x14,0x81,0x05, // LOAD_METHOD 'spi_send'
+    0x14,0x81,0x07, // LOAD_METHOD 'spi_send'
     0xb0, // LOAD_FAST 0
     0x13,0x78, // LOAD_ATTR 'word_trans_data'
     0x36,0x01, // CALL_METHOD 1
@@ -11927,7 +11969,7 @@ static const mp_raw_code_t raw_code_ili9XXX_ili9XXX_send_trans_word = {
         .n_pos_args = 1,
         .n_kwonly_args = 0,
         .n_def_pos_args = 0,
-        .qstr_block_name_idx = 143,
+        .qstr_block_name_idx = 145,
         .line_info = fun_data_ili9XXX_ili9XXX_send_trans_word + 6,
         .line_info_top = fun_data_ili9XXX_ili9XXX_send_trans_word + 9,
         .opcodes = fun_data_ili9XXX_ili9XXX_send_trans_word + 9,
@@ -11947,17 +11989,17 @@ static const mp_raw_code_t raw_code_ili9XXX_ili9XXX_send_trans_word = {
 // frozen bytecode for file ili9XXX.py, scope ili9XXX_ili9XXX_send_data_dma
 static const byte fun_data_ili9XXX_ili9XXX_send_data_dma[34] = {
     0x2a,0x12, // prelude
-    0x81,0x10,0x81,0x47,0x81,0x12, // names: send_data_dma, self, data
-    0x90,0x4d,0x2d, // code info
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
-    0x14,0x81,0x0d, // LOAD_METHOD 'gpio_set_level'
+    0x81,0x12,0x81,0x49,0x81,0x14, // names: send_data_dma, self, data
+    0x90,0x51,0x2d, // code info
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
+    0x14,0x81,0x0f, // LOAD_METHOD 'gpio_set_level'
     0xb0, // LOAD_FAST 0
     0x13,0x23, // LOAD_ATTR 'dc'
     0x81, // LOAD_CONST_SMALL_INT 1
     0x36,0x02, // CALL_METHOD 2
     0x59, // POP_TOP
     0xb0, // LOAD_FAST 0
-    0x14,0x81,0x0a, // LOAD_METHOD 'spi_send_dma'
+    0x14,0x81,0x0c, // LOAD_METHOD 'spi_send_dma'
     0xb1, // LOAD_FAST 1
     0x36,0x01, // CALL_METHOD 1
     0x59, // POP_TOP
@@ -11983,7 +12025,7 @@ static const mp_raw_code_t raw_code_ili9XXX_ili9XXX_send_data_dma = {
         .n_pos_args = 2,
         .n_kwonly_args = 0,
         .n_def_pos_args = 0,
-        .qstr_block_name_idx = 144,
+        .qstr_block_name_idx = 146,
         .line_info = fun_data_ili9XXX_ili9XXX_send_data_dma + 8,
         .line_info_top = fun_data_ili9XXX_ili9XXX_send_data_dma + 11,
         .opcodes = fun_data_ili9XXX_ili9XXX_send_data_dma + 11,
@@ -12003,9 +12045,9 @@ static const mp_raw_code_t raw_code_ili9XXX_ili9XXX_send_data_dma = {
 // frozen bytecode for file ili9XXX.py, scope ili9XXX_ili9XXX__init
 static const byte fun_data_ili9XXX_ili9XXX__init[363] = {
     0xd2,0x40,0x46, // prelude
-    0x81,0x11,0x81,0x47,0x81,0x4c, // names: _init, self, sleep_func
-    0x90,0x56,0x2b,0x32,0x32,0x52,0x32,0x39,0x39,0x79,0x20,0x27,0x2f,0x6a,0x20,0x27,0x2d,0x2a,0x2d,0x6a,0x20,0x27,0x2b,0x27,0x2c,0x27,0x6e,0x20,0x27, // code info
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
+    0x81,0x13,0x81,0x49,0x81,0x4e, // names: _init, self, sleep_func
+    0x90,0x5a,0x2b,0x32,0x32,0x52,0x32,0x39,0x39,0x79,0x20,0x27,0x2f,0x6a,0x20,0x27,0x2d,0x2a,0x2d,0x6a,0x20,0x27,0x2b,0x27,0x2c,0x27,0x6e,0x20,0x27, // code info
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
     0x14,0x69, // LOAD_METHOD 'gpio_pad_select_gpio'
     0xb0, // LOAD_FAST 0
     0x13,0x23, // LOAD_ATTR 'dc'
@@ -12016,7 +12058,7 @@ static const byte fun_data_ili9XXX_ili9XXX__init[363] = {
     0x7f, // LOAD_CONST_SMALL_INT -1
     0xdc, // BINARY_OP 5 __ne__
     0x44,0x4b, // POP_JUMP_IF_FALSE 11
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
     0x14,0x69, // LOAD_METHOD 'gpio_pad_select_gpio'
     0xb0, // LOAD_FAST 0
     0x13,0x24, // LOAD_ATTR 'rst'
@@ -12027,7 +12069,7 @@ static const byte fun_data_ili9XXX_ili9XXX__init[363] = {
     0x7f, // LOAD_CONST_SMALL_INT -1
     0xdc, // BINARY_OP 5 __ne__
     0x44,0x4b, // POP_JUMP_IF_FALSE 11
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
     0x14,0x69, // LOAD_METHOD 'gpio_pad_select_gpio'
     0xb0, // LOAD_FAST 0
     0x13,0x26, // LOAD_ATTR 'backlight'
@@ -12038,17 +12080,17 @@ static const byte fun_data_ili9XXX_ili9XXX__init[363] = {
     0x7f, // LOAD_CONST_SMALL_INT -1
     0xdc, // BINARY_OP 5 __ne__
     0x44,0x4b, // POP_JUMP_IF_FALSE 11
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
     0x14,0x69, // LOAD_METHOD 'gpio_pad_select_gpio'
     0xb0, // LOAD_FAST 0
     0x13,0x25, // LOAD_ATTR 'power'
     0x36,0x01, // CALL_METHOD 1
     0x59, // POP_TOP
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
     0x14,0x6d, // LOAD_METHOD 'gpio_set_direction'
     0xb0, // LOAD_FAST 0
     0x13,0x23, // LOAD_ATTR 'dc'
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
     0x13,0x6e, // LOAD_ATTR 'GPIO_MODE'
     0x13,0x73, // LOAD_ATTR 'OUTPUT'
     0x36,0x02, // CALL_METHOD 2
@@ -12058,11 +12100,11 @@ static const byte fun_data_ili9XXX_ili9XXX__init[363] = {
     0x7f, // LOAD_CONST_SMALL_INT -1
     0xdc, // BINARY_OP 5 __ne__
     0x44,0x52, // POP_JUMP_IF_FALSE 18
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
     0x14,0x6d, // LOAD_METHOD 'gpio_set_direction'
     0xb0, // LOAD_FAST 0
     0x13,0x24, // LOAD_ATTR 'rst'
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
     0x13,0x6e, // LOAD_ATTR 'GPIO_MODE'
     0x13,0x73, // LOAD_ATTR 'OUTPUT'
     0x36,0x02, // CALL_METHOD 2
@@ -12072,11 +12114,11 @@ static const byte fun_data_ili9XXX_ili9XXX__init[363] = {
     0x7f, // LOAD_CONST_SMALL_INT -1
     0xdc, // BINARY_OP 5 __ne__
     0x44,0x52, // POP_JUMP_IF_FALSE 18
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
     0x14,0x6d, // LOAD_METHOD 'gpio_set_direction'
     0xb0, // LOAD_FAST 0
     0x13,0x26, // LOAD_ATTR 'backlight'
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
     0x13,0x6e, // LOAD_ATTR 'GPIO_MODE'
     0x13,0x73, // LOAD_ATTR 'OUTPUT'
     0x36,0x02, // CALL_METHOD 2
@@ -12086,11 +12128,11 @@ static const byte fun_data_ili9XXX_ili9XXX__init[363] = {
     0x7f, // LOAD_CONST_SMALL_INT -1
     0xdc, // BINARY_OP 5 __ne__
     0x44,0x52, // POP_JUMP_IF_FALSE 18
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
     0x14,0x6d, // LOAD_METHOD 'gpio_set_direction'
     0xb0, // LOAD_FAST 0
     0x13,0x25, // LOAD_ATTR 'power'
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
     0x13,0x6e, // LOAD_ATTR 'GPIO_MODE'
     0x13,0x73, // LOAD_ATTR 'OUTPUT'
     0x36,0x02, // CALL_METHOD 2
@@ -12100,8 +12142,8 @@ static const byte fun_data_ili9XXX_ili9XXX__init[363] = {
     0x7f, // LOAD_CONST_SMALL_INT -1
     0xdc, // BINARY_OP 5 __ne__
     0x44,0x59, // POP_JUMP_IF_FALSE 25
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
-    0x14,0x81,0x0d, // LOAD_METHOD 'gpio_set_level'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
+    0x14,0x81,0x0f, // LOAD_METHOD 'gpio_set_level'
     0xb0, // LOAD_FAST 0
     0x13,0x25, // LOAD_ATTR 'power'
     0xb0, // LOAD_FAST 0
@@ -12120,8 +12162,8 @@ static const byte fun_data_ili9XXX_ili9XXX__init[363] = {
     0x7f, // LOAD_CONST_SMALL_INT -1
     0xdc, // BINARY_OP 5 __ne__
     0x44,0x6e, // POP_JUMP_IF_FALSE 46
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
-    0x14,0x81,0x0d, // LOAD_METHOD 'gpio_set_level'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
+    0x14,0x81,0x0f, // LOAD_METHOD 'gpio_set_level'
     0xb0, // LOAD_FAST 0
     0x13,0x24, // LOAD_ATTR 'rst'
     0x80, // LOAD_CONST_SMALL_INT 0
@@ -12134,8 +12176,8 @@ static const byte fun_data_ili9XXX_ili9XXX__init[363] = {
     0x51, // LOAD_CONST_NONE
     0x68, // YIELD_FROM
     0x59, // POP_TOP
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
-    0x14,0x81,0x0d, // LOAD_METHOD 'gpio_set_level'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
+    0x14,0x81,0x0f, // LOAD_METHOD 'gpio_set_level'
     0xb0, // LOAD_FAST 0
     0x13,0x24, // LOAD_ATTR 'rst'
     0x81, // LOAD_CONST_SMALL_INT 1
@@ -12154,30 +12196,30 @@ static const byte fun_data_ili9XXX_ili9XXX__init[363] = {
     0x4b,0x34, // FOR_ITER 52
     0xc2, // STORE_FAST 2
     0xb0, // LOAD_FAST 0
-    0x14,0x81,0x0c, // LOAD_METHOD 'send_cmd'
+    0x14,0x81,0x0e, // LOAD_METHOD 'send_cmd'
     0xb2, // LOAD_FAST 2
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x55, // LOAD_SUBSCR
     0x36,0x01, // CALL_METHOD 1
     0x59, // POP_TOP
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0xb2, // LOAD_FAST 2
     0xdd, // BINARY_OP 6 <in>
     0x44,0x4c, // POP_JUMP_IF_FALSE 12
     0xb0, // LOAD_FAST 0
-    0x14,0x81,0x0e, // LOAD_METHOD 'send_data'
+    0x14,0x81,0x10, // LOAD_METHOD 'send_data'
     0xb2, // LOAD_FAST 2
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x55, // LOAD_SUBSCR
     0x36,0x01, // CALL_METHOD 1
     0x59, // POP_TOP
-    0x10,0x81,0x13, // LOAD_CONST_STRING 'delay'
+    0x10,0x81,0x15, // LOAD_CONST_STRING 'delay'
     0xb2, // LOAD_FAST 2
     0xdd, // BINARY_OP 6 <in>
     0x44,0x4c, // POP_JUMP_IF_FALSE 12
     0xb1, // LOAD_FAST 1
     0xb2, // LOAD_FAST 2
-    0x10,0x81,0x13, // LOAD_CONST_STRING 'delay'
+    0x10,0x81,0x15, // LOAD_CONST_STRING 'delay'
     0x55, // LOAD_SUBSCR
     0x34,0x01, // CALL_FUNCTION 1
     0x5e, // GET_ITER
@@ -12190,8 +12232,8 @@ static const byte fun_data_ili9XXX_ili9XXX__init[363] = {
     0x7f, // LOAD_CONST_SMALL_INT -1
     0xdc, // BINARY_OP 5 __ne__
     0x44,0x4f, // POP_JUMP_IF_FALSE 15
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
-    0x14,0x81,0x0d, // LOAD_METHOD 'gpio_set_level'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
+    0x14,0x81,0x0f, // LOAD_METHOD 'gpio_set_level'
     0xb0, // LOAD_FAST 0
     0x13,0x26, // LOAD_ATTR 'backlight'
     0xb0, // LOAD_FAST 0
@@ -12220,7 +12262,7 @@ static const mp_raw_code_t raw_code_ili9XXX_ili9XXX__init = {
         .n_pos_args = 2,
         .n_kwonly_args = 0,
         .n_def_pos_args = 0,
-        .qstr_block_name_idx = 145,
+        .qstr_block_name_idx = 147,
         .line_info = fun_data_ili9XXX_ili9XXX__init + 9,
         .line_info_top = fun_data_ili9XXX_ili9XXX__init + 38,
         .opcodes = fun_data_ili9XXX_ili9XXX__init + 38,
@@ -12240,31 +12282,31 @@ static const mp_raw_code_t raw_code_ili9XXX_ili9XXX__init = {
 // frozen bytecode for file ili9XXX.py, scope ili9XXX_ili9XXX_init
 static const byte fun_data_ili9XXX_ili9XXX_init[62] = {
     0x4d,0x16, // prelude
-    0x16,0x81,0x47, // names: init, self
-    0x90,0x7d,0x26,0x29,0x22,0x20,0x27,0x54, // code info
+    0x16,0x81,0x49, // names: init, self
+    0x90,0x81,0x26,0x29,0x22,0x20,0x27,0x54, // code info
     0x80, // LOAD_CONST_SMALL_INT 0
     0x51, // LOAD_CONST_NONE
-    0x1b,0x81,0x14, // IMPORT_NAME 'utime'
+    0x1b,0x81,0x16, // IMPORT_NAME 'utime'
     0xc1, // STORE_FAST 1
     0xb0, // LOAD_FAST 0
-    0x14,0x81,0x11, // LOAD_METHOD '_init'
+    0x14,0x81,0x13, // LOAD_METHOD '_init'
     0x32,0x00, // MAKE_FUNCTION 0
     0x36,0x01, // CALL_METHOD 1
     0xc2, // STORE_FAST 2
     0x48,0x13, // SETUP_EXCEPT 19
-    0x12,0x81,0x4d, // LOAD_GLOBAL 'next'
+    0x12,0x81,0x4f, // LOAD_GLOBAL 'next'
     0xb2, // LOAD_FAST 2
     0x34,0x01, // CALL_FUNCTION 1
     0xc3, // STORE_FAST 3
     0xb1, // LOAD_FAST 1
-    0x14,0x81,0x15, // LOAD_METHOD 'sleep_ms'
+    0x14,0x81,0x17, // LOAD_METHOD 'sleep_ms'
     0xb3, // LOAD_FAST 3
     0x36,0x01, // CALL_METHOD 1
     0x59, // POP_TOP
     0x42,0x2f, // JUMP -17
     0x4a,0x0b, // POP_EXCEPT_JUMP 11
     0x57, // DUP_TOP
-    0x12,0x81,0x4e, // LOAD_GLOBAL 'StopIteration'
+    0x12,0x81,0x50, // LOAD_GLOBAL 'StopIteration'
     0xdf, // BINARY_OP 8 <exception match>
     0x44,0x43, // POP_JUMP_IF_FALSE 3
     0x59, // POP_TOP
@@ -12277,8 +12319,8 @@ static const byte fun_data_ili9XXX_ili9XXX_init[62] = {
 // frozen bytecode for file ili9XXX.py, scope ili9XXX_ili9XXX_init__lt_lambda_gt_
 static const byte fun_data_ili9XXX_ili9XXX_init__lt_lambda_gt_[14] = {
     0x89,0x40,0x0c, // prelude
-    0x81,0x30,0x81,0x5b, // names: <lambda>, ms
-    0x90,0x7e, // code info
+    0x81,0x32,0x81,0x5d, // names: <lambda>, ms
+    0x90,0x82, // code info
     0xb0, // LOAD_FAST 0
     0x67, // YIELD_VALUE
     0x59, // POP_TOP
@@ -12304,7 +12346,7 @@ static const mp_raw_code_t raw_code_ili9XXX_ili9XXX_init__lt_lambda_gt_ = {
         .n_pos_args = 1,
         .n_kwonly_args = 0,
         .n_def_pos_args = 0,
-        .qstr_block_name_idx = 176,
+        .qstr_block_name_idx = 178,
         .line_info = fun_data_ili9XXX_ili9XXX_init__lt_lambda_gt_ + 7,
         .line_info_top = fun_data_ili9XXX_ili9XXX_init__lt_lambda_gt_ + 9,
         .opcodes = fun_data_ili9XXX_ili9XXX_init__lt_lambda_gt_ + 9,
@@ -12363,16 +12405,16 @@ static const mp_raw_code_t raw_code_ili9XXX_ili9XXX_init = {
 // frozen bytecode for file ili9XXX.py, scope ili9XXX_ili9XXX_init_async
 static const byte fun_data_ili9XXX_ili9XXX_init_async[32] = {
     0xa1,0x40,0x0e, // prelude
-    0x81,0x16,0x81,0x47, // names: init_async, self
-    0x90,0x87,0x26, // code info
+    0x81,0x18,0x81,0x49, // names: init_async, self
+    0x90,0x8b,0x26, // code info
     0x80, // LOAD_CONST_SMALL_INT 0
     0x51, // LOAD_CONST_NONE
-    0x1b,0x81,0x17, // IMPORT_NAME 'uasyncio'
+    0x1b,0x81,0x19, // IMPORT_NAME 'uasyncio'
     0xc1, // STORE_FAST 1
     0xb0, // LOAD_FAST 0
-    0x14,0x81,0x11, // LOAD_METHOD '_init'
+    0x14,0x81,0x13, // LOAD_METHOD '_init'
     0xb1, // LOAD_FAST 1
-    0x13,0x81,0x15, // LOAD_ATTR 'sleep_ms'
+    0x13,0x81,0x17, // LOAD_ATTR 'sleep_ms'
     0x36,0x01, // CALL_METHOD 1
     0x5e, // GET_ITER
     0x51, // LOAD_CONST_NONE
@@ -12400,7 +12442,7 @@ static const mp_raw_code_t raw_code_ili9XXX_ili9XXX_init_async = {
         .n_pos_args = 1,
         .n_kwonly_args = 0,
         .n_def_pos_args = 0,
-        .qstr_block_name_idx = 150,
+        .qstr_block_name_idx = 152,
         .line_info = fun_data_ili9XXX_ili9XXX_init_async + 7,
         .line_info_top = fun_data_ili9XXX_ili9XXX_init_async + 10,
         .opcodes = fun_data_ili9XXX_ili9XXX_init_async + 10,
@@ -12420,15 +12462,15 @@ static const mp_raw_code_t raw_code_ili9XXX_ili9XXX_init_async = {
 // frozen bytecode for file ili9XXX.py, scope ili9XXX_ili9XXX_power_down
 static const byte fun_data_ili9XXX_ili9XXX_power_down[61] = {
     0x29,0x12, // prelude
-    0x81,0x18,0x81,0x47, // names: power_down, self
-    0x90,0x8c,0x27,0x51,0x27, // code info
+    0x81,0x1a,0x81,0x49, // names: power_down, self
+    0x90,0x90,0x27,0x51,0x27, // code info
     0xb0, // LOAD_FAST 0
     0x13,0x25, // LOAD_ATTR 'power'
     0x7f, // LOAD_CONST_SMALL_INT -1
     0xdc, // BINARY_OP 5 __ne__
     0x44,0x51, // POP_JUMP_IF_FALSE 17
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
-    0x14,0x81,0x0d, // LOAD_METHOD 'gpio_set_level'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
+    0x14,0x81,0x0f, // LOAD_METHOD 'gpio_set_level'
     0xb0, // LOAD_FAST 0
     0x13,0x25, // LOAD_ATTR 'power'
     0x81, // LOAD_CONST_SMALL_INT 1
@@ -12442,8 +12484,8 @@ static const byte fun_data_ili9XXX_ili9XXX_power_down[61] = {
     0x7f, // LOAD_CONST_SMALL_INT -1
     0xdc, // BINARY_OP 5 __ne__
     0x44,0x51, // POP_JUMP_IF_FALSE 17
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
-    0x14,0x81,0x0d, // LOAD_METHOD 'gpio_set_level'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
+    0x14,0x81,0x0f, // LOAD_METHOD 'gpio_set_level'
     0xb0, // LOAD_FAST 0
     0x13,0x26, // LOAD_ATTR 'backlight'
     0x81, // LOAD_CONST_SMALL_INT 1
@@ -12474,7 +12516,7 @@ static const mp_raw_code_t raw_code_ili9XXX_ili9XXX_power_down = {
         .n_pos_args = 1,
         .n_kwonly_args = 0,
         .n_def_pos_args = 0,
-        .qstr_block_name_idx = 152,
+        .qstr_block_name_idx = 154,
         .line_info = fun_data_ili9XXX_ili9XXX_power_down + 6,
         .line_info_top = fun_data_ili9XXX_ili9XXX_power_down + 11,
         .opcodes = fun_data_ili9XXX_ili9XXX_power_down + 11,
@@ -12494,18 +12536,18 @@ static const mp_raw_code_t raw_code_ili9XXX_ili9XXX_power_down = {
 // frozen bytecode for file ili9XXX.py, scope ili9XXX_ili9XXX_flush
 static const byte fun_data_ili9XXX_ili9XXX_flush[366] = {
     0xe8,0x04,0x4e, // prelude
-    0x56,0x81,0x47,0x4f,0x81,0x4f,0x81,0x50, // names: flush, self, disp_drv, area, color_p
-    0x90,0x96,0x37,0x55,0x6c,0x40,0x48,0x29,0x49,0x2c,0x2a,0x2c,0x2a,0x67,0x48,0x29,0x49,0x2c,0x2a,0x2c,0x2a,0x67,0x48,0x2c,0x4b,0x25,0x48,0x2c,0x2f,0x35,0x4c, // code info
+    0x56,0x81,0x49,0x4f,0x81,0x51,0x81,0x52, // names: flush, self, disp_drv, area, color_p
+    0x90,0x9a,0x37,0x55,0x6c,0x40,0x48,0x29,0x49,0x2c,0x2a,0x2c,0x2a,0x67,0x48,0x29,0x49,0x2c,0x2a,0x2c,0x2a,0x67,0x48,0x2c,0x4b,0x25,0x48,0x2c,0x2f,0x35,0x4c, // code info
     0xb0, // LOAD_FAST 0
     0x13,0x39, // LOAD_ATTR 'end_time_ptr'
-    0x13,0x81,0x19, // LOAD_ATTR 'int_val'
+    0x13,0x81,0x1b, // LOAD_ATTR 'int_val'
     0x44,0x64, // POP_JUMP_IF_FALSE 36
     0xb0, // LOAD_FAST 0
     0x13,0x39, // LOAD_ATTR 'end_time_ptr'
-    0x13,0x81,0x19, // LOAD_ATTR 'int_val'
+    0x13,0x81,0x1b, // LOAD_ATTR 'int_val'
     0xb0, // LOAD_FAST 0
     0x13,0x38, // LOAD_ATTR 'start_time_ptr'
-    0x13,0x81,0x19, // LOAD_ATTR 'int_val'
+    0x13,0x81,0x1b, // LOAD_ATTR 'int_val'
     0xd8, // BINARY_OP 1 __gt__
     0x44,0x55, // POP_JUMP_IF_FALSE 21
     0xb0, // LOAD_FAST 0
@@ -12513,33 +12555,33 @@ static const byte fun_data_ili9XXX_ili9XXX_flush[366] = {
     0x13,0x3e, // LOAD_ATTR 'flush_acc_dma_cycles'
     0xb0, // LOAD_FAST 0
     0x13,0x39, // LOAD_ATTR 'end_time_ptr'
-    0x13,0x81,0x19, // LOAD_ATTR 'int_val'
+    0x13,0x81,0x1b, // LOAD_ATTR 'int_val'
     0xb0, // LOAD_FAST 0
     0x13,0x38, // LOAD_ATTR 'start_time_ptr'
-    0x13,0x81,0x19, // LOAD_ATTR 'int_val'
+    0x13,0x81,0x1b, // LOAD_ATTR 'int_val'
     0xf3, // BINARY_OP 28 __sub__
     0xe5, // BINARY_OP 14 __iadd__
     0x5a, // ROT_TWO
     0x18,0x3e, // STORE_ATTR 'flush_acc_dma_cycles'
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
-    0x14,0x81,0x1a, // LOAD_METHOD 'get_ccount'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
+    0x14,0x81,0x1c, // LOAD_METHOD 'get_ccount'
     0xb0, // LOAD_FAST 0
     0x13,0x38, // LOAD_ATTR 'start_time_ptr'
     0x36,0x01, // CALL_METHOD 1
     0x59, // POP_TOP
     0xb0, // LOAD_FAST 0
-    0x14,0x81,0x0c, // LOAD_METHOD 'send_cmd'
+    0x14,0x81,0x0e, // LOAD_METHOD 'send_cmd'
     0xaa, // LOAD_CONST_SMALL_INT 42
     0x36,0x01, // CALL_METHOD 1
     0x59, // POP_TOP
     0xb2, // LOAD_FAST 2
-    0x13,0x81,0x1b, // LOAD_ATTR 'x1'
+    0x13,0x81,0x1d, // LOAD_ATTR 'x1'
     0xb0, // LOAD_FAST 0
     0x13,0x1d, // LOAD_ATTR 'start_x'
     0xf2, // BINARY_OP 27 __add__
     0xc4, // STORE_FAST 4
     0xb2, // LOAD_FAST 2
-    0x13,0x81,0x1c, // LOAD_ATTR 'x2'
+    0x13,0x81,0x1e, // LOAD_ATTR 'x2'
     0xb0, // LOAD_FAST 0
     0x13,0x1d, // LOAD_ATTR 'start_x'
     0xf2, // BINARY_OP 27 __add__
@@ -12577,22 +12619,22 @@ static const byte fun_data_ili9XXX_ili9XXX_flush[366] = {
     0x83, // LOAD_CONST_SMALL_INT 3
     0x56, // STORE_SUBSCR
     0xb0, // LOAD_FAST 0
-    0x14,0x81,0x0f, // LOAD_METHOD 'send_trans_word'
+    0x14,0x81,0x11, // LOAD_METHOD 'send_trans_word'
     0x36,0x00, // CALL_METHOD 0
     0x59, // POP_TOP
     0xb0, // LOAD_FAST 0
-    0x14,0x81,0x0c, // LOAD_METHOD 'send_cmd'
+    0x14,0x81,0x0e, // LOAD_METHOD 'send_cmd'
     0xab, // LOAD_CONST_SMALL_INT 43
     0x36,0x01, // CALL_METHOD 1
     0x59, // POP_TOP
     0xb2, // LOAD_FAST 2
-    0x13,0x81,0x1d, // LOAD_ATTR 'y1'
+    0x13,0x81,0x1f, // LOAD_ATTR 'y1'
     0xb0, // LOAD_FAST 0
     0x13,0x1e, // LOAD_ATTR 'start_y'
     0xf2, // BINARY_OP 27 __add__
     0xc6, // STORE_FAST 6
     0xb2, // LOAD_FAST 2
-    0x13,0x81,0x1e, // LOAD_ATTR 'y2'
+    0x13,0x81,0x20, // LOAD_ATTR 'y2'
     0xb0, // LOAD_FAST 0
     0x13,0x1e, // LOAD_ATTR 'start_y'
     0xf2, // BINARY_OP 27 __add__
@@ -12630,11 +12672,11 @@ static const byte fun_data_ili9XXX_ili9XXX_flush[366] = {
     0x83, // LOAD_CONST_SMALL_INT 3
     0x56, // STORE_SUBSCR
     0xb0, // LOAD_FAST 0
-    0x14,0x81,0x0f, // LOAD_METHOD 'send_trans_word'
+    0x14,0x81,0x11, // LOAD_METHOD 'send_trans_word'
     0x36,0x00, // CALL_METHOD 0
     0x59, // POP_TOP
     0xb0, // LOAD_FAST 0
-    0x14,0x81,0x0c, // LOAD_METHOD 'send_cmd'
+    0x14,0x81,0x0e, // LOAD_METHOD 'send_cmd'
     0xac, // LOAD_CONST_SMALL_INT 44
     0x36,0x01, // CALL_METHOD 1
     0x59, // POP_TOP
@@ -12667,18 +12709,18 @@ static const byte fun_data_ili9XXX_ili9XXX_flush[366] = {
     0xb8, // LOAD_FAST 8
     0x36,0x02, // CALL_METHOD 2
     0x59, // POP_TOP
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
-    0x14,0x81,0x1a, // LOAD_METHOD 'get_ccount'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
+    0x14,0x81,0x1c, // LOAD_METHOD 'get_ccount'
     0xb0, // LOAD_FAST 0
     0x13,0x39, // LOAD_ATTR 'end_time_ptr'
     0x36,0x01, // CALL_METHOD 1
     0x59, // POP_TOP
     0xb0, // LOAD_FAST 0
     0x13,0x39, // LOAD_ATTR 'end_time_ptr'
-    0x13,0x81,0x19, // LOAD_ATTR 'int_val'
+    0x13,0x81,0x1b, // LOAD_ATTR 'int_val'
     0xb0, // LOAD_FAST 0
     0x13,0x38, // LOAD_ATTR 'start_time_ptr'
-    0x13,0x81,0x19, // LOAD_ATTR 'int_val'
+    0x13,0x81,0x1b, // LOAD_ATTR 'int_val'
     0xd8, // BINARY_OP 1 __gt__
     0x44,0x55, // POP_JUMP_IF_FALSE 21
     0xb0, // LOAD_FAST 0
@@ -12686,22 +12728,22 @@ static const byte fun_data_ili9XXX_ili9XXX_flush[366] = {
     0x13,0x3d, // LOAD_ATTR 'flush_acc_setup_cycles'
     0xb0, // LOAD_FAST 0
     0x13,0x39, // LOAD_ATTR 'end_time_ptr'
-    0x13,0x81,0x19, // LOAD_ATTR 'int_val'
+    0x13,0x81,0x1b, // LOAD_ATTR 'int_val'
     0xb0, // LOAD_FAST 0
     0x13,0x38, // LOAD_ATTR 'start_time_ptr'
-    0x13,0x81,0x19, // LOAD_ATTR 'int_val'
+    0x13,0x81,0x1b, // LOAD_ATTR 'int_val'
     0xf3, // BINARY_OP 28 __sub__
     0xe5, // BINARY_OP 14 __iadd__
     0x5a, // ROT_TWO
     0x18,0x3d, // STORE_ATTR 'flush_acc_setup_cycles'
-    0x12,0x81,0x31, // LOAD_GLOBAL 'esp'
-    0x14,0x81,0x1a, // LOAD_METHOD 'get_ccount'
+    0x12,0x81,0x33, // LOAD_GLOBAL 'esp'
+    0x14,0x81,0x1c, // LOAD_METHOD 'get_ccount'
     0xb0, // LOAD_FAST 0
     0x13,0x38, // LOAD_ATTR 'start_time_ptr'
     0x36,0x01, // CALL_METHOD 1
     0x59, // POP_TOP
     0xb0, // LOAD_FAST 0
-    0x14,0x81,0x10, // LOAD_METHOD 'send_data_dma'
+    0x14,0x81,0x12, // LOAD_METHOD 'send_data_dma'
     0xb9, // LOAD_FAST 9
     0x36,0x01, // CALL_METHOD 1
     0x59, // POP_TOP
@@ -12747,8 +12789,8 @@ static const mp_raw_code_t raw_code_ili9XXX_ili9XXX_flush = {
 // frozen bytecode for file ili9XXX.py, scope ili9XXX_ili9XXX_monitor
 static const byte fun_data_ili9XXX_ili9XXX_monitor[45] = {
     0xb0,0x04,0x1a, // prelude
-    0x81,0x1f,0x81,0x47,0x4f,0x81,0x51,0x81,0x52, // names: monitor, self, disp_drv, time, px
-    0x90,0xc8,0x29,0x29, // code info
+    0x81,0x21,0x81,0x49,0x4f,0x81,0x53,0x81,0x54, // names: monitor, self, disp_drv, time, px
+    0x90,0xcc,0x29,0x29, // code info
     0xb0, // LOAD_FAST 0
     0x57, // DUP_TOP
     0x13,0x3f, // LOAD_ATTR 'monitor_acc_time'
@@ -12792,7 +12834,7 @@ static const mp_raw_code_t raw_code_ili9XXX_ili9XXX_monitor = {
         .n_pos_args = 4,
         .n_kwonly_args = 0,
         .n_def_pos_args = 0,
-        .qstr_block_name_idx = 159,
+        .qstr_block_name_idx = 161,
         .line_info = fun_data_ili9XXX_ili9XXX_monitor + 12,
         .line_info_top = fun_data_ili9XXX_ili9XXX_monitor + 16,
         .opcodes = fun_data_ili9XXX_ili9XXX_monitor + 16,
@@ -12812,8 +12854,8 @@ static const mp_raw_code_t raw_code_ili9XXX_ili9XXX_monitor = {
 // frozen bytecode for file ili9XXX.py, scope ili9XXX_ili9XXX_stat
 static const byte fun_data_ili9XXX_ili9XXX_stat[95] = {
     0x41,0x22, // prelude
-    0x81,0x20,0x81,0x47, // names: stat, self
-    0x90,0xcd,0x27,0x42,0x28,0x2c,0x2c,0x48,0x24,0x24,0x24,0x24,0x44, // code info
+    0x81,0x22,0x81,0x49, // names: stat, self
+    0x90,0xd1,0x27,0x42,0x28,0x2c,0x2c,0x48,0x24,0x24,0x24,0x24,0x44, // code info
     0xb0, // LOAD_FAST 0
     0x13,0x41, // LOAD_ATTR 'monitor_count'
     0x80, // LOAD_CONST_SMALL_INT 0
@@ -12892,7 +12934,7 @@ static const mp_raw_code_t raw_code_ili9XXX_ili9XXX_stat = {
         .n_pos_args = 1,
         .n_kwonly_args = 0,
         .n_def_pos_args = 0,
-        .qstr_block_name_idx = 160,
+        .qstr_block_name_idx = 162,
         .line_info = fun_data_ili9XXX_ili9XXX_stat + 6,
         .line_info_top = fun_data_ili9XXX_ili9XXX_stat + 19,
         .opcodes = fun_data_ili9XXX_ili9XXX_stat + 19,
@@ -12912,8 +12954,8 @@ static const mp_raw_code_t raw_code_ili9XXX_ili9XXX_stat = {
 // frozen bytecode for file ili9XXX.py, scope ili9XXX_ili9XXX_madctl
 static const byte fun_data_ili9XXX_ili9XXX_madctl[63] = {
     0xb8,0x04,0x24, // prelude
-    0x81,0x21,0x81,0x47,0x81,0x27,0x81,0x53,0x81,0x54, // names: madctl, self, colormode, rotation, rotations
-    0x90,0xe1,0x25,0x64,0x20,0x29,0x2a,0x48, // code info
+    0x81,0x23,0x81,0x49,0x81,0x29,0x81,0x55,0x81,0x56, // names: madctl, self, colormode, rotation, rotations
+    0x90,0xe5,0x25,0x64,0x20,0x29,0x2a,0x48, // code info
     0xb2, // LOAD_FAST 2
     0x80, // LOAD_CONST_SMALL_INT 0
     0xdb, // BINARY_OP 4 __ge__
@@ -12922,20 +12964,20 @@ static const byte fun_data_ili9XXX_ili9XXX_madctl[63] = {
     0xb1, // LOAD_FAST 1
     0xed, // BINARY_OP 22 __or__
     0x63, // RETURN_VALUE
-    0x12,0x81,0x55, // LOAD_GLOBAL 'abs'
+    0x12,0x81,0x57, // LOAD_GLOBAL 'abs'
     0xb2, // LOAD_FAST 2
     0x34,0x01, // CALL_FUNCTION 1
     0x81, // LOAD_CONST_SMALL_INT 1
     0xf3, // BINARY_OP 28 __sub__
     0xc4, // STORE_FAST 4
     0xb4, // LOAD_FAST 4
-    0x12,0x81,0x4b, // LOAD_GLOBAL 'len'
+    0x12,0x81,0x4d, // LOAD_GLOBAL 'len'
     0xb3, // LOAD_FAST 3
     0x34,0x01, // CALL_FUNCTION 1
     0xd8, // BINARY_OP 1 __gt__
     0x44,0x48, // POP_JUMP_IF_FALSE 8
-    0x12,0x81,0x48, // LOAD_GLOBAL 'RuntimeError'
-    0x23,0x12, // LOAD_CONST_OBJ 18
+    0x12,0x81,0x4a, // LOAD_GLOBAL 'RuntimeError'
+    0x23,0x10, // LOAD_CONST_OBJ 16
     0x34,0x01, // CALL_FUNCTION 1
     0x59, // POP_TOP
     0xb3, // LOAD_FAST 3
@@ -12964,7 +13006,7 @@ static const mp_raw_code_t raw_code_ili9XXX_ili9XXX_madctl = {
         .n_pos_args = 4,
         .n_kwonly_args = 0,
         .n_def_pos_args = 0,
-        .qstr_block_name_idx = 161,
+        .qstr_block_name_idx = 163,
         .line_info = fun_data_ili9XXX_ili9XXX_madctl + 13,
         .line_info_top = fun_data_ili9XXX_ili9XXX_madctl + 21,
         .opcodes = fun_data_ili9XXX_ili9XXX_madctl + 21,
@@ -12983,6 +13025,7 @@ static const mp_raw_code_t raw_code_ili9XXX_ili9XXX_madctl = {
 static const mp_raw_code_t *const children_ili9XXX_ili9XXX[] = {
     &raw_code_ili9XXX_ili9XXX___init__,
     &raw_code_ili9XXX_ili9XXX_disp_spi_init,
+    &raw_code_ili9XXX_ili9XXX___del__,
     &raw_code_ili9XXX_ili9XXX_deinit,
     &raw_code_ili9XXX_ili9XXX_spi_send,
     &raw_code_ili9XXX_ili9XXX_spi_send_dma,
@@ -13006,11 +13049,11 @@ static const mp_raw_code_t raw_code_ili9XXX_ili9XXX = {
     .n_pos_args = 0,
     .fun_data = fun_data_ili9XXX_ili9XXX,
     #if MICROPY_PERSISTENT_CODE_SAVE || MICROPY_DEBUG_PRINTERS
-    .fun_data_len = 177,
+    .fun_data_len = 184,
     #endif
     .children = (void *)&children_ili9XXX_ili9XXX,
     #if MICROPY_PERSISTENT_CODE_SAVE
-    .n_children = 17,
+    .n_children = 18,
     #if MICROPY_PY_SYS_SETTRACE
     .prelude = {
         .n_state = 27,
@@ -13021,8 +13064,8 @@ static const mp_raw_code_t raw_code_ili9XXX_ili9XXX = {
         .n_def_pos_args = 0,
         .qstr_block_name_idx = 8,
         .line_info = fun_data_ili9XXX_ili9XXX + 4,
-        .line_info_top = fun_data_ili9XXX_ili9XXX + 40,
-        .opcodes = fun_data_ili9XXX_ili9XXX + 40,
+        .line_info_top = fun_data_ili9XXX_ili9XXX + 42,
+        .opcodes = fun_data_ili9XXX_ili9XXX + 42,
     },
     .line_of_definition = 0,
     #endif
@@ -13040,11 +13083,11 @@ static const mp_raw_code_t raw_code_ili9XXX_ili9XXX = {
 static const byte fun_data_ili9XXX_ili9341[73] = {
     0xe0,0x10,0x0b, // prelude
     0x09, // names: ili9341
-    0x9b,0xee,0x4a,0x58,0x00, // code info
-    0x11,0x81,0x44, // LOAD_NAME '__name__'
-    0x16,0x81,0x45, // STORE_NAME '__module__'
+    0x9b,0xf2,0x4a,0x58,0x00, // code info
+    0x11,0x81,0x46, // LOAD_NAME '__name__'
+    0x16,0x81,0x47, // STORE_NAME '__module__'
     0x10,0x09, // LOAD_CONST_STRING 'ili9341'
-    0x16,0x81,0x46, // STORE_NAME '__qualname__'
+    0x16,0x81,0x48, // STORE_NAME '__qualname__'
     0x85, // LOAD_CONST_SMALL_INT 5
     0x92, // LOAD_CONST_SMALL_INT 18
     0x93, // LOAD_CONST_SMALL_INT 19
@@ -13055,7 +13098,7 @@ static const byte fun_data_ili9XXX_ili9341[73] = {
     0x8f, // LOAD_CONST_SMALL_INT 15
     0x80, // LOAD_CONST_SMALL_INT 0
     0x80, // LOAD_CONST_SMALL_INT 0
-    0x11,0x81,0x31, // LOAD_NAME 'esp'
+    0x11,0x81,0x33, // LOAD_NAME 'esp'
     0x13,0x0f, // LOAD_ATTR 'HSPI_HOST'
     0x80, // LOAD_CONST_SMALL_INT 0
     0xa8, // LOAD_CONST_SMALL_INT 40
@@ -13072,7 +13115,7 @@ static const byte fun_data_ili9XXX_ili9341[73] = {
     0x52, // LOAD_CONST_TRUE
     0x50, // LOAD_CONST_FALSE
     0x52, // LOAD_CONST_TRUE
-    0x11,0x81,0x32, // LOAD_NAME 'lv'
+    0x11,0x81,0x34, // LOAD_NAME 'lv'
     0x13,0x10, // LOAD_ATTR 'COLOR_FORMAT'
     0x13,0x11, // LOAD_ATTR 'RGB565'
     0x52, // LOAD_CONST_TRUE
@@ -13088,64 +13131,64 @@ static const byte fun_data_ili9XXX_ili9341[73] = {
 // frozen bytecode for file ili9XXX.py, scope ili9XXX_ili9341___init__
 static const byte fun_data_ili9XXX_ili9341___init__[799] = {
     0xaa,0x94,0x94,0x85,0x81,0x01,0x8c,0x02, // prelude
-    0x14,0x81,0x56,0x81,0x47,0x1f,0x20,0x21,0x22,0x23,0x24,0x25,0x26,0x27,0x28,0x29,0x2a,0x2b,0x2c,0x2d,0x1b,0x1c,0x1d,0x1e,0x81,0x27,0x81,0x28,0x81,0x24,0x81,0x25,0x2e,0x19,0x1a,0x30,0x33, // names: __init__, *, self, miso, mosi, clk, cs, dc, rst, power, backlight, backlight_on, power_on, spihost, spimode, mhz, factor, hybrid, width, height, start_x, start_y, colormode, rot, invert, double_buffer, half_duplex, asynchronous, initialize, color_format, swap_rgb565_bytes
-    0x90,0xf7,0x2e,0x48,0x46,0x20,0x39,0x3b,0x3a,0x3a,0x34,0x35,0x34,0x34,0x37,0x56,0x2a,0x55,0x35,0x35,0x34,0x32,0x1f,0x28,0x1f,0x2a,0x37,0x36,0x32,0x34,0x39,0x39,0x7e, // code info
-    0x12,0x81,0x32, // LOAD_GLOBAL 'lv'
-    0x14,0x81,0x22, // LOAD_METHOD 'color_format_get_bpp'
+    0x14,0x81,0x58,0x81,0x49,0x1f,0x20,0x21,0x22,0x23,0x24,0x25,0x26,0x27,0x28,0x29,0x2a,0x2b,0x2c,0x2d,0x1b,0x1c,0x1d,0x1e,0x81,0x29,0x81,0x2a,0x81,0x26,0x81,0x27,0x2e,0x19,0x1a,0x30,0x33, // names: __init__, *, self, miso, mosi, clk, cs, dc, rst, power, backlight, backlight_on, power_on, spihost, spimode, mhz, factor, hybrid, width, height, start_x, start_y, colormode, rot, invert, double_buffer, half_duplex, asynchronous, initialize, color_format, swap_rgb565_bytes
+    0x90,0xfb,0x2e,0x48,0x46,0x20,0x39,0x3b,0x3a,0x3a,0x34,0x35,0x34,0x34,0x37,0x56,0x2a,0x55,0x35,0x35,0x34,0x32,0x1f,0x28,0x1f,0x2a,0x37,0x36,0x32,0x34,0x39,0x39,0x7e, // code info
+    0x12,0x81,0x34, // LOAD_GLOBAL 'lv'
+    0x14,0x81,0x24, // LOAD_METHOD 'color_format_get_bpp'
     0x24,0x1c, // LOAD_FAST_N 28
     0x36,0x01, // CALL_METHOD 1
     0x90, // LOAD_CONST_SMALL_INT 16
     0xdc, // BINARY_OP 5 __ne__
     0x44,0x48, // POP_JUMP_IF_FALSE 8
-    0x12,0x81,0x48, // LOAD_GLOBAL 'RuntimeError'
-    0x23,0x13, // LOAD_CONST_OBJ 19
+    0x12,0x81,0x4a, // LOAD_GLOBAL 'RuntimeError'
+    0x23,0x11, // LOAD_CONST_OBJ 17
     0x34,0x01, // CALL_FUNCTION 1
     0x65, // RAISE_OBJ
-    0x10,0x81,0x23, // LOAD_CONST_STRING 'ILI9341'
+    0x10,0x81,0x25, // LOAD_CONST_STRING 'ILI9341'
     0xb1, // LOAD_FAST 1
     0x18,0x17, // STORE_ATTR 'display_name'
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x4f, // LOAD_CONST_SMALL_INT 207
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x80, // LOAD_CONST_SMALL_INT 0
     0x22,0x81,0x03, // LOAD_CONST_SMALL_INT 131
     0x22,0x30, // LOAD_CONST_SMALL_INT 48
     0x2b,0x03, // BUILD_LIST 3
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x6d, // LOAD_CONST_SMALL_INT 237
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x22,0x80,0x64, // LOAD_CONST_SMALL_INT 100
     0x83, // LOAD_CONST_SMALL_INT 3
     0x92, // LOAD_CONST_SMALL_INT 18
     0x22,0x81,0x01, // LOAD_CONST_SMALL_INT 129
     0x2b,0x04, // BUILD_LIST 4
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x68, // LOAD_CONST_SMALL_INT 232
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x22,0x81,0x05, // LOAD_CONST_SMALL_INT 133
     0x81, // LOAD_CONST_SMALL_INT 1
     0x22,0x80,0x79, // LOAD_CONST_SMALL_INT 121
     0x2b,0x03, // BUILD_LIST 3
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x4b, // LOAD_CONST_SMALL_INT 203
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x22,0x39, // LOAD_CONST_SMALL_INT 57
     0xac, // LOAD_CONST_SMALL_INT 44
     0x80, // LOAD_CONST_SMALL_INT 0
@@ -13153,131 +13196,131 @@ static const byte fun_data_ili9XXX_ili9341___init__[799] = {
     0x82, // LOAD_CONST_SMALL_INT 2
     0x2b,0x05, // BUILD_LIST 5
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x77, // LOAD_CONST_SMALL_INT 247
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0xa0, // LOAD_CONST_SMALL_INT 32
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x6a, // LOAD_CONST_SMALL_INT 234
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x80, // LOAD_CONST_SMALL_INT 0
     0x80, // LOAD_CONST_SMALL_INT 0
     0x2b,0x02, // BUILD_LIST 2
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x40, // LOAD_CONST_SMALL_INT 192
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0xa6, // LOAD_CONST_SMALL_INT 38
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x41, // LOAD_CONST_SMALL_INT 193
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x91, // LOAD_CONST_SMALL_INT 17
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x45, // LOAD_CONST_SMALL_INT 197
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x22,0x35, // LOAD_CONST_SMALL_INT 53
     0x22,0x3e, // LOAD_CONST_SMALL_INT 62
     0x2b,0x02, // BUILD_LIST 2
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x47, // LOAD_CONST_SMALL_INT 199
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x22,0x81,0x3e, // LOAD_CONST_SMALL_INT 190
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x36, // LOAD_CONST_SMALL_INT 54
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0xb1, // LOAD_FAST 1
-    0x14,0x81,0x21, // LOAD_METHOD 'madctl'
+    0x14,0x81,0x23, // LOAD_METHOD 'madctl'
     0x24,0x15, // LOAD_FAST_N 21
     0x24,0x16, // LOAD_FAST_N 22
-    0x12,0x81,0x3a, // LOAD_GLOBAL 'ORIENTATION_TABLE'
+    0x12,0x81,0x3c, // LOAD_GLOBAL 'ORIENTATION_TABLE'
     0x36,0x03, // CALL_METHOD 3
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x3a, // LOAD_CONST_SMALL_INT 58
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x22,0x80,0x55, // LOAD_CONST_SMALL_INT 85
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x31, // LOAD_CONST_SMALL_INT 177
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x80, // LOAD_CONST_SMALL_INT 0
     0x9b, // LOAD_CONST_SMALL_INT 27
     0x2b,0x02, // BUILD_LIST 2
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x72, // LOAD_CONST_SMALL_INT 242
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x88, // LOAD_CONST_SMALL_INT 8
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0xa6, // LOAD_CONST_SMALL_INT 38
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x81, // LOAD_CONST_SMALL_INT 1
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x60, // LOAD_CONST_SMALL_INT 224
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x9f, // LOAD_CONST_SMALL_INT 31
     0x9a, // LOAD_CONST_SMALL_INT 26
     0x98, // LOAD_CONST_SMALL_INT 24
@@ -13295,13 +13338,13 @@ static const byte fun_data_ili9XXX_ili9341___init__[799] = {
     0x80, // LOAD_CONST_SMALL_INT 0
     0x2b,0x0f, // BUILD_LIST 15
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x61, // LOAD_CONST_SMALL_INT 225
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x80, // LOAD_CONST_SMALL_INT 0
     0xa5, // LOAD_CONST_SMALL_INT 37
     0xa7, // LOAD_CONST_SMALL_INT 39
@@ -13319,97 +13362,97 @@ static const byte fun_data_ili9XXX_ili9341___init__[799] = {
     0x9f, // LOAD_CONST_SMALL_INT 31
     0x2b,0x0f, // BUILD_LIST 15
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0xaa, // LOAD_CONST_SMALL_INT 42
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x80, // LOAD_CONST_SMALL_INT 0
     0x80, // LOAD_CONST_SMALL_INT 0
     0x80, // LOAD_CONST_SMALL_INT 0
     0x22,0x81,0x6f, // LOAD_CONST_SMALL_INT 239
     0x2b,0x04, // BUILD_LIST 4
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0xab, // LOAD_CONST_SMALL_INT 43
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x80, // LOAD_CONST_SMALL_INT 0
     0x80, // LOAD_CONST_SMALL_INT 0
     0x81, // LOAD_CONST_SMALL_INT 1
     0x22,0x3f, // LOAD_CONST_SMALL_INT 63
     0x2b,0x04, // BUILD_LIST 4
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0xac, // LOAD_CONST_SMALL_INT 44
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x80, // LOAD_CONST_SMALL_INT 0
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x37, // LOAD_CONST_SMALL_INT 183
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x87, // LOAD_CONST_SMALL_INT 7
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x36, // LOAD_CONST_SMALL_INT 182
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x8a, // LOAD_CONST_SMALL_INT 10
     0x22,0x81,0x02, // LOAD_CONST_SMALL_INT 130
     0xa7, // LOAD_CONST_SMALL_INT 39
     0x80, // LOAD_CONST_SMALL_INT 0
     0x2b,0x04, // BUILD_LIST 4
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x03, // BUILD_MAP 3
     0x91, // LOAD_CONST_SMALL_INT 17
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x80, // LOAD_CONST_SMALL_INT 0
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x22,0x80,0x64, // LOAD_CONST_SMALL_INT 100
-    0x10,0x81,0x13, // LOAD_CONST_STRING 'delay'
+    0x10,0x81,0x15, // LOAD_CONST_STRING 'delay'
     0x62, // STORE_MAP
     0x2c,0x03, // BUILD_MAP 3
     0xa9, // LOAD_CONST_SMALL_INT 41
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x80, // LOAD_CONST_SMALL_INT 0
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x22,0x80,0x64, // LOAD_CONST_SMALL_INT 100
-    0x10,0x81,0x13, // LOAD_CONST_STRING 'delay'
+    0x10,0x81,0x15, // LOAD_CONST_STRING 'delay'
     0x62, // STORE_MAP
     0x2b,0x18, // BUILD_LIST 24
     0xb1, // LOAD_FAST 1
     0x18,0x18, // STORE_ATTR 'init_cmds'
-    0x12,0x81,0x58, // LOAD_GLOBAL 'super'
+    0x12,0x81,0x5a, // LOAD_GLOBAL 'super'
     0x25,0x00, // LOAD_DEREF 0
     0xb1, // LOAD_FAST 1
     0x15,0x14, // LOAD_SUPER_METHOD '__init__'
@@ -13451,9 +13494,9 @@ static const byte fun_data_ili9XXX_ili9341___init__[799] = {
     0x24,0x13, // LOAD_FAST_N 19
     0x10,0x1e, // LOAD_CONST_STRING 'start_y'
     0x24,0x14, // LOAD_FAST_N 20
-    0x10,0x81,0x24, // LOAD_CONST_STRING 'invert'
+    0x10,0x81,0x26, // LOAD_CONST_STRING 'invert'
     0x24,0x17, // LOAD_FAST_N 23
-    0x10,0x81,0x25, // LOAD_CONST_STRING 'double_buffer'
+    0x10,0x81,0x27, // LOAD_CONST_STRING 'double_buffer'
     0x24,0x18, // LOAD_FAST_N 24
     0x10,0x2e, // LOAD_CONST_STRING 'half_duplex'
     0x24,0x19, // LOAD_FAST_N 25
@@ -13551,11 +13594,11 @@ static const mp_raw_code_t raw_code_ili9XXX_ili9341 = {
 static const byte fun_data_ili9XXX_ili9488[73] = {
     0xe0,0x10,0x0b, // prelude
     0x0a, // names: ili9488
-    0xab,0x22,0x4a,0x56,0x00, // code info
-    0x11,0x81,0x44, // LOAD_NAME '__name__'
-    0x16,0x81,0x45, // STORE_NAME '__module__'
+    0xab,0x26,0x4a,0x56,0x00, // code info
+    0x11,0x81,0x46, // LOAD_NAME '__name__'
+    0x16,0x81,0x47, // STORE_NAME '__module__'
     0x10,0x0a, // LOAD_CONST_STRING 'ili9488'
-    0x16,0x81,0x46, // STORE_NAME '__qualname__'
+    0x16,0x81,0x48, // STORE_NAME '__qualname__'
     0x85, // LOAD_CONST_SMALL_INT 5
     0x92, // LOAD_CONST_SMALL_INT 18
     0x93, // LOAD_CONST_SMALL_INT 19
@@ -13566,7 +13609,7 @@ static const byte fun_data_ili9XXX_ili9488[73] = {
     0x8f, // LOAD_CONST_SMALL_INT 15
     0x80, // LOAD_CONST_SMALL_INT 0
     0x80, // LOAD_CONST_SMALL_INT 0
-    0x11,0x81,0x31, // LOAD_NAME 'esp'
+    0x11,0x81,0x33, // LOAD_NAME 'esp'
     0x13,0x0f, // LOAD_ATTR 'HSPI_HOST'
     0x80, // LOAD_CONST_SMALL_INT 0
     0xa8, // LOAD_CONST_SMALL_INT 40
@@ -13581,7 +13624,7 @@ static const byte fun_data_ili9XXX_ili9488[73] = {
     0x52, // LOAD_CONST_TRUE
     0x50, // LOAD_CONST_FALSE
     0x52, // LOAD_CONST_TRUE
-    0x11,0x81,0x32, // LOAD_NAME 'lv'
+    0x11,0x81,0x34, // LOAD_NAME 'lv'
     0x13,0x10, // LOAD_ATTR 'COLOR_FORMAT'
     0x13,0x12, // LOAD_ATTR 'XRGB8888'
     0x82, // LOAD_CONST_SMALL_INT 2
@@ -13599,10 +13642,10 @@ static const byte fun_data_ili9XXX_ili9488[73] = {
 // frozen bytecode for file ili9XXX.py, scope ili9XXX_ili9488___init__
 static const byte fun_data_ili9XXX_ili9488___init__[715] = {
     0x92,0x94,0x94,0x85,0x81,0x01,0x8e,0x02, // prelude
-    0x14,0x81,0x56,0x81,0x47,0x1f,0x20,0x21,0x22,0x23,0x24,0x25,0x26,0x27,0x28,0x29,0x2a,0x2b,0x2c,0x2d,0x1b,0x1c,0x81,0x27,0x81,0x28,0x81,0x24,0x81,0x25,0x2e,0x19,0x1a,0x30,0x2f,0x81,0x29,0x33, // names: __init__, *, self, miso, mosi, clk, cs, dc, rst, power, backlight, backlight_on, power_on, spihost, spimode, mhz, factor, hybrid, width, height, colormode, rot, invert, double_buffer, half_duplex, asynchronous, initialize, color_format, display_type, p16, swap_rgb565_bytes
-    0xa0,0x29,0x32,0x28,0x24,0x48,0x46,0x24,0x49,0x47,0x20,0x39,0x39,0x1f,0x28,0x1f,0x2a,0x35,0x36,0x36,0x78,0x2a,0x55,0x32,0x34,0x36,0x34,0x35,0x34,0x34,0x36,0x3b,0x7e, // code info
-    0x12,0x81,0x32, // LOAD_GLOBAL 'lv'
-    0x14,0x81,0x22, // LOAD_METHOD 'color_format_get_bpp'
+    0x14,0x81,0x58,0x81,0x49,0x1f,0x20,0x21,0x22,0x23,0x24,0x25,0x26,0x27,0x28,0x29,0x2a,0x2b,0x2c,0x2d,0x1b,0x1c,0x81,0x29,0x81,0x2a,0x81,0x26,0x81,0x27,0x2e,0x19,0x1a,0x30,0x2f,0x81,0x2b,0x33, // names: __init__, *, self, miso, mosi, clk, cs, dc, rst, power, backlight, backlight_on, power_on, spihost, spimode, mhz, factor, hybrid, width, height, colormode, rot, invert, double_buffer, half_duplex, asynchronous, initialize, color_format, display_type, p16, swap_rgb565_bytes
+    0xa0,0x2d,0x32,0x28,0x24,0x48,0x46,0x24,0x49,0x47,0x20,0x39,0x39,0x1f,0x28,0x1f,0x2a,0x35,0x36,0x36,0x78,0x2a,0x55,0x32,0x34,0x36,0x34,0x35,0x34,0x34,0x36,0x3b,0x7e, // code info
+    0x12,0x81,0x34, // LOAD_GLOBAL 'lv'
+    0x14,0x81,0x24, // LOAD_METHOD 'color_format_get_bpp'
     0x24,0x1a, // LOAD_FAST_N 26
     0x36,0x01, // CALL_METHOD 1
     0xa0, // LOAD_CONST_SMALL_INT 32
@@ -13610,17 +13653,17 @@ static const byte fun_data_ili9XXX_ili9488___init__[715] = {
     0x44,0x4c, // POP_JUMP_IF_FALSE 12
     0x24,0x1c, // LOAD_FAST_N 28
     0x43,0x48, // POP_JUMP_IF_TRUE 8
-    0x12,0x81,0x48, // LOAD_GLOBAL 'RuntimeError'
-    0x23,0x14, // LOAD_CONST_OBJ 20
+    0x12,0x81,0x4a, // LOAD_GLOBAL 'RuntimeError'
+    0x23,0x12, // LOAD_CONST_OBJ 18
     0x34,0x01, // CALL_FUNCTION 1
     0x65, // RAISE_OBJ
     0x24,0x10, // LOAD_FAST_N 16
     0x43,0x48, // POP_JUMP_IF_TRUE 8
-    0x12,0x81,0x48, // LOAD_GLOBAL 'RuntimeError'
-    0x23,0x15, // LOAD_CONST_OBJ 21
+    0x12,0x81,0x4a, // LOAD_GLOBAL 'RuntimeError'
+    0x23,0x13, // LOAD_CONST_OBJ 19
     0x34,0x01, // CALL_FUNCTION 1
     0x65, // RAISE_OBJ
-    0x10,0x81,0x26, // LOAD_CONST_STRING 'ILI9488'
+    0x10,0x81,0x28, // LOAD_CONST_STRING 'ILI9488'
     0xb1, // LOAD_FAST 1
     0x18,0x17, // STORE_ATTR 'display_name'
     0x24,0x1c, // LOAD_FAST_N 28
@@ -13636,33 +13679,33 @@ static const byte fun_data_ili9XXX_ili9488___init__[715] = {
     0x81, // LOAD_CONST_SMALL_INT 1
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x80, // LOAD_CONST_SMALL_INT 0
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x22,0x81,0x48, // LOAD_CONST_SMALL_INT 200
-    0x10,0x81,0x13, // LOAD_CONST_STRING 'delay'
+    0x10,0x81,0x15, // LOAD_CONST_STRING 'delay'
     0x62, // STORE_MAP
     0x2c,0x03, // BUILD_MAP 3
     0x91, // LOAD_CONST_SMALL_INT 17
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x80, // LOAD_CONST_SMALL_INT 0
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x22,0x80,0x78, // LOAD_CONST_SMALL_INT 120
-    0x10,0x81,0x13, // LOAD_CONST_STRING 'delay'
+    0x10,0x81,0x15, // LOAD_CONST_STRING 'delay'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x60, // LOAD_CONST_SMALL_INT 224
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x80, // LOAD_CONST_SMALL_INT 0
     0x83, // LOAD_CONST_SMALL_INT 3
     0x89, // LOAD_CONST_SMALL_INT 9
@@ -13680,13 +13723,13 @@ static const byte fun_data_ili9XXX_ili9488___init__[715] = {
     0x8f, // LOAD_CONST_SMALL_INT 15
     0x2b,0x0f, // BUILD_LIST 15
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x61, // LOAD_CONST_SMALL_INT 225
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x80, // LOAD_CONST_SMALL_INT 0
     0x96, // LOAD_CONST_SMALL_INT 22
     0x99, // LOAD_CONST_SMALL_INT 25
@@ -13704,176 +13747,176 @@ static const byte fun_data_ili9XXX_ili9488___init__[715] = {
     0x8f, // LOAD_CONST_SMALL_INT 15
     0x2b,0x0f, // BUILD_LIST 15
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x40, // LOAD_CONST_SMALL_INT 192
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x97, // LOAD_CONST_SMALL_INT 23
     0x95, // LOAD_CONST_SMALL_INT 21
     0x2b,0x02, // BUILD_LIST 2
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x41, // LOAD_CONST_SMALL_INT 193
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x22,0x80,0x41, // LOAD_CONST_SMALL_INT 65
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x42, // LOAD_CONST_SMALL_INT 194
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x22,0x80,0x44, // LOAD_CONST_SMALL_INT 68
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x45, // LOAD_CONST_SMALL_INT 197
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x80, // LOAD_CONST_SMALL_INT 0
     0x92, // LOAD_CONST_SMALL_INT 18
     0x22,0x81,0x00, // LOAD_CONST_SMALL_INT 128
     0x2b,0x03, // BUILD_LIST 3
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x36, // LOAD_CONST_SMALL_INT 54
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0xb1, // LOAD_FAST 1
-    0x14,0x81,0x21, // LOAD_METHOD 'madctl'
+    0x14,0x81,0x23, // LOAD_METHOD 'madctl'
     0x24,0x13, // LOAD_FAST_N 19
     0x24,0x14, // LOAD_FAST_N 20
-    0x12,0x81,0x3a, // LOAD_GLOBAL 'ORIENTATION_TABLE'
+    0x12,0x81,0x3c, // LOAD_GLOBAL 'ORIENTATION_TABLE'
     0x36,0x03, // CALL_METHOD 3
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x3a, // LOAD_CONST_SMALL_INT 58
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x24,0x1e, // LOAD_FAST_N 30
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x30, // LOAD_CONST_SMALL_INT 176
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x80, // LOAD_CONST_SMALL_INT 0
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x31, // LOAD_CONST_SMALL_INT 177
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x22,0x81,0x20, // LOAD_CONST_SMALL_INT 160
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x34, // LOAD_CONST_SMALL_INT 180
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x82, // LOAD_CONST_SMALL_INT 2
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x36, // LOAD_CONST_SMALL_INT 182
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x82, // LOAD_CONST_SMALL_INT 2
     0x82, // LOAD_CONST_SMALL_INT 2
     0x2b,0x02, // BUILD_LIST 2
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x69, // LOAD_CONST_SMALL_INT 233
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x80, // LOAD_CONST_SMALL_INT 0
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x80,0x53, // LOAD_CONST_SMALL_INT 83
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0xa8, // LOAD_CONST_SMALL_INT 40
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x80,0x51, // LOAD_CONST_SMALL_INT 81
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x22,0x80,0x7f, // LOAD_CONST_SMALL_INT 127
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x77, // LOAD_CONST_SMALL_INT 247
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x22,0x81,0x29, // LOAD_CONST_SMALL_INT 169
     0x22,0x80,0x51, // LOAD_CONST_SMALL_INT 81
     0xac, // LOAD_CONST_SMALL_INT 44
     0x82, // LOAD_CONST_SMALL_INT 2
     0x2b,0x04, // BUILD_LIST 4
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x03, // BUILD_MAP 3
     0xa9, // LOAD_CONST_SMALL_INT 41
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x80, // LOAD_CONST_SMALL_INT 0
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x22,0x80,0x78, // LOAD_CONST_SMALL_INT 120
-    0x10,0x81,0x13, // LOAD_CONST_STRING 'delay'
+    0x10,0x81,0x15, // LOAD_CONST_STRING 'delay'
     0x62, // STORE_MAP
     0x2b,0x13, // BUILD_LIST 19
     0xb1, // LOAD_FAST 1
     0x18,0x18, // STORE_ATTR 'init_cmds'
-    0x12,0x81,0x58, // LOAD_GLOBAL 'super'
+    0x12,0x81,0x5a, // LOAD_GLOBAL 'super'
     0x25,0x00, // LOAD_DEREF 0
     0xb1, // LOAD_FAST 1
     0x15,0x14, // LOAD_SUPER_METHOD '__init__'
@@ -13911,9 +13954,9 @@ static const byte fun_data_ili9XXX_ili9488___init__[715] = {
     0x24,0x11, // LOAD_FAST_N 17
     0x10,0x1c, // LOAD_CONST_STRING 'height'
     0x24,0x12, // LOAD_FAST_N 18
-    0x10,0x81,0x24, // LOAD_CONST_STRING 'invert'
+    0x10,0x81,0x26, // LOAD_CONST_STRING 'invert'
     0x24,0x15, // LOAD_FAST_N 21
-    0x10,0x81,0x25, // LOAD_CONST_STRING 'double_buffer'
+    0x10,0x81,0x27, // LOAD_CONST_STRING 'double_buffer'
     0x24,0x16, // LOAD_FAST_N 22
     0x10,0x2e, // LOAD_CONST_STRING 'half_duplex'
     0x24,0x17, // LOAD_FAST_N 23
@@ -14011,11 +14054,11 @@ static const mp_raw_code_t raw_code_ili9XXX_ili9488 = {
 static const byte fun_data_ili9XXX_ili9488g[72] = {
     0xc8,0x10,0x0b, // prelude
     0x0b, // names: ili9488g
-    0xab,0x57,0x4a,0x57,0x00, // code info
-    0x11,0x81,0x44, // LOAD_NAME '__name__'
-    0x16,0x81,0x45, // STORE_NAME '__module__'
+    0xab,0x5b,0x4a,0x57,0x00, // code info
+    0x11,0x81,0x46, // LOAD_NAME '__name__'
+    0x16,0x81,0x47, // STORE_NAME '__module__'
     0x10,0x0b, // LOAD_CONST_STRING 'ili9488g'
-    0x16,0x81,0x46, // STORE_NAME '__qualname__'
+    0x16,0x81,0x48, // STORE_NAME '__qualname__'
     0x7f, // LOAD_CONST_SMALL_INT -1
     0x97, // LOAD_CONST_SMALL_INT 23
     0x92, // LOAD_CONST_SMALL_INT 18
@@ -14026,7 +14069,7 @@ static const byte fun_data_ili9XXX_ili9488g[72] = {
     0x7f, // LOAD_CONST_SMALL_INT -1
     0x80, // LOAD_CONST_SMALL_INT 0
     0x80, // LOAD_CONST_SMALL_INT 0
-    0x11,0x81,0x31, // LOAD_NAME 'esp'
+    0x11,0x81,0x33, // LOAD_NAME 'esp'
     0x13,0x13, // LOAD_ATTR 'VSPI_HOST'
     0x80, // LOAD_CONST_SMALL_INT 0
     0x22,0x80,0x50, // LOAD_CONST_SMALL_INT 80
@@ -14040,7 +14083,7 @@ static const byte fun_data_ili9XXX_ili9488g[72] = {
     0x52, // LOAD_CONST_TRUE
     0x50, // LOAD_CONST_FALSE
     0x52, // LOAD_CONST_TRUE
-    0x11,0x81,0x32, // LOAD_NAME 'lv'
+    0x11,0x81,0x34, // LOAD_NAME 'lv'
     0x13,0x10, // LOAD_ATTR 'COLOR_FORMAT'
     0x13,0x12, // LOAD_ATTR 'XRGB8888'
     0x50, // LOAD_CONST_FALSE
@@ -14056,10 +14099,10 @@ static const byte fun_data_ili9XXX_ili9488g[72] = {
 // frozen bytecode for file ili9XXX.py, scope ili9XXX_ili9488g___init__
 static const byte fun_data_ili9XXX_ili9488g___init__[237] = {
     0xbb,0x91,0x94,0x84,0x81,0x01,0x5c, // prelude
-    0x14,0x81,0x56,0x81,0x47,0x1f,0x20,0x21,0x22,0x23,0x24,0x25,0x26,0x27,0x28,0x29,0x2a,0x2b,0x2c,0x2d,0x1b,0x1c,0x81,0x28,0x81,0x24,0x81,0x25,0x2e,0x19,0x1a,0x30,0x33, // names: __init__, *, self, miso, mosi, clk, cs, dc, rst, power, backlight, backlight_on, power_on, spihost, spimode, mhz, factor, hybrid, width, height, rot, invert, double_buffer, half_duplex, asynchronous, initialize, color_format, swap_rgb565_bytes
-    0xa0,0x5e,0x2e,0x23,0x29,0x23,0x43,0x2e,0x23,0x29,0x23,0x23,0x43, // code info
-    0x12,0x81,0x32, // LOAD_GLOBAL 'lv'
-    0x14,0x81,0x22, // LOAD_METHOD 'color_format_get_bpp'
+    0x14,0x81,0x58,0x81,0x49,0x1f,0x20,0x21,0x22,0x23,0x24,0x25,0x26,0x27,0x28,0x29,0x2a,0x2b,0x2c,0x2d,0x1b,0x1c,0x81,0x2a,0x81,0x26,0x81,0x27,0x2e,0x19,0x1a,0x30,0x33, // names: __init__, *, self, miso, mosi, clk, cs, dc, rst, power, backlight, backlight_on, power_on, spihost, spimode, mhz, factor, hybrid, width, height, rot, invert, double_buffer, half_duplex, asynchronous, initialize, color_format, swap_rgb565_bytes
+    0xa0,0x62,0x2e,0x23,0x29,0x23,0x43,0x2e,0x23,0x29,0x23,0x23,0x43, // code info
+    0x12,0x81,0x34, // LOAD_GLOBAL 'lv'
+    0x14,0x81,0x24, // LOAD_METHOD 'color_format_get_bpp'
     0x24,0x19, // LOAD_FAST_N 25
     0x36,0x01, // CALL_METHOD 1
     0xa0, // LOAD_CONST_SMALL_INT 32
@@ -14067,7 +14110,7 @@ static const byte fun_data_ili9XXX_ili9488g___init__[237] = {
     0x44,0x52, // POP_JUMP_IF_FALSE 18
     0x80, // LOAD_CONST_SMALL_INT 0
     0x26,0x1b, // STORE_FAST_N 27
-    0x12,0x81,0x32, // LOAD_GLOBAL 'lv'
+    0x12,0x81,0x34, // LOAD_GLOBAL 'lv'
     0x13,0x10, // LOAD_ATTR 'COLOR_FORMAT'
     0x13,0x12, // LOAD_ATTR 'XRGB8888'
     0x26,0x19, // STORE_FAST_N 25
@@ -14075,8 +14118,8 @@ static const byte fun_data_ili9XXX_ili9488g___init__[237] = {
     0x26,0x1c, // STORE_FAST_N 28
     0x50, // LOAD_CONST_FALSE
     0x26,0x1d, // STORE_FAST_N 29
-    0x12,0x81,0x32, // LOAD_GLOBAL 'lv'
-    0x14,0x81,0x22, // LOAD_METHOD 'color_format_get_bpp'
+    0x12,0x81,0x34, // LOAD_GLOBAL 'lv'
+    0x14,0x81,0x24, // LOAD_METHOD 'color_format_get_bpp'
     0x24,0x19, // LOAD_FAST_N 25
     0x36,0x01, // CALL_METHOD 1
     0x90, // LOAD_CONST_SMALL_INT 16
@@ -14084,7 +14127,7 @@ static const byte fun_data_ili9XXX_ili9488g___init__[237] = {
     0x44,0x55, // POP_JUMP_IF_FALSE 21
     0x88, // LOAD_CONST_SMALL_INT 8
     0x26,0x1b, // STORE_FAST_N 27
-    0x12,0x81,0x32, // LOAD_GLOBAL 'lv'
+    0x12,0x81,0x34, // LOAD_GLOBAL 'lv'
     0x13,0x10, // LOAD_ATTR 'COLOR_FORMAT'
     0x13,0x11, // LOAD_ATTR 'RGB565'
     0x26,0x19, // STORE_FAST_N 25
@@ -14094,7 +14137,7 @@ static const byte fun_data_ili9XXX_ili9488g___init__[237] = {
     0x26,0x1c, // STORE_FAST_N 28
     0x52, // LOAD_CONST_TRUE
     0x26,0x1d, // STORE_FAST_N 29
-    0x12,0x81,0x58, // LOAD_GLOBAL 'super'
+    0x12,0x81,0x5a, // LOAD_GLOBAL 'super'
     0x25,0x00, // LOAD_DEREF 0
     0xb1, // LOAD_FAST 1
     0x15,0x14, // LOAD_SUPER_METHOD '__init__'
@@ -14132,13 +14175,13 @@ static const byte fun_data_ili9XXX_ili9488g___init__[237] = {
     0x24,0x11, // LOAD_FAST_N 17
     0x10,0x1c, // LOAD_CONST_STRING 'height'
     0x24,0x12, // LOAD_FAST_N 18
-    0x10,0x81,0x27, // LOAD_CONST_STRING 'colormode'
+    0x10,0x81,0x29, // LOAD_CONST_STRING 'colormode'
     0x24,0x1b, // LOAD_FAST_N 27
-    0x10,0x81,0x28, // LOAD_CONST_STRING 'rot'
+    0x10,0x81,0x2a, // LOAD_CONST_STRING 'rot'
     0x24,0x13, // LOAD_FAST_N 19
-    0x10,0x81,0x24, // LOAD_CONST_STRING 'invert'
+    0x10,0x81,0x26, // LOAD_CONST_STRING 'invert'
     0x24,0x14, // LOAD_FAST_N 20
-    0x10,0x81,0x25, // LOAD_CONST_STRING 'double_buffer'
+    0x10,0x81,0x27, // LOAD_CONST_STRING 'double_buffer'
     0x24,0x15, // LOAD_FAST_N 21
     0x10,0x2e, // LOAD_CONST_STRING 'half_duplex'
     0x24,0x16, // LOAD_FAST_N 22
@@ -14150,7 +14193,7 @@ static const byte fun_data_ili9XXX_ili9488g___init__[237] = {
     0x24,0x19, // LOAD_FAST_N 25
     0x10,0x2f, // LOAD_CONST_STRING 'display_type'
     0x24,0x1c, // LOAD_FAST_N 28
-    0x10,0x81,0x29, // LOAD_CONST_STRING 'p16'
+    0x10,0x81,0x2b, // LOAD_CONST_STRING 'p16'
     0x24,0x1d, // LOAD_FAST_N 29
     0x10,0x33, // LOAD_CONST_STRING 'swap_rgb565_bytes'
     0x24,0x1a, // LOAD_FAST_N 26
@@ -14238,11 +14281,11 @@ static const mp_raw_code_t raw_code_ili9XXX_ili9488g = {
 static const byte fun_data_ili9XXX_gc9a01[72] = {
     0xd0,0x10,0x0b, // prelude
     0x0c, // names: gc9a01
-    0xab,0x76,0x4a,0x57,0x00, // code info
-    0x11,0x81,0x44, // LOAD_NAME '__name__'
-    0x16,0x81,0x45, // STORE_NAME '__module__'
+    0xab,0x7a,0x4a,0x57,0x00, // code info
+    0x11,0x81,0x46, // LOAD_NAME '__name__'
+    0x16,0x81,0x47, // STORE_NAME '__module__'
     0x10,0x0c, // LOAD_CONST_STRING 'gc9a01'
-    0x16,0x81,0x46, // STORE_NAME '__qualname__'
+    0x16,0x81,0x48, // STORE_NAME '__qualname__'
     0x85, // LOAD_CONST_SMALL_INT 5
     0x92, // LOAD_CONST_SMALL_INT 18
     0x93, // LOAD_CONST_SMALL_INT 19
@@ -14253,7 +14296,7 @@ static const byte fun_data_ili9XXX_gc9a01[72] = {
     0x8f, // LOAD_CONST_SMALL_INT 15
     0x80, // LOAD_CONST_SMALL_INT 0
     0x80, // LOAD_CONST_SMALL_INT 0
-    0x11,0x81,0x31, // LOAD_NAME 'esp'
+    0x11,0x81,0x33, // LOAD_NAME 'esp'
     0x13,0x0f, // LOAD_ATTR 'HSPI_HOST'
     0x80, // LOAD_CONST_SMALL_INT 0
     0x22,0x3c, // LOAD_CONST_SMALL_INT 60
@@ -14268,7 +14311,7 @@ static const byte fun_data_ili9XXX_gc9a01[72] = {
     0x52, // LOAD_CONST_TRUE
     0x50, // LOAD_CONST_FALSE
     0x52, // LOAD_CONST_TRUE
-    0x11,0x81,0x32, // LOAD_NAME 'lv'
+    0x11,0x81,0x34, // LOAD_NAME 'lv'
     0x13,0x10, // LOAD_ATTR 'COLOR_FORMAT'
     0x13,0x11, // LOAD_ATTR 'RGB565'
     0x52, // LOAD_CONST_TRUE
@@ -14284,17 +14327,17 @@ static const byte fun_data_ili9XXX_gc9a01[72] = {
 // frozen bytecode for file ili9XXX.py, scope ili9XXX_gc9a01___init__
 static const byte fun_data_ili9XXX_gc9a01___init__[1481] = {
     0x90,0x94,0x95,0x84,0x81,0x01,0xd0,0x02, // prelude
-    0x14,0x81,0x56,0x81,0x47,0x1f,0x20,0x21,0x22,0x23,0x24,0x25,0x26,0x27,0x28,0x29,0x2a,0x2b,0x2c,0x2d,0x1b,0x1c,0x81,0x27,0x81,0x28,0x81,0x24,0x81,0x25,0x2e,0x19,0x1a,0x30,0x33, // names: __init__, *, self, miso, mosi, clk, cs, dc, rst, power, backlight, backlight_on, power_on, spihost, spimode, mhz, factor, hybrid, width, height, colormode, rot, invert, double_buffer, half_duplex, asynchronous, initialize, color_format, swap_rgb565_bytes
-    0xa0,0x7d,0x2e,0x68,0x40,0x26,0x27,0x26,0x47,0x46,0x20,0x34,0x34,0x34,0x34,0x34,0x36,0x36,0x36,0x36,0x34,0x34,0x34,0x36,0x34,0x34,0x36,0x36,0x55,0x2a,0x55,0x33,0x37,0x34,0x34,0x38,0x34,0x34,0x34,0x34,0x35,0x36,0x3b,0x1f,0x24,0x3b,0x1f,0x24,0x35,0x36,0x36,0x3c,0x35,0x1f,0x30,0x1f,0x30,0x3e,0x1f,0x27,0x1f,0x24,0x1f,0x21,0x36,0x33,0x32,0x37,0x7e, // code info
-    0x12,0x81,0x32, // LOAD_GLOBAL 'lv'
-    0x14,0x81,0x22, // LOAD_METHOD 'color_format_get_bpp'
+    0x14,0x81,0x58,0x81,0x49,0x1f,0x20,0x21,0x22,0x23,0x24,0x25,0x26,0x27,0x28,0x29,0x2a,0x2b,0x2c,0x2d,0x1b,0x1c,0x81,0x29,0x81,0x2a,0x81,0x26,0x81,0x27,0x2e,0x19,0x1a,0x30,0x33, // names: __init__, *, self, miso, mosi, clk, cs, dc, rst, power, backlight, backlight_on, power_on, spihost, spimode, mhz, factor, hybrid, width, height, colormode, rot, invert, double_buffer, half_duplex, asynchronous, initialize, color_format, swap_rgb565_bytes
+    0xa0,0x81,0x2e,0x68,0x40,0x26,0x27,0x26,0x47,0x46,0x20,0x34,0x34,0x34,0x34,0x34,0x36,0x36,0x36,0x36,0x34,0x34,0x34,0x36,0x34,0x34,0x36,0x36,0x55,0x2a,0x55,0x33,0x37,0x34,0x34,0x38,0x34,0x34,0x34,0x34,0x35,0x36,0x3b,0x1f,0x24,0x3b,0x1f,0x24,0x35,0x36,0x36,0x3c,0x35,0x1f,0x30,0x1f,0x30,0x3e,0x1f,0x27,0x1f,0x24,0x1f,0x21,0x36,0x33,0x32,0x37,0x7e, // code info
+    0x12,0x81,0x34, // LOAD_GLOBAL 'lv'
+    0x14,0x81,0x24, // LOAD_METHOD 'color_format_get_bpp'
     0x24,0x1a, // LOAD_FAST_N 26
     0x36,0x01, // CALL_METHOD 1
     0x90, // LOAD_CONST_SMALL_INT 16
     0xdc, // BINARY_OP 5 __ne__
     0x44,0x48, // POP_JUMP_IF_FALSE 8
-    0x12,0x81,0x48, // LOAD_GLOBAL 'RuntimeError'
-    0x23,0x16, // LOAD_CONST_OBJ 22
+    0x12,0x81,0x4a, // LOAD_GLOBAL 'RuntimeError'
+    0x23,0x14, // LOAD_CONST_OBJ 20
     0x34,0x01, // CALL_FUNCTION 1
     0x65, // RAISE_OBJ
     0x24,0x13, // LOAD_FAST_N 19
@@ -14303,7 +14346,7 @@ static const byte fun_data_ili9XXX_gc9a01___init__[1481] = {
     0x44,0x47, // POP_JUMP_IF_FALSE 7
     0x88, // LOAD_CONST_SMALL_INT 8
     0xb1, // LOAD_FAST 1
-    0x18,0x81,0x27, // STORE_ATTR 'colormode'
+    0x18,0x81,0x29, // STORE_ATTR 'colormode'
     0x42,0x4d, // JUMP 13
     0x24,0x13, // LOAD_FAST_N 19
     0x88, // LOAD_CONST_SMALL_INT 8
@@ -14311,330 +14354,330 @@ static const byte fun_data_ili9XXX_gc9a01___init__[1481] = {
     0x44,0x47, // POP_JUMP_IF_FALSE 7
     0x80, // LOAD_CONST_SMALL_INT 0
     0xb1, // LOAD_FAST 1
-    0x18,0x81,0x27, // STORE_ATTR 'colormode'
+    0x18,0x81,0x29, // STORE_ATTR 'colormode'
     0x42,0x40, // JUMP 0
-    0x10,0x81,0x2a, // LOAD_CONST_STRING 'GC9A01'
+    0x10,0x81,0x2c, // LOAD_CONST_STRING 'GC9A01'
     0xb1, // LOAD_FAST 1
     0x18,0x17, // STORE_ATTR 'display_name'
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x6f, // LOAD_CONST_SMALL_INT 239
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x80, // LOAD_CONST_SMALL_INT 0
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x6b, // LOAD_CONST_SMALL_INT 235
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x94, // LOAD_CONST_SMALL_INT 20
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x7e, // LOAD_CONST_SMALL_INT 254
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x80, // LOAD_CONST_SMALL_INT 0
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x6f, // LOAD_CONST_SMALL_INT 239
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x80, // LOAD_CONST_SMALL_INT 0
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x6b, // LOAD_CONST_SMALL_INT 235
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x94, // LOAD_CONST_SMALL_INT 20
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x04, // LOAD_CONST_SMALL_INT 132
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x22,0x80,0x40, // LOAD_CONST_SMALL_INT 64
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x05, // LOAD_CONST_SMALL_INT 133
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x22,0x81,0x7f, // LOAD_CONST_SMALL_INT 255
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x06, // LOAD_CONST_SMALL_INT 134
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x22,0x81,0x7f, // LOAD_CONST_SMALL_INT 255
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x07, // LOAD_CONST_SMALL_INT 135
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x22,0x81,0x7f, // LOAD_CONST_SMALL_INT 255
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x08, // LOAD_CONST_SMALL_INT 136
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x8a, // LOAD_CONST_SMALL_INT 10
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x09, // LOAD_CONST_SMALL_INT 137
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0xa1, // LOAD_CONST_SMALL_INT 33
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x0a, // LOAD_CONST_SMALL_INT 138
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x80, // LOAD_CONST_SMALL_INT 0
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x0b, // LOAD_CONST_SMALL_INT 139
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x22,0x81,0x00, // LOAD_CONST_SMALL_INT 128
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x0c, // LOAD_CONST_SMALL_INT 140
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x81, // LOAD_CONST_SMALL_INT 1
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x0d, // LOAD_CONST_SMALL_INT 141
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x81, // LOAD_CONST_SMALL_INT 1
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x0e, // LOAD_CONST_SMALL_INT 142
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x22,0x81,0x7f, // LOAD_CONST_SMALL_INT 255
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x0f, // LOAD_CONST_SMALL_INT 143
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x22,0x81,0x7f, // LOAD_CONST_SMALL_INT 255
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x36, // LOAD_CONST_SMALL_INT 182
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x80, // LOAD_CONST_SMALL_INT 0
     0x80, // LOAD_CONST_SMALL_INT 0
     0x2b,0x02, // BUILD_LIST 2
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x36, // LOAD_CONST_SMALL_INT 54
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0xb1, // LOAD_FAST 1
-    0x14,0x81,0x21, // LOAD_METHOD 'madctl'
+    0x14,0x81,0x23, // LOAD_METHOD 'madctl'
     0x24,0x13, // LOAD_FAST_N 19
     0x24,0x14, // LOAD_FAST_N 20
-    0x12,0x81,0x3a, // LOAD_GLOBAL 'ORIENTATION_TABLE'
+    0x12,0x81,0x3c, // LOAD_GLOBAL 'ORIENTATION_TABLE'
     0x36,0x03, // CALL_METHOD 3
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x3a, // LOAD_CONST_SMALL_INT 58
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x85, // LOAD_CONST_SMALL_INT 5
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x10, // LOAD_CONST_SMALL_INT 144
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x88, // LOAD_CONST_SMALL_INT 8
     0x88, // LOAD_CONST_SMALL_INT 8
     0x88, // LOAD_CONST_SMALL_INT 8
     0x88, // LOAD_CONST_SMALL_INT 8
     0x2b,0x04, // BUILD_LIST 4
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x3d, // LOAD_CONST_SMALL_INT 189
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x86, // LOAD_CONST_SMALL_INT 6
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x3c, // LOAD_CONST_SMALL_INT 188
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x80, // LOAD_CONST_SMALL_INT 0
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x7f, // LOAD_CONST_SMALL_INT 255
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x22,0x80,0x60, // LOAD_CONST_SMALL_INT 96
     0x81, // LOAD_CONST_SMALL_INT 1
     0x84, // LOAD_CONST_SMALL_INT 4
     0x2b,0x03, // BUILD_LIST 3
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x43, // LOAD_CONST_SMALL_INT 195
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x93, // LOAD_CONST_SMALL_INT 19
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x44, // LOAD_CONST_SMALL_INT 196
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x93, // LOAD_CONST_SMALL_INT 19
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x49, // LOAD_CONST_SMALL_INT 201
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0xa2, // LOAD_CONST_SMALL_INT 34
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x3e, // LOAD_CONST_SMALL_INT 190
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x91, // LOAD_CONST_SMALL_INT 17
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x61, // LOAD_CONST_SMALL_INT 225
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x90, // LOAD_CONST_SMALL_INT 16
     0x8e, // LOAD_CONST_SMALL_INT 14
     0x2b,0x02, // BUILD_LIST 2
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x5f, // LOAD_CONST_SMALL_INT 223
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0xa1, // LOAD_CONST_SMALL_INT 33
     0x8c, // LOAD_CONST_SMALL_INT 12
     0x82, // LOAD_CONST_SMALL_INT 2
     0x2b,0x03, // BUILD_LIST 3
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x70, // LOAD_CONST_SMALL_INT 240
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x22,0x80,0x45, // LOAD_CONST_SMALL_INT 69
     0x89, // LOAD_CONST_SMALL_INT 9
     0x88, // LOAD_CONST_SMALL_INT 8
@@ -14643,13 +14686,13 @@ static const byte fun_data_ili9XXX_gc9a01___init__[1481] = {
     0xaa, // LOAD_CONST_SMALL_INT 42
     0x2b,0x06, // BUILD_LIST 6
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x71, // LOAD_CONST_SMALL_INT 241
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x22,0x80,0x43, // LOAD_CONST_SMALL_INT 67
     0x22,0x80,0x70, // LOAD_CONST_SMALL_INT 112
     0x22,0x80,0x72, // LOAD_CONST_SMALL_INT 114
@@ -14658,13 +14701,13 @@ static const byte fun_data_ili9XXX_gc9a01___init__[1481] = {
     0x22,0x80,0x6f, // LOAD_CONST_SMALL_INT 111
     0x2b,0x06, // BUILD_LIST 6
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x72, // LOAD_CONST_SMALL_INT 242
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x22,0x80,0x45, // LOAD_CONST_SMALL_INT 69
     0x89, // LOAD_CONST_SMALL_INT 9
     0x88, // LOAD_CONST_SMALL_INT 8
@@ -14673,13 +14716,13 @@ static const byte fun_data_ili9XXX_gc9a01___init__[1481] = {
     0xaa, // LOAD_CONST_SMALL_INT 42
     0x2b,0x06, // BUILD_LIST 6
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x73, // LOAD_CONST_SMALL_INT 243
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x22,0x80,0x43, // LOAD_CONST_SMALL_INT 67
     0x22,0x80,0x70, // LOAD_CONST_SMALL_INT 112
     0x22,0x80,0x72, // LOAD_CONST_SMALL_INT 114
@@ -14688,44 +14731,44 @@ static const byte fun_data_ili9XXX_gc9a01___init__[1481] = {
     0x22,0x80,0x6f, // LOAD_CONST_SMALL_INT 111
     0x2b,0x06, // BUILD_LIST 6
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x6d, // LOAD_CONST_SMALL_INT 237
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x9b, // LOAD_CONST_SMALL_INT 27
     0x8b, // LOAD_CONST_SMALL_INT 11
     0x2b,0x02, // BUILD_LIST 2
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x2e, // LOAD_CONST_SMALL_INT 174
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x22,0x80,0x77, // LOAD_CONST_SMALL_INT 119
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x4d, // LOAD_CONST_SMALL_INT 205
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x22,0x80,0x63, // LOAD_CONST_SMALL_INT 99
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x80,0x70, // LOAD_CONST_SMALL_INT 112
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x87, // LOAD_CONST_SMALL_INT 7
     0x87, // LOAD_CONST_SMALL_INT 7
     0x84, // LOAD_CONST_SMALL_INT 4
@@ -14737,23 +14780,23 @@ static const byte fun_data_ili9XXX_gc9a01___init__[1481] = {
     0x83, // LOAD_CONST_SMALL_INT 3
     0x2b,0x09, // BUILD_LIST 9
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x68, // LOAD_CONST_SMALL_INT 232
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x22,0x34, // LOAD_CONST_SMALL_INT 52
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x80,0x62, // LOAD_CONST_SMALL_INT 98
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x98, // LOAD_CONST_SMALL_INT 24
     0x8d, // LOAD_CONST_SMALL_INT 13
     0x22,0x80,0x71, // LOAD_CONST_SMALL_INT 113
@@ -14768,13 +14811,13 @@ static const byte fun_data_ili9XXX_gc9a01___init__[1481] = {
     0x22,0x80,0x70, // LOAD_CONST_SMALL_INT 112
     0x2b,0x0c, // BUILD_LIST 12
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x80,0x63, // LOAD_CONST_SMALL_INT 99
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x98, // LOAD_CONST_SMALL_INT 24
     0x91, // LOAD_CONST_SMALL_INT 17
     0x22,0x80,0x71, // LOAD_CONST_SMALL_INT 113
@@ -14789,13 +14832,13 @@ static const byte fun_data_ili9XXX_gc9a01___init__[1481] = {
     0x22,0x80,0x70, // LOAD_CONST_SMALL_INT 112
     0x2b,0x0c, // BUILD_LIST 12
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x80,0x64, // LOAD_CONST_SMALL_INT 100
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0xa8, // LOAD_CONST_SMALL_INT 40
     0xa9, // LOAD_CONST_SMALL_INT 41
     0x22,0x81,0x71, // LOAD_CONST_SMALL_INT 241
@@ -14805,13 +14848,13 @@ static const byte fun_data_ili9XXX_gc9a01___init__[1481] = {
     0x87, // LOAD_CONST_SMALL_INT 7
     0x2b,0x07, // BUILD_LIST 7
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x80,0x66, // LOAD_CONST_SMALL_INT 102
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x22,0x3c, // LOAD_CONST_SMALL_INT 60
     0x80, // LOAD_CONST_SMALL_INT 0
     0x22,0x81,0x4d, // LOAD_CONST_SMALL_INT 205
@@ -14824,13 +14867,13 @@ static const byte fun_data_ili9XXX_gc9a01___init__[1481] = {
     0x80, // LOAD_CONST_SMALL_INT 0
     0x2b,0x0a, // BUILD_LIST 10
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x80,0x67, // LOAD_CONST_SMALL_INT 103
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x80, // LOAD_CONST_SMALL_INT 0
     0x22,0x3c, // LOAD_CONST_SMALL_INT 60
     0x80, // LOAD_CONST_SMALL_INT 0
@@ -14843,13 +14886,13 @@ static const byte fun_data_ili9XXX_gc9a01___init__[1481] = {
     0x22,0x81,0x18, // LOAD_CONST_SMALL_INT 152
     0x2b,0x0a, // BUILD_LIST 10
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x80,0x74, // LOAD_CONST_SMALL_INT 116
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x90, // LOAD_CONST_SMALL_INT 16
     0x22,0x81,0x05, // LOAD_CONST_SMALL_INT 133
     0x22,0x81,0x00, // LOAD_CONST_SMALL_INT 128
@@ -14859,69 +14902,69 @@ static const byte fun_data_ili9XXX_gc9a01___init__[1481] = {
     0x80, // LOAD_CONST_SMALL_INT 0
     0x2b,0x07, // BUILD_LIST 7
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x18, // LOAD_CONST_SMALL_INT 152
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x22,0x3e, // LOAD_CONST_SMALL_INT 62
     0x87, // LOAD_CONST_SMALL_INT 7
     0x2b,0x02, // BUILD_LIST 2
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x35, // LOAD_CONST_SMALL_INT 53
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x80, // LOAD_CONST_SMALL_INT 0
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0xa1, // LOAD_CONST_SMALL_INT 33
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x80, // LOAD_CONST_SMALL_INT 0
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x03, // BUILD_MAP 3
     0x91, // LOAD_CONST_SMALL_INT 17
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x80, // LOAD_CONST_SMALL_INT 0
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x94, // LOAD_CONST_SMALL_INT 20
-    0x10,0x81,0x13, // LOAD_CONST_STRING 'delay'
+    0x10,0x81,0x15, // LOAD_CONST_STRING 'delay'
     0x62, // STORE_MAP
     0x2c,0x03, // BUILD_MAP 3
     0xa9, // LOAD_CONST_SMALL_INT 41
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x80, // LOAD_CONST_SMALL_INT 0
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x22,0x80,0x78, // LOAD_CONST_SMALL_INT 120
-    0x10,0x81,0x13, // LOAD_CONST_STRING 'delay'
+    0x10,0x81,0x15, // LOAD_CONST_STRING 'delay'
     0x62, // STORE_MAP
     0x2b,0x32, // BUILD_LIST 50
     0xb1, // LOAD_FAST 1
     0x18,0x18, // STORE_ATTR 'init_cmds'
-    0x12,0x81,0x58, // LOAD_GLOBAL 'super'
+    0x12,0x81,0x5a, // LOAD_GLOBAL 'super'
     0x25,0x00, // LOAD_DEREF 0
     0xb1, // LOAD_FAST 1
     0x15,0x14, // LOAD_SUPER_METHOD '__init__'
@@ -14959,9 +15002,9 @@ static const byte fun_data_ili9XXX_gc9a01___init__[1481] = {
     0x24,0x11, // LOAD_FAST_N 17
     0x10,0x1c, // LOAD_CONST_STRING 'height'
     0x24,0x12, // LOAD_FAST_N 18
-    0x10,0x81,0x24, // LOAD_CONST_STRING 'invert'
+    0x10,0x81,0x26, // LOAD_CONST_STRING 'invert'
     0x24,0x15, // LOAD_FAST_N 21
-    0x10,0x81,0x25, // LOAD_CONST_STRING 'double_buffer'
+    0x10,0x81,0x27, // LOAD_CONST_STRING 'double_buffer'
     0x24,0x16, // LOAD_FAST_N 22
     0x10,0x2e, // LOAD_CONST_STRING 'half_duplex'
     0x24,0x17, // LOAD_FAST_N 23
@@ -15059,11 +15102,11 @@ static const mp_raw_code_t raw_code_ili9XXX_gc9a01 = {
 static const byte fun_data_ili9XXX_st7789[73] = {
     0xe0,0x10,0x0b, // prelude
     0x0d, // names: st7789
-    0xab,0xcf,0x4a,0x58,0x00, // code info
-    0x11,0x81,0x44, // LOAD_NAME '__name__'
-    0x16,0x81,0x45, // STORE_NAME '__module__'
+    0xab,0xd3,0x4a,0x58,0x00, // code info
+    0x11,0x81,0x46, // LOAD_NAME '__name__'
+    0x16,0x81,0x47, // STORE_NAME '__module__'
     0x10,0x0d, // LOAD_CONST_STRING 'st7789'
-    0x16,0x81,0x46, // STORE_NAME '__qualname__'
+    0x16,0x81,0x48, // STORE_NAME '__qualname__'
     0x7f, // LOAD_CONST_SMALL_INT -1
     0x93, // LOAD_CONST_SMALL_INT 19
     0x92, // LOAD_CONST_SMALL_INT 18
@@ -15074,7 +15117,7 @@ static const byte fun_data_ili9XXX_st7789[73] = {
     0x84, // LOAD_CONST_SMALL_INT 4
     0x81, // LOAD_CONST_SMALL_INT 1
     0x80, // LOAD_CONST_SMALL_INT 0
-    0x11,0x81,0x31, // LOAD_NAME 'esp'
+    0x11,0x81,0x33, // LOAD_NAME 'esp'
     0x13,0x0f, // LOAD_ATTR 'HSPI_HOST'
     0x80, // LOAD_CONST_SMALL_INT 0
     0xa8, // LOAD_CONST_SMALL_INT 40
@@ -15091,7 +15134,7 @@ static const byte fun_data_ili9XXX_st7789[73] = {
     0x52, // LOAD_CONST_TRUE
     0x50, // LOAD_CONST_FALSE
     0x52, // LOAD_CONST_TRUE
-    0x11,0x81,0x32, // LOAD_NAME 'lv'
+    0x11,0x81,0x34, // LOAD_NAME 'lv'
     0x13,0x10, // LOAD_ATTR 'COLOR_FORMAT'
     0x13,0x11, // LOAD_ATTR 'RGB565'
     0x52, // LOAD_CONST_TRUE
@@ -15107,89 +15150,89 @@ static const byte fun_data_ili9XXX_st7789[73] = {
 // frozen bytecode for file ili9XXX.py, scope ili9XXX_st7789___init__
 static const byte fun_data_ili9XXX_st7789___init__[708] = {
     0xaa,0x94,0x94,0x85,0x81,0x01,0x84,0x02, // prelude
-    0x14,0x81,0x56,0x81,0x47,0x1f,0x20,0x21,0x22,0x23,0x24,0x25,0x26,0x27,0x28,0x29,0x2a,0x2b,0x2c,0x2d,0x1b,0x1c,0x1d,0x1e,0x81,0x27,0x81,0x28,0x81,0x24,0x81,0x25,0x2e,0x19,0x1a,0x30,0x33, // names: __init__, *, self, miso, mosi, clk, cs, dc, rst, power, backlight, backlight_on, power_on, spihost, spimode, mhz, factor, hybrid, width, height, start_x, start_y, colormode, rot, invert, double_buffer, half_duplex, asynchronous, initialize, color_format, swap_rgb565_bytes
-    0xa0,0xd7,0x2e,0x48,0x46,0x20,0x39,0x52,0x2a,0x54,0x37,0x3a,0x3a,0x35,0x34,0x34,0x37,0x34,0x34,0x34,0x39,0x1f,0x29,0x1f,0x29,0x32,0x37,0x3d,0x7e, // code info
-    0x12,0x81,0x32, // LOAD_GLOBAL 'lv'
-    0x14,0x81,0x22, // LOAD_METHOD 'color_format_get_bpp'
+    0x14,0x81,0x58,0x81,0x49,0x1f,0x20,0x21,0x22,0x23,0x24,0x25,0x26,0x27,0x28,0x29,0x2a,0x2b,0x2c,0x2d,0x1b,0x1c,0x1d,0x1e,0x81,0x29,0x81,0x2a,0x81,0x26,0x81,0x27,0x2e,0x19,0x1a,0x30,0x33, // names: __init__, *, self, miso, mosi, clk, cs, dc, rst, power, backlight, backlight_on, power_on, spihost, spimode, mhz, factor, hybrid, width, height, start_x, start_y, colormode, rot, invert, double_buffer, half_duplex, asynchronous, initialize, color_format, swap_rgb565_bytes
+    0xa0,0xdb,0x2e,0x48,0x46,0x20,0x39,0x52,0x2a,0x54,0x37,0x3a,0x3a,0x35,0x34,0x34,0x37,0x34,0x34,0x34,0x39,0x1f,0x29,0x1f,0x29,0x32,0x37,0x3d,0x7e, // code info
+    0x12,0x81,0x34, // LOAD_GLOBAL 'lv'
+    0x14,0x81,0x24, // LOAD_METHOD 'color_format_get_bpp'
     0x24,0x1c, // LOAD_FAST_N 28
     0x36,0x01, // CALL_METHOD 1
     0x90, // LOAD_CONST_SMALL_INT 16
     0xdc, // BINARY_OP 5 __ne__
     0x44,0x48, // POP_JUMP_IF_FALSE 8
-    0x12,0x81,0x48, // LOAD_GLOBAL 'RuntimeError'
-    0x23,0x17, // LOAD_CONST_OBJ 23
+    0x12,0x81,0x4a, // LOAD_GLOBAL 'RuntimeError'
+    0x23,0x15, // LOAD_CONST_OBJ 21
     0x34,0x01, // CALL_FUNCTION 1
     0x65, // RAISE_OBJ
-    0x10,0x81,0x2b, // LOAD_CONST_STRING 'ST7789'
+    0x10,0x81,0x2d, // LOAD_CONST_STRING 'ST7789'
     0xb1, // LOAD_FAST 1
     0x18,0x17, // STORE_ATTR 'display_name'
     0x2c,0x03, // BUILD_MAP 3
     0x91, // LOAD_CONST_SMALL_INT 17
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x80, // LOAD_CONST_SMALL_INT 0
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x22,0x80,0x78, // LOAD_CONST_SMALL_INT 120
-    0x10,0x81,0x13, // LOAD_CONST_STRING 'delay'
+    0x10,0x81,0x15, // LOAD_CONST_STRING 'delay'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x93, // LOAD_CONST_SMALL_INT 19
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x80, // LOAD_CONST_SMALL_INT 0
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x36, // LOAD_CONST_SMALL_INT 54
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0xb1, // LOAD_FAST 1
-    0x14,0x81,0x21, // LOAD_METHOD 'madctl'
+    0x14,0x81,0x23, // LOAD_METHOD 'madctl'
     0x24,0x15, // LOAD_FAST_N 21
     0x24,0x16, // LOAD_FAST_N 22
-    0x23,0x18, // LOAD_CONST_OBJ 24
+    0x23,0x16, // LOAD_CONST_OBJ 22
     0x36,0x03, // CALL_METHOD 3
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x36, // LOAD_CONST_SMALL_INT 182
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x8a, // LOAD_CONST_SMALL_INT 10
     0x22,0x81,0x02, // LOAD_CONST_SMALL_INT 130
     0x2b,0x02, // BUILD_LIST 2
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x03, // BUILD_MAP 3
     0x22,0x3a, // LOAD_CONST_SMALL_INT 58
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x22,0x80,0x55, // LOAD_CONST_SMALL_INT 85
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x8a, // LOAD_CONST_SMALL_INT 10
-    0x10,0x81,0x13, // LOAD_CONST_STRING 'delay'
+    0x10,0x81,0x15, // LOAD_CONST_STRING 'delay'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x32, // LOAD_CONST_SMALL_INT 178
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x8c, // LOAD_CONST_SMALL_INT 12
     0x8c, // LOAD_CONST_SMALL_INT 12
     0x80, // LOAD_CONST_SMALL_INT 0
@@ -15197,95 +15240,95 @@ static const byte fun_data_ili9XXX_st7789___init__[708] = {
     0x22,0x33, // LOAD_CONST_SMALL_INT 51
     0x2b,0x05, // BUILD_LIST 5
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x37, // LOAD_CONST_SMALL_INT 183
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x22,0x35, // LOAD_CONST_SMALL_INT 53
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x3b, // LOAD_CONST_SMALL_INT 187
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0xa8, // LOAD_CONST_SMALL_INT 40
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x40, // LOAD_CONST_SMALL_INT 192
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x8c, // LOAD_CONST_SMALL_INT 12
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x42, // LOAD_CONST_SMALL_INT 194
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x81, // LOAD_CONST_SMALL_INT 1
     0x22,0x81,0x7f, // LOAD_CONST_SMALL_INT 255
     0x2b,0x02, // BUILD_LIST 2
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x43, // LOAD_CONST_SMALL_INT 195
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x90, // LOAD_CONST_SMALL_INT 16
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x44, // LOAD_CONST_SMALL_INT 196
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0xa0, // LOAD_CONST_SMALL_INT 32
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x46, // LOAD_CONST_SMALL_INT 198
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x8f, // LOAD_CONST_SMALL_INT 15
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x50, // LOAD_CONST_SMALL_INT 208
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x22,0x81,0x24, // LOAD_CONST_SMALL_INT 164
     0x22,0x81,0x21, // LOAD_CONST_SMALL_INT 161
     0x2b,0x02, // BUILD_LIST 2
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x60, // LOAD_CONST_SMALL_INT 224
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x22,0x81,0x50, // LOAD_CONST_SMALL_INT 208
     0x80, // LOAD_CONST_SMALL_INT 0
     0x82, // LOAD_CONST_SMALL_INT 2
@@ -15302,13 +15345,13 @@ static const byte fun_data_ili9XXX_st7789___init__[708] = {
     0x97, // LOAD_CONST_SMALL_INT 23
     0x2b,0x0e, // BUILD_LIST 14
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x61, // LOAD_CONST_SMALL_INT 225
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x22,0x81,0x50, // LOAD_CONST_SMALL_INT 208
     0x80, // LOAD_CONST_SMALL_INT 0
     0x82, // LOAD_CONST_SMALL_INT 2
@@ -15325,64 +15368,64 @@ static const byte fun_data_ili9XXX_st7789___init__[708] = {
     0x9e, // LOAD_CONST_SMALL_INT 30
     0x2b,0x0e, // BUILD_LIST 14
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0xa1, // LOAD_CONST_SMALL_INT 33
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x80, // LOAD_CONST_SMALL_INT 0
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0xaa, // LOAD_CONST_SMALL_INT 42
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x80, // LOAD_CONST_SMALL_INT 0
     0x80, // LOAD_CONST_SMALL_INT 0
     0x80, // LOAD_CONST_SMALL_INT 0
     0x22,0x81,0x65, // LOAD_CONST_SMALL_INT 229
     0x2b,0x04, // BUILD_LIST 4
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x03, // BUILD_MAP 3
     0xab, // LOAD_CONST_SMALL_INT 43
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x80, // LOAD_CONST_SMALL_INT 0
     0x80, // LOAD_CONST_SMALL_INT 0
     0x81, // LOAD_CONST_SMALL_INT 1
     0x22,0x3f, // LOAD_CONST_SMALL_INT 63
     0x2b,0x04, // BUILD_LIST 4
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x22,0x80,0x78, // LOAD_CONST_SMALL_INT 120
-    0x10,0x81,0x13, // LOAD_CONST_STRING 'delay'
+    0x10,0x81,0x15, // LOAD_CONST_STRING 'delay'
     0x62, // STORE_MAP
     0x2c,0x03, // BUILD_MAP 3
     0xa9, // LOAD_CONST_SMALL_INT 41
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x80, // LOAD_CONST_SMALL_INT 0
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x22,0x80,0x78, // LOAD_CONST_SMALL_INT 120
-    0x10,0x81,0x13, // LOAD_CONST_STRING 'delay'
+    0x10,0x81,0x15, // LOAD_CONST_STRING 'delay'
     0x62, // STORE_MAP
     0x2b,0x14, // BUILD_LIST 20
     0xb1, // LOAD_FAST 1
     0x18,0x18, // STORE_ATTR 'init_cmds'
-    0x12,0x81,0x58, // LOAD_GLOBAL 'super'
+    0x12,0x81,0x5a, // LOAD_GLOBAL 'super'
     0x25,0x00, // LOAD_DEREF 0
     0xb1, // LOAD_FAST 1
     0x15,0x14, // LOAD_SUPER_METHOD '__init__'
@@ -15424,9 +15467,9 @@ static const byte fun_data_ili9XXX_st7789___init__[708] = {
     0x24,0x13, // LOAD_FAST_N 19
     0x10,0x1e, // LOAD_CONST_STRING 'start_y'
     0x24,0x14, // LOAD_FAST_N 20
-    0x10,0x81,0x24, // LOAD_CONST_STRING 'invert'
+    0x10,0x81,0x26, // LOAD_CONST_STRING 'invert'
     0x24,0x17, // LOAD_FAST_N 23
-    0x10,0x81,0x25, // LOAD_CONST_STRING 'double_buffer'
+    0x10,0x81,0x27, // LOAD_CONST_STRING 'double_buffer'
     0x24,0x18, // LOAD_FAST_N 24
     0x10,0x2e, // LOAD_CONST_STRING 'half_duplex'
     0x24,0x19, // LOAD_FAST_N 25
@@ -15524,11 +15567,11 @@ static const mp_raw_code_t raw_code_ili9XXX_st7789 = {
 static const byte fun_data_ili9XXX_st7735[73] = {
     0xe0,0x10,0x0b, // prelude
     0x0e, // names: st7735
-    0xbb,0x03,0x4a,0x58,0x00, // code info
-    0x11,0x81,0x44, // LOAD_NAME '__name__'
-    0x16,0x81,0x45, // STORE_NAME '__module__'
+    0xbb,0x07,0x4a,0x58,0x00, // code info
+    0x11,0x81,0x46, // LOAD_NAME '__name__'
+    0x16,0x81,0x47, // STORE_NAME '__module__'
     0x10,0x0e, // LOAD_CONST_STRING 'st7735'
-    0x16,0x81,0x46, // STORE_NAME '__qualname__'
+    0x16,0x81,0x48, // STORE_NAME '__qualname__'
     0x7f, // LOAD_CONST_SMALL_INT -1
     0x93, // LOAD_CONST_SMALL_INT 19
     0x92, // LOAD_CONST_SMALL_INT 18
@@ -15539,7 +15582,7 @@ static const byte fun_data_ili9XXX_st7735[73] = {
     0x8f, // LOAD_CONST_SMALL_INT 15
     0x81, // LOAD_CONST_SMALL_INT 1
     0x80, // LOAD_CONST_SMALL_INT 0
-    0x11,0x81,0x31, // LOAD_NAME 'esp'
+    0x11,0x81,0x33, // LOAD_NAME 'esp'
     0x13,0x0f, // LOAD_ATTR 'HSPI_HOST'
     0x80, // LOAD_CONST_SMALL_INT 0
     0xa8, // LOAD_CONST_SMALL_INT 40
@@ -15556,7 +15599,7 @@ static const byte fun_data_ili9XXX_st7735[73] = {
     0x52, // LOAD_CONST_TRUE
     0x50, // LOAD_CONST_FALSE
     0x52, // LOAD_CONST_TRUE
-    0x11,0x81,0x32, // LOAD_NAME 'lv'
+    0x11,0x81,0x34, // LOAD_NAME 'lv'
     0x13,0x10, // LOAD_ATTR 'COLOR_FORMAT'
     0x13,0x11, // LOAD_ATTR 'RGB565'
     0x52, // LOAD_CONST_TRUE
@@ -15572,64 +15615,64 @@ static const byte fun_data_ili9XXX_st7735[73] = {
 // frozen bytecode for file ili9XXX.py, scope ili9XXX_st7735___init__
 static const byte fun_data_ili9XXX_st7735___init__[798] = {
     0xaa,0x94,0x94,0x85,0x81,0x01,0x8c,0x02, // prelude
-    0x14,0x81,0x56,0x81,0x47,0x1f,0x20,0x21,0x22,0x23,0x24,0x25,0x26,0x27,0x28,0x29,0x2a,0x2b,0x2c,0x2d,0x1b,0x1c,0x1d,0x1e,0x81,0x27,0x81,0x28,0x81,0x24,0x81,0x25,0x2e,0x19,0x1a,0x30,0x33, // names: __init__, *, self, miso, mosi, clk, cs, dc, rst, power, backlight, backlight_on, power_on, spihost, spimode, mhz, factor, hybrid, width, height, start_x, start_y, colormode, rot, invert, double_buffer, half_duplex, asynchronous, initialize, color_format, swap_rgb565_bytes
-    0xb0,0x0b,0x2e,0x48,0x46,0x20,0x39,0x3b,0x3a,0x3a,0x34,0x35,0x34,0x34,0x37,0x56,0x2a,0x54,0x35,0x35,0x34,0x32,0x1f,0x28,0x1f,0x2a,0x37,0x36,0x32,0x34,0x39,0x39,0x7e, // code info
-    0x12,0x81,0x32, // LOAD_GLOBAL 'lv'
-    0x14,0x81,0x22, // LOAD_METHOD 'color_format_get_bpp'
+    0x14,0x81,0x58,0x81,0x49,0x1f,0x20,0x21,0x22,0x23,0x24,0x25,0x26,0x27,0x28,0x29,0x2a,0x2b,0x2c,0x2d,0x1b,0x1c,0x1d,0x1e,0x81,0x29,0x81,0x2a,0x81,0x26,0x81,0x27,0x2e,0x19,0x1a,0x30,0x33, // names: __init__, *, self, miso, mosi, clk, cs, dc, rst, power, backlight, backlight_on, power_on, spihost, spimode, mhz, factor, hybrid, width, height, start_x, start_y, colormode, rot, invert, double_buffer, half_duplex, asynchronous, initialize, color_format, swap_rgb565_bytes
+    0xb0,0x0f,0x2e,0x48,0x46,0x20,0x39,0x3b,0x3a,0x3a,0x34,0x35,0x34,0x34,0x37,0x56,0x2a,0x54,0x35,0x35,0x34,0x32,0x1f,0x28,0x1f,0x2a,0x37,0x36,0x32,0x34,0x39,0x39,0x7e, // code info
+    0x12,0x81,0x34, // LOAD_GLOBAL 'lv'
+    0x14,0x81,0x24, // LOAD_METHOD 'color_format_get_bpp'
     0x24,0x1c, // LOAD_FAST_N 28
     0x36,0x01, // CALL_METHOD 1
     0x90, // LOAD_CONST_SMALL_INT 16
     0xdc, // BINARY_OP 5 __ne__
     0x44,0x48, // POP_JUMP_IF_FALSE 8
-    0x12,0x81,0x48, // LOAD_GLOBAL 'RuntimeError'
-    0x23,0x19, // LOAD_CONST_OBJ 25
+    0x12,0x81,0x4a, // LOAD_GLOBAL 'RuntimeError'
+    0x23,0x17, // LOAD_CONST_OBJ 23
     0x34,0x01, // CALL_FUNCTION 1
     0x65, // RAISE_OBJ
-    0x10,0x81,0x2c, // LOAD_CONST_STRING 'ST7735'
+    0x10,0x81,0x2e, // LOAD_CONST_STRING 'ST7735'
     0xb1, // LOAD_FAST 1
     0x18,0x17, // STORE_ATTR 'display_name'
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x4f, // LOAD_CONST_SMALL_INT 207
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x80, // LOAD_CONST_SMALL_INT 0
     0x22,0x81,0x03, // LOAD_CONST_SMALL_INT 131
     0x22,0x30, // LOAD_CONST_SMALL_INT 48
     0x2b,0x03, // BUILD_LIST 3
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x6d, // LOAD_CONST_SMALL_INT 237
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x22,0x80,0x64, // LOAD_CONST_SMALL_INT 100
     0x83, // LOAD_CONST_SMALL_INT 3
     0x92, // LOAD_CONST_SMALL_INT 18
     0x22,0x81,0x01, // LOAD_CONST_SMALL_INT 129
     0x2b,0x04, // BUILD_LIST 4
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x68, // LOAD_CONST_SMALL_INT 232
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x22,0x81,0x05, // LOAD_CONST_SMALL_INT 133
     0x81, // LOAD_CONST_SMALL_INT 1
     0x22,0x80,0x79, // LOAD_CONST_SMALL_INT 121
     0x2b,0x03, // BUILD_LIST 3
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x4b, // LOAD_CONST_SMALL_INT 203
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x22,0x39, // LOAD_CONST_SMALL_INT 57
     0xac, // LOAD_CONST_SMALL_INT 44
     0x80, // LOAD_CONST_SMALL_INT 0
@@ -15637,131 +15680,131 @@ static const byte fun_data_ili9XXX_st7735___init__[798] = {
     0x82, // LOAD_CONST_SMALL_INT 2
     0x2b,0x05, // BUILD_LIST 5
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x77, // LOAD_CONST_SMALL_INT 247
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0xa0, // LOAD_CONST_SMALL_INT 32
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x6a, // LOAD_CONST_SMALL_INT 234
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x80, // LOAD_CONST_SMALL_INT 0
     0x80, // LOAD_CONST_SMALL_INT 0
     0x2b,0x02, // BUILD_LIST 2
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x40, // LOAD_CONST_SMALL_INT 192
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0xa6, // LOAD_CONST_SMALL_INT 38
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x41, // LOAD_CONST_SMALL_INT 193
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x91, // LOAD_CONST_SMALL_INT 17
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x45, // LOAD_CONST_SMALL_INT 197
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x22,0x35, // LOAD_CONST_SMALL_INT 53
     0x22,0x3e, // LOAD_CONST_SMALL_INT 62
     0x2b,0x02, // BUILD_LIST 2
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x47, // LOAD_CONST_SMALL_INT 199
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x22,0x81,0x3e, // LOAD_CONST_SMALL_INT 190
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x36, // LOAD_CONST_SMALL_INT 54
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0xb1, // LOAD_FAST 1
-    0x14,0x81,0x21, // LOAD_METHOD 'madctl'
+    0x14,0x81,0x23, // LOAD_METHOD 'madctl'
     0x24,0x15, // LOAD_FAST_N 21
     0x24,0x16, // LOAD_FAST_N 22
-    0x23,0x1a, // LOAD_CONST_OBJ 26
+    0x23,0x18, // LOAD_CONST_OBJ 24
     0x36,0x03, // CALL_METHOD 3
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x3a, // LOAD_CONST_SMALL_INT 58
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x22,0x80,0x55, // LOAD_CONST_SMALL_INT 85
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x31, // LOAD_CONST_SMALL_INT 177
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x80, // LOAD_CONST_SMALL_INT 0
     0x9b, // LOAD_CONST_SMALL_INT 27
     0x2b,0x02, // BUILD_LIST 2
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x72, // LOAD_CONST_SMALL_INT 242
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x88, // LOAD_CONST_SMALL_INT 8
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0xa6, // LOAD_CONST_SMALL_INT 38
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x81, // LOAD_CONST_SMALL_INT 1
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x60, // LOAD_CONST_SMALL_INT 224
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x9f, // LOAD_CONST_SMALL_INT 31
     0x9a, // LOAD_CONST_SMALL_INT 26
     0x98, // LOAD_CONST_SMALL_INT 24
@@ -15779,13 +15822,13 @@ static const byte fun_data_ili9XXX_st7735___init__[798] = {
     0x80, // LOAD_CONST_SMALL_INT 0
     0x2b,0x0f, // BUILD_LIST 15
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x61, // LOAD_CONST_SMALL_INT 225
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x80, // LOAD_CONST_SMALL_INT 0
     0xa5, // LOAD_CONST_SMALL_INT 37
     0xa7, // LOAD_CONST_SMALL_INT 39
@@ -15803,97 +15846,97 @@ static const byte fun_data_ili9XXX_st7735___init__[798] = {
     0x9f, // LOAD_CONST_SMALL_INT 31
     0x2b,0x0f, // BUILD_LIST 15
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0xaa, // LOAD_CONST_SMALL_INT 42
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x80, // LOAD_CONST_SMALL_INT 0
     0x80, // LOAD_CONST_SMALL_INT 0
     0x80, // LOAD_CONST_SMALL_INT 0
     0x22,0x81,0x6f, // LOAD_CONST_SMALL_INT 239
     0x2b,0x04, // BUILD_LIST 4
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0xab, // LOAD_CONST_SMALL_INT 43
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x80, // LOAD_CONST_SMALL_INT 0
     0x80, // LOAD_CONST_SMALL_INT 0
     0x81, // LOAD_CONST_SMALL_INT 1
     0x22,0x3f, // LOAD_CONST_SMALL_INT 63
     0x2b,0x04, // BUILD_LIST 4
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0xac, // LOAD_CONST_SMALL_INT 44
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x80, // LOAD_CONST_SMALL_INT 0
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x37, // LOAD_CONST_SMALL_INT 183
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x87, // LOAD_CONST_SMALL_INT 7
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x02, // BUILD_MAP 2
     0x22,0x81,0x36, // LOAD_CONST_SMALL_INT 182
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x8a, // LOAD_CONST_SMALL_INT 10
     0x22,0x81,0x02, // LOAD_CONST_SMALL_INT 130
     0xa7, // LOAD_CONST_SMALL_INT 39
     0x80, // LOAD_CONST_SMALL_INT 0
     0x2b,0x04, // BUILD_LIST 4
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x2c,0x03, // BUILD_MAP 3
     0x91, // LOAD_CONST_SMALL_INT 17
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x80, // LOAD_CONST_SMALL_INT 0
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x22,0x80,0x64, // LOAD_CONST_SMALL_INT 100
-    0x10,0x81,0x13, // LOAD_CONST_STRING 'delay'
+    0x10,0x81,0x15, // LOAD_CONST_STRING 'delay'
     0x62, // STORE_MAP
     0x2c,0x03, // BUILD_MAP 3
     0xa9, // LOAD_CONST_SMALL_INT 41
     0x10,0x45, // LOAD_CONST_STRING 'cmd'
     0x62, // STORE_MAP
-    0x12,0x81,0x57, // LOAD_GLOBAL 'bytes'
+    0x12,0x81,0x59, // LOAD_GLOBAL 'bytes'
     0x80, // LOAD_CONST_SMALL_INT 0
     0x2b,0x01, // BUILD_LIST 1
     0x34,0x01, // CALL_FUNCTION 1
-    0x10,0x81,0x12, // LOAD_CONST_STRING 'data'
+    0x10,0x81,0x14, // LOAD_CONST_STRING 'data'
     0x62, // STORE_MAP
     0x22,0x80,0x64, // LOAD_CONST_SMALL_INT 100
-    0x10,0x81,0x13, // LOAD_CONST_STRING 'delay'
+    0x10,0x81,0x15, // LOAD_CONST_STRING 'delay'
     0x62, // STORE_MAP
     0x2b,0x18, // BUILD_LIST 24
     0xb1, // LOAD_FAST 1
     0x18,0x18, // STORE_ATTR 'init_cmds'
-    0x12,0x81,0x58, // LOAD_GLOBAL 'super'
+    0x12,0x81,0x5a, // LOAD_GLOBAL 'super'
     0x25,0x00, // LOAD_DEREF 0
     0xb1, // LOAD_FAST 1
     0x15,0x14, // LOAD_SUPER_METHOD '__init__'
@@ -15935,9 +15978,9 @@ static const byte fun_data_ili9XXX_st7735___init__[798] = {
     0x24,0x13, // LOAD_FAST_N 19
     0x10,0x1e, // LOAD_CONST_STRING 'start_y'
     0x24,0x14, // LOAD_FAST_N 20
-    0x10,0x81,0x24, // LOAD_CONST_STRING 'invert'
+    0x10,0x81,0x26, // LOAD_CONST_STRING 'invert'
     0x24,0x17, // LOAD_FAST_N 23
-    0x10,0x81,0x25, // LOAD_CONST_STRING 'double_buffer'
+    0x10,0x81,0x27, // LOAD_CONST_STRING 'double_buffer'
     0x24,0x18, // LOAD_FAST_N 24
     0x10,0x2e, // LOAD_CONST_STRING 'half_duplex'
     0x24,0x19, // LOAD_FAST_N 25
@@ -16075,7 +16118,7 @@ static const mp_raw_code_t raw_code_ili9XXX__lt_module_gt_ = {
     #endif
 };
 
-static const qstr_short_t const_qstr_table_data_ili9XXX[220] = {
+static const qstr_short_t const_qstr_table_data_ili9XXX[222] = {
     MP_QSTR_ili9XXX_dot_py,
     MP_QSTR__lt_module_gt_,
     MP_QSTR_espidf,
@@ -16203,6 +16246,8 @@ static const qstr_short_t const_qstr_table_data_ili9XXX[220] = {
     MP_QSTR___cast_instance__,
     MP_QSTR_spi_transaction_set_cb,
     MP_QSTR_spi_callbacks,
+    MP_QSTR___del__,
+    MP_QSTR_Deleting,
     MP_QSTR_deinit,
     MP_QSTR_delete,
     MP_QSTR_spi_device_get_trans_result,
@@ -16308,21 +16353,21 @@ static const mp_rom_obj_tuple_t const_obj_ili9XXX_0 = {{&mp_type_tuple}, 4, {
 static const mp_obj_str_t const_obj_ili9XXX_1 = {{&mp_type_str}, 46492, 38, (const byte*)"\x4e\x6f\x20\x63\x6f\x6c\x6f\x72\x20\x66\x6f\x72\x6d\x61\x74\x20\x64\x65\x66\x69\x6e\x65\x64\x20\x66\x6f\x72\x20\x64\x69\x73\x70\x6c\x61\x79\x20\x7b\x7d"};
 static const mp_obj_str_t const_obj_ili9XXX_2 = {{&mp_type_str}, 50752, 104, (const byte*)"\x4e\x6f\x74\x20\x65\x6e\x6f\x75\x67\x68\x20\x44\x4d\x41\x2d\x63\x61\x70\x61\x62\x6c\x65\x20\x6d\x65\x6d\x6f\x72\x79\x20\x74\x6f\x20\x61\x6c\x6c\x6f\x63\x61\x74\x65\x20\x64\x69\x73\x70\x6c\x61\x79\x20\x62\x75\x66\x66\x65\x72\x2e\x20\x4e\x65\x65\x64\x65\x64\x3a\x20\x7b\x7d\x20\x62\x79\x74\x65\x73\x2c\x20\x6c\x61\x72\x67\x65\x73\x74\x20\x66\x72\x65\x65\x20\x62\x6c\x6f\x63\x6b\x3a\x20\x7b\x7d\x20\x62\x79\x74\x65\x73"};
 static const mp_obj_str_t const_obj_ili9XXX_13 = {{&mp_type_str}, 10917, 27, (const byte*)"\x46\x61\x69\x6c\x65\x64\x20\x69\x6e\x69\x74\x69\x61\x6c\x69\x7a\x69\x6e\x67\x20\x53\x50\x49\x20\x62\x75\x73"};
-static const mp_obj_str_t const_obj_ili9XXX_17 = {{&mp_type_str}, 35459, 30, (const byte*)"\x44\x61\x74\x61\x20\x74\x6f\x6f\x20\x6c\x6f\x6e\x67\x2c\x20\x70\x6c\x65\x61\x73\x65\x20\x75\x73\x65\x20\x44\x4d\x41\x21"};
-static const mp_obj_str_t const_obj_ili9XXX_18 = {{&mp_type_str}, 14521, 48, (const byte*)"\x49\x6e\x76\x61\x6c\x69\x64\x20\x64\x69\x73\x70\x6c\x61\x79\x20\x72\x6f\x74\x20\x76\x61\x6c\x75\x65\x20\x73\x70\x65\x63\x69\x66\x69\x65\x64\x20\x64\x75\x72\x69\x6e\x67\x20\x69\x6e\x69\x74\x2e"};
-static const mp_obj_str_t const_obj_ili9XXX_19 = {{&mp_type_str}, 46606, 55, (const byte*)"\x69\x6c\x69\x39\x33\x34\x31\x20\x6d\x69\x63\x72\x6f\x70\x79\x74\x68\x6f\x6e\x20\x64\x72\x69\x76\x65\x72\x20\x72\x65\x71\x75\x69\x72\x65\x73\x20\x31\x36\x20\x62\x69\x74\x20\x63\x6f\x6c\x6f\x72\x20\x66\x6f\x72\x6d\x61\x74"};
-static const mp_obj_str_t const_obj_ili9XXX_20 = {{&mp_type_str}, 55434, 55, (const byte*)"\x69\x6c\x69\x39\x34\x38\x38\x20\x6d\x69\x63\x72\x6f\x70\x79\x74\x68\x6f\x6e\x20\x64\x72\x69\x76\x65\x72\x20\x72\x65\x71\x75\x69\x72\x65\x73\x20\x33\x32\x20\x62\x69\x74\x20\x63\x6f\x6c\x6f\x72\x20\x66\x6f\x72\x6d\x61\x74"};
-static const mp_obj_str_t const_obj_ili9XXX_21 = {{&mp_type_str}, 29397, 59, (const byte*)"\x69\x6c\x69\x39\x34\x38\x38\x20\x6d\x69\x63\x72\x6f\x70\x79\x74\x68\x6f\x6e\x20\x64\x72\x69\x76\x65\x72\x20\x64\x6f\x20\x6e\x6f\x74\x20\x73\x75\x70\x70\x6f\x72\x74\x20\x6e\x6f\x6e\x2d\x68\x79\x62\x72\x69\x64\x20\x64\x72\x69\x76\x65\x72"};
-static const mp_obj_str_t const_obj_ili9XXX_22 = {{&mp_type_str}, 35824, 54, (const byte*)"\x67\x63\x39\x61\x30\x31\x20\x6d\x69\x63\x72\x6f\x70\x79\x74\x68\x6f\x6e\x20\x64\x72\x69\x76\x65\x72\x20\x72\x65\x71\x75\x69\x72\x65\x73\x20\x31\x36\x20\x62\x69\x74\x20\x63\x6f\x6c\x6f\x72\x20\x66\x6f\x72\x6d\x61\x74"};
-static const mp_obj_str_t const_obj_ili9XXX_23 = {{&mp_type_str}, 37483, 54, (const byte*)"\x73\x74\x37\x37\x38\x39\x20\x6d\x69\x63\x72\x6f\x70\x79\x74\x68\x6f\x6e\x20\x64\x72\x69\x76\x65\x72\x20\x72\x65\x71\x75\x69\x72\x65\x73\x20\x31\x36\x20\x62\x69\x74\x20\x63\x6f\x6c\x6f\x72\x20\x66\x6f\x72\x6d\x61\x74"};
-static const mp_rom_obj_tuple_t const_obj_ili9XXX_24 = {{&mp_type_tuple}, 4, {
+static const mp_obj_str_t const_obj_ili9XXX_15 = {{&mp_type_str}, 35459, 30, (const byte*)"\x44\x61\x74\x61\x20\x74\x6f\x6f\x20\x6c\x6f\x6e\x67\x2c\x20\x70\x6c\x65\x61\x73\x65\x20\x75\x73\x65\x20\x44\x4d\x41\x21"};
+static const mp_obj_str_t const_obj_ili9XXX_16 = {{&mp_type_str}, 14521, 48, (const byte*)"\x49\x6e\x76\x61\x6c\x69\x64\x20\x64\x69\x73\x70\x6c\x61\x79\x20\x72\x6f\x74\x20\x76\x61\x6c\x75\x65\x20\x73\x70\x65\x63\x69\x66\x69\x65\x64\x20\x64\x75\x72\x69\x6e\x67\x20\x69\x6e\x69\x74\x2e"};
+static const mp_obj_str_t const_obj_ili9XXX_17 = {{&mp_type_str}, 46606, 55, (const byte*)"\x69\x6c\x69\x39\x33\x34\x31\x20\x6d\x69\x63\x72\x6f\x70\x79\x74\x68\x6f\x6e\x20\x64\x72\x69\x76\x65\x72\x20\x72\x65\x71\x75\x69\x72\x65\x73\x20\x31\x36\x20\x62\x69\x74\x20\x63\x6f\x6c\x6f\x72\x20\x66\x6f\x72\x6d\x61\x74"};
+static const mp_obj_str_t const_obj_ili9XXX_18 = {{&mp_type_str}, 55434, 55, (const byte*)"\x69\x6c\x69\x39\x34\x38\x38\x20\x6d\x69\x63\x72\x6f\x70\x79\x74\x68\x6f\x6e\x20\x64\x72\x69\x76\x65\x72\x20\x72\x65\x71\x75\x69\x72\x65\x73\x20\x33\x32\x20\x62\x69\x74\x20\x63\x6f\x6c\x6f\x72\x20\x66\x6f\x72\x6d\x61\x74"};
+static const mp_obj_str_t const_obj_ili9XXX_19 = {{&mp_type_str}, 29397, 59, (const byte*)"\x69\x6c\x69\x39\x34\x38\x38\x20\x6d\x69\x63\x72\x6f\x70\x79\x74\x68\x6f\x6e\x20\x64\x72\x69\x76\x65\x72\x20\x64\x6f\x20\x6e\x6f\x74\x20\x73\x75\x70\x70\x6f\x72\x74\x20\x6e\x6f\x6e\x2d\x68\x79\x62\x72\x69\x64\x20\x64\x72\x69\x76\x65\x72"};
+static const mp_obj_str_t const_obj_ili9XXX_20 = {{&mp_type_str}, 35824, 54, (const byte*)"\x67\x63\x39\x61\x30\x31\x20\x6d\x69\x63\x72\x6f\x70\x79\x74\x68\x6f\x6e\x20\x64\x72\x69\x76\x65\x72\x20\x72\x65\x71\x75\x69\x72\x65\x73\x20\x31\x36\x20\x62\x69\x74\x20\x63\x6f\x6c\x6f\x72\x20\x66\x6f\x72\x6d\x61\x74"};
+static const mp_obj_str_t const_obj_ili9XXX_21 = {{&mp_type_str}, 37483, 54, (const byte*)"\x73\x74\x37\x37\x38\x39\x20\x6d\x69\x63\x72\x6f\x70\x79\x74\x68\x6f\x6e\x20\x64\x72\x69\x76\x65\x72\x20\x72\x65\x71\x75\x69\x72\x65\x73\x20\x31\x36\x20\x62\x69\x74\x20\x63\x6f\x6c\x6f\x72\x20\x66\x6f\x72\x6d\x61\x74"};
+static const mp_rom_obj_tuple_t const_obj_ili9XXX_22 = {{&mp_type_tuple}, 4, {
     MP_ROM_INT(0),
     MP_ROM_INT(96),
     MP_ROM_INT(192),
     MP_ROM_INT(160),
 }};
-static const mp_obj_str_t const_obj_ili9XXX_25 = {{&mp_type_str}, 18124, 54, (const byte*)"\x73\x74\x37\x37\x33\x35\x20\x6d\x69\x63\x72\x6f\x70\x79\x74\x68\x6f\x6e\x20\x64\x72\x69\x76\x65\x72\x20\x72\x65\x71\x75\x69\x72\x65\x73\x20\x31\x36\x20\x62\x69\x74\x20\x63\x6f\x6c\x6f\x72\x20\x66\x6f\x72\x6d\x61\x74"};
-static const mp_rom_obj_tuple_t const_obj_ili9XXX_26 = {{&mp_type_tuple}, 4, {
+static const mp_obj_str_t const_obj_ili9XXX_23 = {{&mp_type_str}, 18124, 54, (const byte*)"\x73\x74\x37\x37\x33\x35\x20\x6d\x69\x63\x72\x6f\x70\x79\x74\x68\x6f\x6e\x20\x64\x72\x69\x76\x65\x72\x20\x72\x65\x71\x75\x69\x72\x65\x73\x20\x31\x36\x20\x62\x69\x74\x20\x63\x6f\x6c\x6f\x72\x20\x66\x6f\x72\x6d\x61\x74"};
+static const mp_rom_obj_tuple_t const_obj_ili9XXX_24 = {{&mp_type_tuple}, 4, {
     MP_ROM_INT(192),
     MP_ROM_INT(160),
     MP_ROM_INT(0),
@@ -16330,7 +16375,7 @@ static const mp_rom_obj_tuple_t const_obj_ili9XXX_26 = {{&mp_type_tuple}, 4, {
 }};
 
 // constant table
-static const mp_rom_obj_t const_obj_table_data_ili9XXX[27] = {
+static const mp_rom_obj_t const_obj_table_data_ili9XXX[25] = {
     MP_ROM_PTR(&const_obj_ili9XXX_0),
     MP_ROM_PTR(&const_obj_ili9XXX_1),
     MP_ROM_PTR(&const_obj_ili9XXX_2),
@@ -16345,9 +16390,9 @@ static const mp_rom_obj_t const_obj_table_data_ili9XXX[27] = {
     MP_ROM_QSTR(MP_QSTR_duty_cycle_pos),
     MP_ROM_QSTR(MP_QSTR_ili9xxx_post_cb_isr),
     MP_ROM_PTR(&const_obj_ili9XXX_13),
-    MP_ROM_QSTR(MP_QSTR_Attach_space_LCD_space_to_space_SPI_space__hyphen__space_1),
     MP_ROM_QSTR(MP_QSTR_Failed_space_adding_space_SPI_space_device),
-    MP_ROM_QSTR(MP_QSTR_Attach_space_LCD_space_to_space_SPI_space__hyphen__space_2),
+    MP_ROM_PTR(&const_obj_ili9XXX_15),
+    MP_ROM_PTR(&const_obj_ili9XXX_16),
     MP_ROM_PTR(&const_obj_ili9XXX_17),
     MP_ROM_PTR(&const_obj_ili9XXX_18),
     MP_ROM_PTR(&const_obj_ili9XXX_19),
@@ -16356,8 +16401,6 @@ static const mp_rom_obj_t const_obj_table_data_ili9XXX[27] = {
     MP_ROM_PTR(&const_obj_ili9XXX_22),
     MP_ROM_PTR(&const_obj_ili9XXX_23),
     MP_ROM_PTR(&const_obj_ili9XXX_24),
-    MP_ROM_PTR(&const_obj_ili9XXX_25),
-    MP_ROM_PTR(&const_obj_ili9XXX_26),
 };
 
 static const mp_frozen_module_t frozen_module_ili9XXX = {
@@ -39129,15 +39172,15 @@ MICROPY_FROZEN_LIST_ITEM("upysh", "upysh.py")
 
 /*
 byte sizes:
-qstr content: 662 unique, 8734 bytes
-bc content: 32942
+qstr content: 661 unique, 8696 bytes
+bc content: 32961
 const str content: 4242
 const int content: 30
 const obj content: 1928
 const table qstr content: 0 entries, 0 bytes
-const table ptr content: 222 entries, 888 bytes
-raw code content: 357 * 4 = 5712
+const table ptr content: 220 entries, 880 bytes
+raw code content: 358 * 4 = 5728
 mp_frozen_mpy_names_content: 446
 mp_frozen_mpy_content_size: 132
-total: 55054
+total: 55043
 */
