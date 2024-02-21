@@ -1,7 +1,1 @@
-0000000000000000000000000000000000000000 841ece1321d462745fff3ef054780ae569292683 Dan <dan@syzygyx.com> 1706023742 -0700	clone: from https://github.com/AdvancedVapeSupply/mct_micropython.git
-841ece1321d462745fff3ef054780ae569292683 52ba643369a8e5df4d33199e07392d2824902425 Dan <dan@syzygyx.com> 1706029536 -0700	Fast forward branch master to branch upstream/feat/multi-instance
-52ba643369a8e5df4d33199e07392d2824902425 5ac66fe421f33e3a5cdc8dda97bd3d559da45e84 Dan <dan@syzygyx.com> 1706043692 -0700	commit: Updated to work with feat/mult-instance
-5ac66fe421f33e3a5cdc8dda97bd3d559da45e84 30ba5e11e0224ab07d47664f70168fef2baf2c3c Dan <dan@syzygyx.com> 1706043793 -0700	commit: Updated lv_bindings
-30ba5e11e0224ab07d47664f70168fef2baf2c3c 63fe515df805552ef8772cf3346657789116e8fa Dan <dan@syzygyx.com> 1706116379 -0700	commit: Check in build directory with .bin s
-63fe515df805552ef8772cf3346657789116e8fa f20456be98cb5cbb0cc3aad12958f7b34cdcd870 Dan <dan@syzygyx.com> 1706740295 -0700	commit: fixed pyboard.py with a delay
-f20456be98cb5cbb0cc3aad12958f7b34cdcd870 6a6d4b82a1c5dc60a12b5b21b3b88ba53ef804bd Dan <dan@syzygyx.com> 1707263115 -0700	commit: Added Makefile targets for MCT; Added MCT board
+c60f3e2168586867aeca543ec9760966d7f7e5cd

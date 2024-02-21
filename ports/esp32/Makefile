@@ -184,8 +184,7 @@ flash_vfs: create_vfs
 test:
 	@echo "Running test..."
 # $(PYTHON) $(MPREMOTE) connect $(PORT) reset
-	@sleep 30
-# $(PYTHON) $(MPREMOTE) connect $(PORT) exec "test()"
+	#$(PYTHON) $(MPREMOTE) connect $(PORT) exec "test()"
 
 mct-git:
 	cd ${MCT_DIR} && git add . && git commit -m "Commit from Makefile" && git push origin main
