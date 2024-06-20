@@ -3100,6 +3100,8 @@ static inline int32_t lv_font_get_line_height(const lv_font_t * font)
 void lv_font_set_kerning(lv_font_t * font, lv_font_kerning_t kerning);
 # 181 "/Users/danielmcshan/GitHub/mct_micropython/lib/lv_bindings/lvgl/src/core/../misc/../font/lv_font.h"
  extern const lv_font_t lv_font_montserrat_14;
+# 265 "/Users/danielmcshan/GitHub/mct_micropython/lib/lv_bindings/lvgl/src/core/../misc/../font/lv_font.h"
+ extern const lv_font_t lv_font_unscii_8;
 # 274 "/Users/danielmcshan/GitHub/mct_micropython/lib/lv_bindings/lvgl/src/core/../misc/../font/lv_font.h"
 
 

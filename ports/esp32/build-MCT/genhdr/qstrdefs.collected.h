@@ -8860,6 +8860,8 @@ Q(font_small)
 
 Q(font_t)
 
+Q(font_unscii_8)
+
 Q(format)
 
 Q(format)

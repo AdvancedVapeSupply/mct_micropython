@@ -1,0 +1,8 @@
+@@ -246,6 +247,7 @@
+ #define MICROPY_PORT_BUILTIN_MODULES \
+     { MP_ROM_QSTR(MP_QSTR_umachine), MP_ROM_PTR(&mp_module_machine) }, \
+     { MP_ROM_QSTR(MP_QSTR_network), MP_ROM_PTR(&mp_module_network) }, \
++    { MP_ROM_QSTR(MP_QSTR_task), MP_ROM_PTR(&mp_module_task) }, \
+     { MP_ROM_QSTR(MP_QSTR_uos), MP_ROM_PTR(&mp_module_uos) }, \
+     { MP_ROM_QSTR(MP_QSTR_utime), MP_ROM_PTR(&mp_module_utime) }, \
+     { MP_ROM_QSTR(MP_QSTR_uctypes), MP_ROM_PTR(&mp_module_uctypes) }, \

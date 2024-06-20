@@ -1,5 +1,6 @@
 // Options to control how MicroPython is built for this port,
 // overriding defaults in py/mpconfig.h.
+extern const struct _mp_obj_module_t mp_module_task;
 
 // Board-specific definitions
 #include "mpconfigboard.h"

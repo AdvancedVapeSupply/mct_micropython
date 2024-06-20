@@ -23,7 +23,7 @@ ARCH_UPPER = $(shell echo $(ARCH) | tr '[:lower:]' '[:upper:]')
 CONFIG_H = $(BUILD)/$(MOD).config.h
 
 CFLAGS += -I. -I$(MPY_DIR)
-CFLAGS += -std=c99
+CFLAGS += -std=gnu99
 CFLAGS += -Os
 CFLAGS += -Wall -Werror -DNDEBUG
 CFLAGS += -DNO_QSTR

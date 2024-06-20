@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+  <head>
+    <script src="build/micropython.js"></script>
+  </head>
+  <body>
+    <pre id="micropython-stdout"></pre>
+    <script>
+      document.addEventListener("micropython-print", function(e) {
+        let output = document.getElementById("micropython-stdout");
+        output.innerText += new TextDecoder().decode(e.detail);
+      }, false);
+
+      var mp_js_startup = Module["onRuntimeInitialized"];
+      Module["onRuntimeInitialized"] = async function() {
+        mp_js_startup();
+        mp_js_init(64 * 1024);
+        mp_js_do_str("print('hello world')");
+      };
+    </script>
+  </body>
+</html>

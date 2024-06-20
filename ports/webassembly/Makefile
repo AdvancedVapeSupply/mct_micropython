@@ -14,7 +14,7 @@ INC += -I.
 INC += -I$(TOP)
 INC += -I$(BUILD)
 
-CFLAGS += -std=c99 -Wall -Werror -Wdouble-promotion -Wfloat-conversion
+CFLAGS += -std=c99 -Wall -Wdouble-promotion -Wfloat-conversion
 CFLAGS += -Os -DNDEBUG
 CFLAGS += $(INC)
 
@@ -39,7 +39,7 @@ OBJ += $(addprefix $(BUILD)/, $(SRC_C:.c=.o))
 JSFLAGS += -s ASYNCIFY
 JSFLAGS += -s EXPORTED_FUNCTIONS="['_mp_js_init', '_mp_js_init_repl', '_mp_js_do_str', '_mp_js_process_char', '_mp_hal_get_interrupt_char', '_mp_sched_keyboard_interrupt']"
 JSFLAGS += -s EXPORTED_RUNTIME_METHODS="['ccall', 'cwrap', 'FS']"
-JSFLAGS += -s --memory-init-file 0
+JSFLAGS += -s 
 JSFLAGS += --js-library library.js
 
 all: $(BUILD)/micropython.js

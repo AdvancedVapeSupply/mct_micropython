@@ -8,10 +8,11 @@
 # 1 "/Users/danielmcshan/GitHub/mct_micropython/ports/esp32/mpconfigport.h" 1
 
 
+extern const struct _mp_obj_module_t mp_module_task;
 
 
 # 1 "/Users/danielmcshan/GitHub/mct_micropython/ports/esp32/boards/MCT/mpconfigboard.h" 1
-# 6 "/Users/danielmcshan/GitHub/mct_micropython/ports/esp32/mpconfigport.h" 2
+# 7 "/Users/danielmcshan/GitHub/mct_micropython/ports/esp32/mpconfigport.h" 2
 
 # 1 "/Users/danielmcshan/.espressif/tools/xtensa-esp32-elf/esp-2021r2-patch5-8.4.0/xtensa-esp32-elf/lib/gcc/xtensa-esp32-elf/8.4.0/include/stdint.h" 1 3 4
 # 9 "/Users/danielmcshan/.espressif/tools/xtensa-esp32-elf/esp-2021r2-patch5-8.4.0/xtensa-esp32-elf/lib/gcc/xtensa-esp32-elf/8.4.0/include/stdint.h" 3 4
@@ -210,7 +211,7 @@ typedef __uint_least64_t uint_least64_t;
   typedef long long int int_fast64_t;
   typedef long long unsigned int uint_fast64_t;
 # 10 "/Users/danielmcshan/.espressif/tools/xtensa-esp32-elf/esp-2021r2-patch5-8.4.0/xtensa-esp32-elf/lib/gcc/xtensa-esp32-elf/8.4.0/include/stdint.h" 2 3 4
-# 8 "/Users/danielmcshan/GitHub/mct_micropython/ports/esp32/mpconfigport.h" 2
+# 9 "/Users/danielmcshan/GitHub/mct_micropython/ports/esp32/mpconfigport.h" 2
 # 1 "/Users/danielmcshan/.espressif/tools/xtensa-esp32-elf/esp-2021r2-patch5-8.4.0/xtensa-esp32-elf/xtensa-esp32-elf/sys-include/alloca.h" 1 3 4
 # 10 "/Users/danielmcshan/.espressif/tools/xtensa-esp32-elf/esp-2021r2-patch5-8.4.0/xtensa-esp32-elf/xtensa-esp32-elf/sys-include/alloca.h" 3 4
 # 1 "/Users/danielmcshan/.espressif/tools/xtensa-esp32-elf/esp-2021r2-patch5-8.4.0/xtensa-esp32-elf/xtensa-esp32-elf/sys-include/_ansi.h" 1 3 4
@@ -1036,7 +1037,7 @@ void _reclaim_reent (struct _reent *);
 
 extern void _cleanup_r(struct _reent* r);
 # 12 "/Users/danielmcshan/.espressif/tools/xtensa-esp32-elf/esp-2021r2-patch5-8.4.0/xtensa-esp32-elf/xtensa-esp32-elf/sys-include/alloca.h" 2 3 4
-# 9 "/Users/danielmcshan/GitHub/mct_micropython/ports/esp32/mpconfigport.h" 2
+# 10 "/Users/danielmcshan/GitHub/mct_micropython/ports/esp32/mpconfigport.h" 2
 # 1 "/Users/danielmcshan/esp/esp-idf/components/esp_system/include/esp_system.h" 1
 # 19 "/Users/danielmcshan/esp/esp-idf/components/esp_system/include/esp_system.h"
 # 1 "/Users/danielmcshan/.espressif/tools/xtensa-esp32-elf/esp-2021r2-patch5-8.4.0/xtensa-esp32-elf/lib/gcc/xtensa-esp32-elf/8.4.0/include/stdbool.h" 1 3 4
@@ -1936,7 +1937,7 @@ uint32_t esp_get_minimum_free_heap_size( void );
 
 
 void __attribute__((noreturn)) esp_system_abort(const char* details);
-# 10 "/Users/danielmcshan/GitHub/mct_micropython/ports/esp32/mpconfigport.h" 2
+# 11 "/Users/danielmcshan/GitHub/mct_micropython/ports/esp32/mpconfigport.h" 2
 # 1 "/Users/danielmcshan/esp/esp-idf/components/freertos/include/freertos/FreeRTOS.h" 1
 # 33 "/Users/danielmcshan/esp/esp-idf/components/freertos/include/freertos/FreeRTOS.h"
 # 1 "/Users/danielmcshan/.espressif/tools/xtensa-esp32-elf/esp-2021r2-patch5-8.4.0/xtensa-esp32-elf/lib/gcc/xtensa-esp32-elf/8.4.0/include/stddef.h" 1 3 4
@@ -4593,7 +4594,14 @@ typedef struct xSTATIC_TCB
     BaseType_t xDummyCore;
 
         void * pxDummy8;
-# 1226 "/Users/danielmcshan/esp/esp-idf/components/freertos/include/freertos/FreeRTOS.h"
+
+
+
+
+
+        UBaseType_t uxDummy10[ 2 ];
+
+
         UBaseType_t uxDummy12[ 2 ];
 
 
@@ -4655,7 +4663,15 @@ typedef struct xSTATIC_QUEUE
 
 
         void * pvDummy7;
-# 1302 "/Users/danielmcshan/esp/esp-idf/components/freertos/include/freertos/FreeRTOS.h"
+
+
+
+        UBaseType_t uxDummy8;
+        uint8_t ucDummy9;
+
+
+
+
 } StaticQueue_t;
 typedef StaticQueue_t StaticSemaphore_t;
 # 1319 "/Users/danielmcshan/esp/esp-idf/components/freertos/include/freertos/FreeRTOS.h"
@@ -4665,7 +4681,7 @@ typedef struct xSTATIC_EVENT_GROUP
     StaticList_t xDummy2;
 
 
-
+        UBaseType_t uxDummy3;
 
 
 
@@ -4684,7 +4700,7 @@ typedef struct xSTATIC_TIMER
     void * pvDummy5;
     TaskFunction_t pvDummy6;
 
-
+        UBaseType_t uxDummy7;
 
     uint8_t ucDummy8;
 } StaticTimer_t;
@@ -4695,7 +4711,7 @@ typedef struct xSTATIC_STREAM_BUFFER
     void * pvDummy2[ 3 ];
     uint8_t ucDummy3;
 
-
+        UBaseType_t uxDummy4;
 
 
 
@@ -4704,7 +4720,7 @@ typedef struct xSTATIC_STREAM_BUFFER
 
 
 typedef StaticStreamBuffer_t StaticMessageBuffer_t;
-# 11 "/Users/danielmcshan/GitHub/mct_micropython/ports/esp32/mpconfigport.h" 2
+# 12 "/Users/danielmcshan/GitHub/mct_micropython/ports/esp32/mpconfigport.h" 2
 # 1 "/Users/danielmcshan/esp/esp-idf/components/driver/include/driver/i2s.h" 1
 
 
@@ -8108,14 +8124,14 @@ esp_err_t i2s_adc_enable(i2s_port_t i2s_num);
 esp_err_t i2s_adc_disable(i2s_port_t i2s_num);
 # 500 "/Users/danielmcshan/esp/esp-idf/components/driver/include/driver/i2s.h"
 esp_err_t i2s_set_dac_mode(i2s_dac_mode_t dac_mode);
-# 12 "/Users/danielmcshan/GitHub/mct_micropython/ports/esp32/mpconfigport.h" 2
-# 161 "/Users/danielmcshan/GitHub/mct_micropython/ports/esp32/mpconfigport.h"
+# 13 "/Users/danielmcshan/GitHub/mct_micropython/ports/esp32/mpconfigport.h" 2
+# 162 "/Users/danielmcshan/GitHub/mct_micropython/ports/esp32/mpconfigport.h"
 void *esp_native_code_commit(void *, size_t, void *);
-# 211 "/Users/danielmcshan/GitHub/mct_micropython/ports/esp32/mpconfigport.h"
+# 212 "/Users/danielmcshan/GitHub/mct_micropython/ports/esp32/mpconfigport.h"
 typedef int32_t mp_int_t;
 typedef uint32_t mp_uint_t;
 typedef long mp_off_t;
-# 237 "/Users/danielmcshan/GitHub/mct_micropython/ports/esp32/mpconfigport.h"
+# 238 "/Users/danielmcshan/GitHub/mct_micropython/ports/esp32/mpconfigport.h"
 void boardctrl_startup(void);
 # 76 "/Users/danielmcshan/GitHub/mct_micropython/py/mpconfig.h" 2
 # 793 "/Users/danielmcshan/GitHub/mct_micropython/py/mpconfig.h"
@@ -17023,6 +17039,8 @@ Q(font_small)
 Q(font_small)
 
 Q(font_t)
+
+Q(font_unscii_8)
 
 Q(format)
 

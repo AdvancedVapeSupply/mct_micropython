@@ -229,9 +229,11 @@ def demo():
             not_found = True
             print("No sensor found.")
 
+    print ("central.scan")
     central.scan(callback=on_scan)
 
     # Wait for connection...
+    print ("wait for connection...")
     while not central.is_connected():
         time.sleep_ms(100)
         if not_found:

@@ -22,7 +22,24 @@ BUILD ?= build-$(BOARD)
 
 # Device serial settings.
 # Automatically detect the port on Unix-like systems
-PORT ?= $(shell ls /dev/cu.usbserial* 2>/dev/null | head -n 1)
+PORT ?= $(shell ls /dev/cu.usbserial* /dev/cu.usbmodem* 2>/dev/null | head -n 1)
+
+ifeq ($(PORT),)
+    $(error No serial port found. Please connect your ESP32 device and try again.)
+endif
+
+ESPTOOL_PY ?= esptool.py
+
+# Set the CHIP variable using esptool.py chip_id command
+CHIP := $(shell $(ESPTOOL_PY) -p $(PORT) chip_id | grep -o 'ESP32[^ ]*' | head -n 1 | tr '[:upper:]' '[:lower:]')
+
+# Default CHIP to esp32 if it's empty
+ifeq ($(CHIP),)
+    CHIP := esp32
+endif
+
+# Print the value of CHIP
+$(info Chip type: $(CHIP))
 
 BAUD ?= 460800
 
@@ -42,11 +59,12 @@ ifdef USER_C_MODULES
 	CMAKE_ARGS += -DUSER_C_MODULES=${USER_C_MODULES}
 endif
 
-IDFPY_FLAGS += -D MICROPY_BOARD=$(BOARD) -D MICROPY_BOARD_DIR=$(abspath $(BOARD_DIR)) -B $(BUILD) $(CMAKE_ARGS)
+IDFPY_FLAGS += -D MICROPY_BOARD=$(BOARD) -D MICROPY_BOARD_DIR=$(abspath $(BOARD_DIR)) -B $(BUILD) $(CMAKE_ARGS) -D IDF_TARGET=$(CHIP)
 
 ifdef FROZEN_MANIFEST
        IDFPY_FLAGS += -D MICROPY_FROZEN_MANIFEST=$(FROZEN_MANIFEST)
 endif
+
 
 HELP_BUILD_ERROR ?= "See \033[1;31mhttps://github.com/micropython/micropython/wiki/Build-Troubleshooting\033[0m"
 
@@ -68,28 +86,39 @@ clean:
 deploy:
 	idf.py $(IDFPY_FLAGS) -p $(PORT) -b $(BAUD) flash
 
-erase:
-	idf.py $(IDFPY_FLAGS) -p $(PORT) -b $(BAUD) erase_flash
+erase_flash:
+	$(ESPTOOL_PY) -p $(PORT) -b 460800 --before default_reset --after hard_reset --chip $(CHIP) erase-flash
 
 submodules:
 	$(MAKE) -f ../../py/mkrules.mk GIT_SUBMODULES="$(GIT_SUBMODULES)" submodules
 
 
+
+MPY_DIR := $(abspath $(CURDIR)/../..)
+MCT_DIR := $(MPY_DIR)/../MCT
+
+USER_C_MODULES ?= ../../../../MCT/modules/micropython.cmake
+
+# Resolve the paths for each module
+RESOLVED_USER_C_MODULES := $(foreach module,$(USER_C_MODULES),$(realpath $(module)))
+
+$(info USER_C_MODULES: $(RESOLVED_USER_C_MODULES))
+
 # Check if building for MCT board
 ifeq ($(BOARD), MCT)
 
 # Custom variables for MCT board
-MPY_DIR := $(abspath $(CURDIR)/../..)
-MCT_DIR := $(MPY_DIR)/../MCT
 MCC_DIR := $(MPY_DIR)/../MCC
+NATIVE_DIR := $(MCT_DIR)/native
 FROZEN_DIR := $(MCT_DIR)/frozen
 FROZEN_MPY_DIR := $(BUILD)/frozen_mpy
 MPY_CROSS := $(MPY_DIR)/mpy-cross/build/mpy-cross
 MKLITTLEFS := $(MCT_DIR)/util/mklittlefs
 MPREMOTE := $(MPY_DIR)/tools/mpremote/mpremote.py
 
+
 .PHONY: MCT_Firmware
-mct: erase deploy flash_mct flash_vfs test
+mct: mct-git erase deploy flash_mct flash_vfs test
 
 # Debug target to print paths and variables
 # Debug target to print paths, variables, and stat directories
@@ -115,12 +144,21 @@ debug_paths:
 
 # Custom target to compile .py to .mpy for MCT board
 compile_mct:
-	@echo "Compiling Python files to .mpy for MCT board..."
+	@echo "Compiling Python files to .mpy and copying other files for MCT board..."
 	rm -rf $(FROZEN_MPY_DIR)
 	mkdir -p $(FROZEN_MPY_DIR)
-	for py in $(shell find $(FROZEN_DIR) -name '*.py'); do \
-    	$(MPY_CROSS) $$py -o $(FROZEN_MPY_DIR)/`basename $$py .py`.mpy; \
-    done
+	for dir in $(shell find $(FROZEN_DIR) -type d); do \
+    	rel_dir=$$(echo $$dir | sed 's|^$(FROZEN_DIR)/||'); \
+    	mkdir -p $(FROZEN_MPY_DIR)/$$rel_dir; \
+	done
+	for file in $(shell find $(FROZEN_DIR) -type f); do \
+    	rel_file=$$(echo $$file | sed 's|^$(FROZEN_DIR)/||'); \
+    	if [ "$${file##*.}" = "py" ]; then \
+        	$(MPY_CROSS) $$file -o $(FROZEN_MPY_DIR)/$${rel_file%.py}.mpy; \
+    	else \
+        	cp $$file $(FROZEN_MPY_DIR)/$$rel_file; \
+    	fi \
+	done
 
 # Path to the partitions.csv file
 PARTITIONS_CSV := partitions.csv
@@ -129,7 +167,6 @@ PARTITIONS_CSV := partitions.csv
 MCT_PARTITION_NAME := mct
 MCT_OFFSET := $(shell grep $(MCT_PARTITION_NAME) $(PARTITIONS_CSV) | cut -d ',' -f 4)
 MCT_SIZE := $(shell grep $(MCT_PARTITION_NAME) $(PARTITIONS_CSV) | cut -d ',' -f 5)
-
 
 # Custom target to create LittleFS image for MCT board
 create_mct: compile_mct
@@ -141,7 +178,7 @@ create_mct: compile_mct
 flash_mct: create_mct
 	@echo "Flashing LittleFS image to MCT board..."
 	@echo MCT Offset: $(MCT_OFFSET)
-	esptool.py --port $(PORT) write_flash $(MCT_OFFSET) $(BUILD)/mct.img
+	esptool.py --port $(PORT) --chip $(CHIP) write_flash $(MCT_OFFSET) $(BUILD)/mct.img
 
 # Target to copy $(MCT_DIR)/app directory and boot.py, main.py to the board
 # Target to copy $(MCT_DIR)/app directory and boot.py, main.py to the board
@@ -178,24 +215,47 @@ endif
 
 flash_vfs: create_vfs
 	@echo "Flashing VFS image to the device..."
-	esptool.py --port $(PORT) write_flash $(VFS_OFFSET) $(DISK_IMAGE)
+	esptool.py --chip $(CHIP) --port $(PORT) write_flash $(VFS_OFFSET) $(DISK_IMAGE)
 	@echo "VFS image flashed successfully."
 
 test:
 	@echo "Running test..."
 # $(PYTHON) $(MPREMOTE) connect $(PORT) reset
-	#$(PYTHON) $(MPREMOTE) connect $(PORT) exec "test()"
+# $(PYTHON) $(MPREMOTE) connect $(PORT) exec "test()"
 
 mct-git:
-	cd ${MCT_DIR} && git add . && git commit -m "Commit from Makefile" && git push origin main
+	cd $(MCT_DIR)/util && \
+	$(PYTHON) makeversion.py -r $(MCT_DIR) $(MCT_DIR)/frozen/version.py && \
+	$(PYTHON) makeversion.py -r $(MCT_DIR) $(MCT_DIR)/vfs/app/version.py && \
+	cd $(MCT_DIR) && \
+	git add . && \
+	git commit -m "Commit from Makefile" && \
+	VERSION=$$($(PYTHON) -c "import sys; sys.path.append('$(MCT_DIR)/frozen'); import version; print(version.AVSMCT_VERSION)") && \
+	git tag -a "v$$VERSION" -m "Tagging build" && \
+	git push origin main --tags
 
 merged-mct: create_mct create_vfs
-	esptool.py --chip esp32 merge_bin --flash_mode dio --flash_freq 40m --flash_size 4MB 0x1000 $(BUILD)/bootloader/bootloader.bin 0x8000 $(BUILD)/partition_table/partition-table.bin 0x10000 $(BUILD)/micropython.bin 0x250000 $(BUILD)/mct.img 0x270000 $(BUILD)/vfs.img -o $(BUILD)/merged-mct.bin
+	esptool.py --chip $(CHIP) merge_bin --flash_mode dio --flash_freq 40m --flash_size 8MB \
+		0x1000 $(BUILD)/bootloader/bootloader.bin \
+		0x8000 $(BUILD)/partition_table/partition-table.bin \
+		0x10000 $(BUILD)/micropython.bin \
+		$(MCT_OFFSET) $(BUILD)/mct.img \
+		$(VFS_OFFSET) $(BUILD)/vfs.img \
+		-o $(BUILD)/merged-mct.bin
 
 flash_merged-mct:
-	esptool.py --chip esp32 write_flash 0x0 $(BUILD)/merged-mct.bin
+		esptool.py --chip $(CHIP) write_flash 0x0 $(BUILD)/merged-mct.bin
 
-MCC: merged-mct 
+MCC: mct merged-mct flash_merged-mct
 	cp $(BUILD)/merged-mct.bin ${MCC_DIR}
-	cd ${MCC_DIR} && git add . && git commit -m "Commit from Makefile" && git push origin main
+	$(eval CURRENT_TAG := $(shell git describe --tags --abbrev=0))
+	$(eval VERSION_TAG := $(shell $(PYTHON) -c "import sys; sys.path.append('$(MCT_DIR)/frozen'); import version; print(version.AVSMCT_VERSION)"))
+
+	@echo "Current tag: $(CURRENT_TAG), New version tag: $(VERSION_TAG)"
+	jq --arg version "$(VERSION_TAG)" '.version = $$version' $(MCC_DIR)/manifest.json | sponge $(MCC_DIR)/manifest.json
+	git -C $(MCC_DIR) add .
+	git -C $(MCC_DIR) commit -m "Commit from Makefile"
+	git -C $(MCC_DIR) tag $(VERSION_TAG)
+	git -C $(MCC_DIR) push origin main --tags
+
 endif
